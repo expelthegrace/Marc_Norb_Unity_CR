@@ -140,7 +140,6 @@ public class PlayerMove : MonoBehaviour {
 
     void moure()
     {
-        //yPos = srcPosition.y + Mathf.Lerp(srcPosition.y, maxJump, tStep);
         if (saltant) yPos = Mathf.Sin(tStep * Mathf.PI) * jumpDist;
 
         transform.position = Vector3.Lerp(srcPosition, dstPosition, tStep) + new Vector3(0, yPos, 0);
