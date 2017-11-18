@@ -9,7 +9,6 @@ public class cotxeMoviment : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        vel = 1f;
         actualTime = 0f;
 	}
 	
