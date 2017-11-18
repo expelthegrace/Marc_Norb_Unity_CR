@@ -1,0 +1,3 @@
+- step s'ha de modificar en el player i en l'spawner. S'ha de depen del tamany dels chunks 
+- el spawner te els objects que ha d'spawnejar (ex, grass1 grass2)
+- el tamany del player depen del chunk i al reves
