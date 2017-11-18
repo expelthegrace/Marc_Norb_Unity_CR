@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1488683210455994}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 50.67, y: 4.92, z: 17.62}
-  m_LocalScale: {x: 61.4793, y: 0.71598744, z: 12}
+  m_LocalScale: {x: 120, y: 0.71598744, z: 12}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cotxe: {fileID: 1150233294627290, guid: 17a3bde1464939b40871af821ba251c3, type: 2}
-  numCotxes: 0
   freq: 0
+  vel: 0
   actualTime: 0
   lastCar: 0
