@@ -107,7 +107,7 @@ public class PlayerMove : MonoBehaviour {
             enMoviment = true;
         }
 
-        // moure player step by step
+        // moure/saltar player step by step
         if (enMoviment) 
         {
             //yPos = srcPosition.y + Mathf.Lerp(srcPosition.y, maxJump, tStep);

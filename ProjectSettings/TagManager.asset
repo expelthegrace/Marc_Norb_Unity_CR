@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Grass
   - Terra
+  - mortal
   layers:
   - Default
   - TransparentFX
