@@ -243,6 +243,10 @@ MonoBehaviour:
   offset: 0.1
   direccio: {x: 0, y: 0, z: 0}
   step: 0
+  jumpDist: 0
+  fallingSpeed: 0
+  saltant: 0
+  fall: 0
   tStep: 0
   srcPosition: {x: 0, y: 0, z: 0}
   dstPosition: {x: 0, y: 0, z: 0}

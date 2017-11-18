@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23697215367986900}
   m_Layer: 0
   m_Name: grass1
-  m_TagString: Untagged
+  m_TagString: Terra
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,8 +36,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1056069671739070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 112.82, y: 0.36, z: 7.67}
-  m_LocalScale: {x: 61.4793, y: 0.71598744, z: 12}
+  m_LocalPosition: {x: 0.8123474, y: 0, z: 16.41014}
+  m_LocalScale: {x: 61.4793, y: 1.5391097, z: 12}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

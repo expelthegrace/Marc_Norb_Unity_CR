@@ -8,6 +8,12 @@ public class PlayerMove : MonoBehaviour {
     public float offset = 0.1f;
     public Vector3 direccio;
     public float step;
+    public float jumpDist; // ?
+    private float maxJump; // ?
+    public float fallingSpeed;
+    public bool saltant;
+    public bool landed;
+
 
     private Vector3 frontDir = new Vector3(0, 0, 1);
     private Vector3 leftDir  = new Vector3(-1, 0, 0);
@@ -18,6 +24,7 @@ public class PlayerMove : MonoBehaviour {
     public float tStep;
     public Vector3 srcPosition;
     public Vector3 dstPosition;
+    private float yPos;
 
     private float dist = 1f;
     private RaycastHit hit;
@@ -29,6 +36,10 @@ public class PlayerMove : MonoBehaviour {
         enMoviment = false;
         direccio = frontDir;
         step = 12;
+        jumpDist = 4;
+        maxJump = transform.position.y + jumpDist;
+        saltant = false;
+        landed = true;
     }
 
     // Update is called once per frame
@@ -46,6 +57,8 @@ public class PlayerMove : MonoBehaviour {
             srcPosition = transform.position;
             dstPosition = transform.position + direccio * step;
             tStep = 0;
+            yPos = transform.position.y;
+            saltant = true;
             enMoviment = true;
         }
 
@@ -59,6 +72,8 @@ public class PlayerMove : MonoBehaviour {
             srcPosition = transform.position;
             dstPosition = transform.position + direccio * step;
             tStep = 0;
+            yPos = transform.position.y;
+            saltant = true;
             enMoviment = true;
         }
 
@@ -72,6 +87,8 @@ public class PlayerMove : MonoBehaviour {
             srcPosition = transform.position;
             dstPosition = transform.position + direccio * step;
             tStep = 0;
+            yPos = transform.position.y;
+            saltant = true;
             enMoviment = true;
         }
 
@@ -85,24 +102,42 @@ public class PlayerMove : MonoBehaviour {
             srcPosition = transform.position;
             dstPosition = transform.position + direccio * step;
             tStep = 0;
+            yPos = transform.position.y;
+            saltant = true;
             enMoviment = true;
         }
 
         // moure player step by step
-        if (enMoviment)
+        if (enMoviment) 
         {
-            transform.position = Vector3.Lerp(srcPosition, dstPosition, tStep);
-            tStep += Time.deltaTime* 6;
-            if (transform.position == dstPosition) enMoviment = false;
+            //yPos = srcPosition.y + Mathf.Lerp(srcPosition.y, maxJump, tStep);
+           if (saltant) yPos = Mathf.Sin(tStep * Mathf.PI) * jumpDist;
+
+            transform.position = Vector3.Lerp(srcPosition, dstPosition, tStep) + new Vector3 (0,yPos,0);
+            tStep += Time.deltaTime* 4f; // dura 1/6 segons
+
+            if (transform.position.z == dstPosition.z && transform.position.x == dstPosition.x)
+            {
+                enMoviment = false;
+                landed = true;
+            }
         }
 
-        // ray de colisio amb el terra
-        dist = 10;
-        Debug.DrawRay(transform.position, -Vector3.up * dist, Color.green);
-        if (Physics.Raycast(transform.position, -Vector3.up, out hit, dist))
+        // raig que detecta el terra al aterrar d'un salt i ubica en Y el player
+        dist = 10f;
+        //Debug.DrawRay(transform.position + new Vector3(0, 10, 0), -Vector3.up, Color.green,dist);
+        if (Physics.Raycast(transform.position+ new Vector3 (0,5,0), -Vector3.up, out hit, dist) && landed)
         {
-            if (hit.collider.gameObject.tag == "Terra") Debug.Log("Colisio amb terra");
+            if (hit.collider.gameObject.tag == "Terra")
+            {
+                saltant = false;
+                landed = false;
+                Debug.Log(hit.collider.bounds.max.y);
+                transform.position = new Vector3(transform.position.x, hit.collider.bounds.max.y, transform.position.z);
+
+            }
         }
+
 
 
 
