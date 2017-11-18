@@ -290,6 +290,7 @@ MonoBehaviour:
   grass1: {fileID: 1056069671739070, guid: 54020f2743687944e866b19fed7b902c, type: 2}
   grass2: {fileID: 1800135796444162, guid: 9e79997a3526bb045ae9c370e118ca53, type: 2}
   step: 0
+  altern: 0
   linea: 0
 --- !u!1 &549690564
 GameObject:
@@ -392,7 +393,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1022821908}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 23.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -482,7 +483,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d4806800cc28bd446899f2e9902ed943, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.95
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d4806800cc28bd446899f2e9902ed943, type: 3}
       propertyPath: m_LocalPosition.z
