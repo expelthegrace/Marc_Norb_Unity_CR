@@ -42,86 +42,113 @@ public class PlayerMove : MonoBehaviour {
         landed = true;
     }
 
+    void orientar()
+    {
+        Debug.DrawRay(transform.position + new Vector3(0, 3, 0), Vector3.forward * (step + step / 3), Color.green);
+        // orientar i setejar moviment del player
+        if (Input.GetKey(KeyCode.UpArrow) && !enMoviment)
+        {   // si no hi ha una paret
+
+            if (!Physics.Raycast(transform.position + new Vector3(0, 3, 0), Vector3.forward, out hit, step + step / 3) || hit.collider.gameObject.tag != "wall")
+            {
+                if (direccio != frontDir)
+                {
+                    transform.rotation = Quaternion.LookRotation(frontDir);
+                    direccio = frontDir;
+                }
+                srcPosition = transform.position;
+                dstPosition = transform.position + direccio * step;
+                tStep = 0;
+                yPos = transform.position.y;
+                saltant = true;
+                enMoviment = true;
+            }
+            else Debug.Log("Colisio frontal");
+        }
+
+        else if (Input.GetKey(KeyCode.RightArrow) && !enMoviment)
+        {
+            if (!Physics.Raycast(transform.position + new Vector3 (0,3,0), Vector3.right, out hit, step + step / 3) || hit.collider.gameObject.tag != "wall")
+            {
+                if (direccio != rightDir)
+                {
+                    transform.rotation = Quaternion.LookRotation(rightDir);
+                    direccio = rightDir;
+                }
+                srcPosition = transform.position;
+                dstPosition = transform.position + direccio * step;
+                tStep = 0;
+                yPos = transform.position.y;
+                saltant = true;
+                enMoviment = true;
+            }
+            else Debug.Log("Colisio dreta");
+        }
+
+        else if (Input.GetKey(KeyCode.DownArrow) && !enMoviment)
+        {
+            if (!Physics.Raycast(transform.position + new Vector3(0, 3, 0), -Vector3.forward, out hit, step + step / 3) || hit.collider.gameObject.tag != "wall")
+            {
+                if (direccio != downDir)
+                {
+                    transform.rotation = Quaternion.LookRotation(downDir);
+                    direccio = downDir;
+                }
+                srcPosition = transform.position;
+                dstPosition = transform.position + direccio * step;
+                tStep = 0;
+                yPos = transform.position.y;
+                saltant = true;
+                enMoviment = true;
+
+            }
+            else Debug.Log("Colisio atras");
+
+        }
+
+        else if (Input.GetKey(KeyCode.LeftArrow) && !enMoviment)
+        {
+            if (!Physics.Raycast(transform.position + new Vector3(0, 3, 0), Vector3.left, out hit, step + step / 3) || hit.collider.gameObject.tag != "wall")
+            {
+                if (direccio != leftDir)
+                {
+                    transform.rotation = Quaternion.LookRotation(leftDir);
+                    direccio = leftDir;
+                }
+                srcPosition = transform.position;
+                dstPosition = transform.position + direccio * step;
+                tStep = 0;
+                yPos = transform.position.y;
+                saltant = true;
+                enMoviment = true;
+            }
+            else Debug.Log("Colisio esquerre");
+
+        }
+    }
+
+    void moure()
+    {
+        //yPos = srcPosition.y + Mathf.Lerp(srcPosition.y, maxJump, tStep);
+        if (saltant) yPos = Mathf.Sin(tStep * Mathf.PI) * jumpDist;
+
+        transform.position = Vector3.Lerp(srcPosition, dstPosition, tStep) + new Vector3(0, yPos, 0);
+        tStep += Time.deltaTime * 4f; // dura 1/6 segons
+
+        if (transform.position.z == dstPosition.z && transform.position.x == dstPosition.x)
+        {
+            enMoviment = false;
+            landed = true;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-
-        // orientar i setejar moviment del player
-        if (Input.GetKey(KeyCode.UpArrow) && !enMoviment)
-        {
-            if (direccio != frontDir)
-            {
-                transform.rotation = Quaternion.LookRotation(frontDir);
-                direccio = frontDir;
-            }
-            srcPosition = transform.position;
-            dstPosition = transform.position + direccio * step;
-            tStep = 0;
-            yPos = transform.position.y;
-            saltant = true;
-            enMoviment = true;
-        }
-
-        if (Input.GetKey(KeyCode.RightArrow) && !enMoviment)
-        {
-            if (direccio != rightDir)
-            {
-                transform.rotation = Quaternion.LookRotation(rightDir);
-                direccio = rightDir;
-            }
-            srcPosition = transform.position;
-            dstPosition = transform.position + direccio * step;
-            tStep = 0;
-            yPos = transform.position.y;
-            saltant = true;
-            enMoviment = true;
-        }
-
-        if (Input.GetKey(KeyCode.DownArrow) && !enMoviment)
-        {
-            if (direccio != downDir)
-            {
-                transform.rotation = Quaternion.LookRotation(downDir);
-                direccio = downDir;
-            }
-            srcPosition = transform.position;
-            dstPosition = transform.position + direccio * step;
-            tStep = 0;
-            yPos = transform.position.y;
-            saltant = true;
-            enMoviment = true;
-        }
-
-        if (Input.GetKey(KeyCode.LeftArrow) && !enMoviment)
-        {
-            if (direccio != leftDir)
-            {
-                transform.rotation = Quaternion.LookRotation(leftDir);
-                direccio = leftDir;
-            }
-            srcPosition = transform.position;
-            dstPosition = transform.position + direccio * step;
-            tStep = 0;
-            yPos = transform.position.y;
-            saltant = true;
-            enMoviment = true;
-        }
-
+        // orientar el player i comprovar obstacles
+        orientar();
         // moure/saltar player step by step
-        if (enMoviment) 
-        {
-            //yPos = srcPosition.y + Mathf.Lerp(srcPosition.y, maxJump, tStep);
-           if (saltant) yPos = Mathf.Sin(tStep * Mathf.PI) * jumpDist;
-
-            transform.position = Vector3.Lerp(srcPosition, dstPosition, tStep) + new Vector3 (0,yPos,0);
-            tStep += Time.deltaTime* 4f; // dura 1/6 segons
-
-            if (transform.position.z == dstPosition.z && transform.position.x == dstPosition.x)
-            {
-                enMoviment = false;
-                landed = true;
-            }
-        }
+        if (enMoviment) moure();
 
         // raig que detecta el terra al aterrar d'un salt i ubica en Y el player
         dist = 10f;
@@ -132,9 +159,7 @@ public class PlayerMove : MonoBehaviour {
             {
                 saltant = false;
                 landed = false;
-                Debug.Log(hit.collider.bounds.max.y);
                 transform.position = new Vector3(transform.position.x, hit.collider.bounds.max.y, transform.position.z);
-
             }
         }
 

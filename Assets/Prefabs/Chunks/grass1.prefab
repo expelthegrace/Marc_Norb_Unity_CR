@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33870090176046058}
   - component: {fileID: 65738152933475582}
   - component: {fileID: 23697215367986900}
+  - component: {fileID: 114311676664659116}
   m_Layer: 0
   m_Name: grass1
   m_TagString: Terra
@@ -93,3 +94,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114311676664659116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1056069671739070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef5dd1fb7522b4c821de3768d43e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arbre: {fileID: 1476264557748336, guid: fa210c292759c1547b09823b5e34d4e4, type: 2}
+  player: {fileID: 0}
+  step: 0
