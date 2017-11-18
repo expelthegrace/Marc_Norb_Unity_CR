@@ -12,15 +12,13 @@ public class grass : MonoBehaviour {
     void Start()
     {
         step = GameObject.Find("player").GetComponent<PlayerMove>().step;
-        index = GetComponent<Collider>().bounds.min.x + step / 2; // començo per l'esquerra
+        index = GetComponent<Collider>().bounds.min.x; // començo per l'esquerra
         Vector3 inipos;
-        Debug.Log(index);
 
         for (int i = 0; i < GetComponent<Collider>().bounds.size.x / step; ++i)
         {
-            if (Random.Range(0,100) < 35)
+            if (Random.Range(0,100) < 20)  // aparicio d'arbres en %
             {
-
                 inipos = new Vector3(index + i * step, GetComponent<Collider>().bounds.max.y, transform.position.z);
                 Instantiate(arbre, inipos, Quaternion.Euler(0, 0, 0), GameObject.Find("Arbres").transform);
             }

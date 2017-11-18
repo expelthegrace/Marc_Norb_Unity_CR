@@ -12,7 +12,7 @@ public class carretera : MonoBehaviour {
     public float lastCar;
 	// Use this for initialization
 	void Start () {
-        freq = Random.Range(2f, 3.5f);
+        freq = Random.Range(2f, 3f);
         lastCar = -freq;
         actualTime = 0f;
         vel = Random.Range(0.3f, 0.5f);

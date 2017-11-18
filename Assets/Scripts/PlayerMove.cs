@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour {
 
+    public GameObject respawn;
+
     public float speed;
     public float offset = 0.1f;
     public Vector3 direccio;
@@ -42,6 +44,15 @@ public class PlayerMove : MonoBehaviour {
         landed = true;
     }
 
+    void reset()
+    {
+        enMoviment = false;
+        saltant = false;
+        landed = true;
+        transform.rotation = Quaternion.LookRotation(frontDir);
+        direccio = frontDir;
+        transform.position = respawn.transform.position;
+    }
     void orientar()
     {
         Debug.DrawRay(transform.position + new Vector3(0, 3, 0), Vector3.forward * (step + step / 3), Color.green);
@@ -162,10 +173,13 @@ public class PlayerMove : MonoBehaviour {
                 transform.position = new Vector3(transform.position.x, hit.collider.bounds.max.y, transform.position.z);
             }
         }
-
-
-
-
     }
+
+    void OnTriggerEnter(Collider collision)
+    {
+        Debug.Log("colisio");
+        if (collision.transform.tag == "mortal") reset();
         
+    }
+
 }

@@ -18,11 +18,10 @@ public class spawner : MonoBehaviour {
 
     void Spawn()
     {
-        if (altern == 0) Instantiate(grass1, new Vector3(0, 0, linea), grass1.transform.rotation,transform);
-        else if (altern == 1) Instantiate(grass2, new Vector3(0, 0, linea), grass1.transform.rotation,transform);
-        else Instantiate(carretera1, new Vector3(0, 0, linea), grass1.transform.rotation, transform);
+        if (altern < 70) Instantiate(grass1, new Vector3(0, 0, linea), grass1.transform.rotation,transform);
+        else Instantiate(carretera1, new Vector3(0, 0, linea), grass1.transform.rotation,transform);
         linea += step;
-        altern = Random.Range(0, 3);
+        altern = Random.Range(0, 100);
         
     }
 

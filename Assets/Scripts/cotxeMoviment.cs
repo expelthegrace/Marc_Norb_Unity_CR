@@ -15,7 +15,7 @@ public class cotxeMoviment : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.Translate(new Vector3(-vel, 0, 0));
-        if (actualTime > 4) Destroy(gameObject);
+        if (actualTime > 10) Destroy(gameObject);
 
         actualTime += Time.deltaTime;
 	}

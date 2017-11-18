@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4207507208405442}
   - component: {fileID: 114836217756848774}
+  - component: {fileID: 54902783845948178}
+  - component: {fileID: 65149695326848646}
   m_Layer: 0
   m_Name: caixa
   m_TagString: mortal
@@ -37,7 +39,6 @@ GameObject:
   - component: {fileID: 4174632039042564}
   - component: {fileID: 33814207711099418}
   - component: {fileID: 23951955229662494}
-  - component: {fileID: 64621307073467706}
   m_Layer: 0
   m_Name: Crate_Sealed_01 1
   m_TagString: Untagged
@@ -65,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1150233294627290}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 119.58787, y: 0.71799374, z: 16.454473}
+  m_LocalPosition: {x: 10.859474, y: 0, z: 6.0213184}
   m_LocalScale: {x: 2.188047, y: 2.188047, z: 2.188047}
   m_Children:
   - {fileID: 4174632039042564}
@@ -112,20 +113,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1234070850521962}
   m_Mesh: {fileID: 4300002, guid: 6f5ac22b894785345bc0de34be8399eb, type: 3}
---- !u!64 &64621307073467706
-MeshCollider:
+--- !u!54 &54902783845948178
+Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1234070850521962}
+  m_GameObject: {fileID: 1150233294627290}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65149695326848646
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1150233294627290}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300002, guid: 6f5ac22b894785345bc0de34be8399eb, type: 3}
+  m_Size: {x: 2.905371, y: 3.0002322, z: 3.0002317}
+  m_Center: {x: 0, y: 1.5000001, z: -0.13936847}
 --- !u!114 &114836217756848774
 MonoBehaviour:
   m_ObjectHideFlags: 1
