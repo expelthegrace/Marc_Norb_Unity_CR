@@ -8,6 +8,7 @@ TagManager:
   - Terra
   - mortal
   - wall
+  - tronc
   layers:
   - Default
   - TransparentFX

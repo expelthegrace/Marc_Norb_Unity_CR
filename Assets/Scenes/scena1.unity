@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44510996, g: 0.49471045, b: 0.5737905, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -192,7 +192,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 102788962}
   m_LocalRotation: {x: 0.26214245, y: -0.16773108, z: 0.01774991, w: 0.95017505}
-  m_LocalPosition: {x: 17.86, y: 29.35, z: -18.61}
+  m_LocalPosition: {x: 22.34, y: 35.78, z: -26.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -280,7 +280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1613790570}
   grass1: {fileID: 1056069671739070, guid: 54020f2743687944e866b19fed7b902c, type: 2}
-  grass2: {fileID: 1800135796444162, guid: 9e79997a3526bb045ae9c370e118ca53, type: 2}
+  water: {fileID: 1813589766794556, guid: 6b09b2415f360c0469a19b44c065a261, type: 2}
   carretera1: {fileID: 1488683210455994, guid: e64ba47257147ba49aa9dac05fc89dee, type: 2}
   step: 0
   altern: 0
@@ -312,6 +312,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &709702444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 709702445}
+  m_Layer: 0
+  m_Name: Ponts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &709702445
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 709702444}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.2174603, y: -44.1593, z: 143.52626}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &725494707
 GameObject:
@@ -366,7 +394,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -413,13 +441,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1022821908}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 23.77, z: 0}
+  m_LocalRotation: {x: 0.3412011, y: 0.58043736, z: -0.30112028, w: 0.6752784}
+  m_LocalPosition: {x: -50.86, y: 20.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 54.133003, y: 80.832, z: -1.0350001}
 --- !u!1 &1613790570
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,7 +473,7 @@ Transform:
   m_GameObject: {fileID: 1613790570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.9884919, y: 1.2924619, z: 1.4176817}
   m_Children:
   - {fileID: 1900451191}
   m_Father: {fileID: 0}
@@ -471,6 +499,7 @@ MonoBehaviour:
   fallingSpeed: 0
   saltant: 0
   landed: 0
+  troncOffset: 0
   tStep: 0
   srcPosition: {x: 0, y: 0, z: 0}
   dstPosition: {x: 0, y: 0, z: 0}
@@ -502,7 +531,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!154 &1714429299
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -611,6 +640,10 @@ Prefab:
     - target: {fileID: 13700000, guid: d4806800cc28bd446899f2e9902ed943, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d4806800cc28bd446899f2e9902ed943, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8942054
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4806800cc28bd446899f2e9902ed943, type: 3}

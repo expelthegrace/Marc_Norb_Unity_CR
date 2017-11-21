@@ -15,6 +15,10 @@ public class PlayerMove : MonoBehaviour {
     public float fallingSpeed;
     public bool saltant;
     public bool landed;
+    private bool intronc;
+
+    private Transform tronc;
+    public float troncOffset;
 
 
     private Vector3 frontDir = new Vector3(0, 0, 1);
@@ -38,14 +42,16 @@ public class PlayerMove : MonoBehaviour {
         enMoviment = false;
         direccio = frontDir;
         step = 12;
-        jumpDist = 4;
+        jumpDist = 3;
         maxJump = transform.position.y + jumpDist;
         saltant = false;
         landed = true;
+        intronc = false;
     }
 
     void reset()
     {
+        intronc = false;
         enMoviment = false;
         saltant = false;
         landed = true;
@@ -143,12 +149,17 @@ public class PlayerMove : MonoBehaviour {
         if (saltant) yPos = Mathf.Sin(tStep * Mathf.PI) * jumpDist;
 
         transform.position = Vector3.Lerp(srcPosition, dstPosition, tStep) + new Vector3(0, yPos, 0);
-        tStep += Time.deltaTime * 4f; // dura 1/6 segons
+        tStep += Time.deltaTime * 6f; // dura 1/6 segons
 
         if (transform.position.z == dstPosition.z && transform.position.x == dstPosition.x)
         {
             enMoviment = false;
             landed = true;
+        }
+        if (intronc && !saltant)
+        {
+
+            transform.position = transform.position + new Vector3(tronc.position.x - transform.position.x + troncOffset, 0, 0);
         }
     }
 
@@ -158,8 +169,8 @@ public class PlayerMove : MonoBehaviour {
         // orientar el player i comprovar obstacles
         orientar();
         // moure/saltar player step by step
-        if (enMoviment) moure();
-
+        if (enMoviment || intronc) moure();
+        
         // raig que detecta el terra al aterrar d'un salt i ubica en Y el player
         dist = 10f;
         //Debug.DrawRay(transform.position + new Vector3(0, 10, 0), -Vector3.up, Color.green,dist);
@@ -167,11 +178,24 @@ public class PlayerMove : MonoBehaviour {
         {
             if (hit.collider.gameObject.tag == "Terra")
             {
+                intronc = false;
                 saltant = false;
                 landed = false;
                 transform.position = new Vector3(transform.position.x, hit.collider.bounds.max.y, transform.position.z);
             }
+            else if (hit.collider.gameObject.tag == "tronc")
+            {
+                saltant = false;
+                landed = false;
+                transform.position = new Vector3(transform.position.x, hit.collider.bounds.max.y, transform.position.z);
+                intronc = true;
+                tronc = hit.collider.transform;
+                troncOffset = transform.position.x - tronc.position.x;
+                Debug.Log("tronc");
+            }
+            else if (hit.collider.gameObject.tag == "mortal") reset();
         }
+
     }
 
     void OnTriggerEnter(Collider collision)
@@ -180,5 +204,6 @@ public class PlayerMove : MonoBehaviour {
         if (collision.transform.tag == "mortal") reset();
         
     }
-
 }
+
+/* el dstPosition no pot ser trivial al sortir dels troncs, s'ha de calcular el chunk actual i enviarlo alla  */

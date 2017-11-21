@@ -5,6 +5,7 @@ using UnityEngine;
 public class grass : MonoBehaviour {
 
     public GameObject arbre;
+    public GameObject tronc;
     public float step;
     private float index;
 
@@ -20,7 +21,8 @@ public class grass : MonoBehaviour {
             if (Random.Range(0,100) < 20)  // aparicio d'arbres en %
             {
                 inipos = new Vector3(index + i * step, GetComponent<Collider>().bounds.max.y, transform.position.z);
-                Instantiate(arbre, inipos, Quaternion.Euler(0, 0, 0), GameObject.Find("Arbres").transform);
+                if (Random.Range(0,100) < 70) Instantiate(arbre, inipos, Quaternion.Euler(0, 0, 0), GameObject.Find("Arbres").transform);
+                else Instantiate(tronc, inipos, Quaternion.Euler(0, 0, 0), GameObject.Find("Arbres").transform);
             }
         }
     }
