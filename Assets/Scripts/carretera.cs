@@ -15,7 +15,7 @@ public class carretera : MonoBehaviour {
         freq = Random.Range(2f, 3f);
         lastCar = -freq;
         actualTime = 0f;
-        vel = Random.Range(0.3f, 0.5f);
+        vel = Random.Range(0.5f, 0.7f);
     }
 	
 	// Update is called once per frame
@@ -27,7 +27,7 @@ public class carretera : MonoBehaviour {
             Vector3 inipos = new Vector3(GetComponent<Collider>().bounds.max.x, GetComponent<Collider>().bounds.max.y, transform.position.z);
             GameObject car = Instantiate(cotxe, inipos, Quaternion.Euler(0, 0, 0), GameObject.Find("Cotxes").transform);
 
-            car.GetComponent<cotxeMoviment>().vel = vel;
+            car.GetComponent<objMoviment>().vel = vel;
             lastCar = actualTime;
 
         }

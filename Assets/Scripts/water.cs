@@ -11,9 +11,11 @@ public class water : MonoBehaviour {
     public float actualTime;
     public float lastPont;
     private float step;
+    public int costat;
 
     // Use this for initialization
     void Start () {
+        costat = Random.Range(0, 2);
         freq = Random.Range(2.5f, 3f);
         lastPont = -freq;
         actualTime = 0f;
@@ -25,11 +27,15 @@ public class water : MonoBehaviour {
 	void Update () {
         if (actualTime - lastPont > freq)
         {
-            freq = Random.Range(2.5f, 3f);
-            Vector3 inipos = new Vector3(GetComponent<Collider>().bounds.max.x, GetComponent<Collider>().bounds.max.y, transform.position.z+ step/4);
+            freq = Random.Range(4f, 5.5f);
+            Vector3 inipos;
+            if (costat == 0) inipos = new Vector3(GetComponent<Collider>().bounds.max.x, GetComponent<Collider>().bounds.max.y, transform.position.z+ step/4);
+            else inipos = new Vector3(GetComponent<Collider>().bounds.min.x, GetComponent<Collider>().bounds.max.y, transform.position.z + step / 4);
+
             GameObject puente = Instantiate(pont, inipos, Quaternion.Euler(0, 0, 0), GameObject.Find("Ponts").transform);
 
-            puente.GetComponent<cotxeMoviment>().vel = vel;
+            if (costat == 0) puente.GetComponent<objMoviment>().vel = vel;
+            else puente.GetComponent<objMoviment>().vel = -vel;
             lastPont = actualTime;
 
         }
