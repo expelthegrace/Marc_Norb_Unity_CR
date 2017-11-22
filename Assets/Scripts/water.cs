@@ -14,7 +14,7 @@ public class water : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        
+        freq = Random.Range(2.5f, 3f);
         lastPont = -freq;
         actualTime = 0f;
         vel = Random.Range(0.2f, 0.35f);
