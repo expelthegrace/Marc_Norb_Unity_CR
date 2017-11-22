@@ -28,7 +28,7 @@ public class water : MonoBehaviour {
 	void Update () {
         if (actualTime - lastPont > freq)
         {
-            freq = Random.Range(4f, 5f);
+            freq = Random.Range(3.8f, 4.5f);
             Vector3 inipos;
             if (costat == 0) inipos = new Vector3(GetComponent<Collider>().bounds.max.x, GetComponent<Collider>().bounds.max.y, transform.position.z+ step/4);
             else inipos = new Vector3(GetComponent<Collider>().bounds.min.x, GetComponent<Collider>().bounds.max.y, transform.position.z + step / 4);

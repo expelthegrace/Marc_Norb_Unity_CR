@@ -12,9 +12,13 @@ public class via : MonoBehaviour {
     public float lastTren;
     private float step;
 
+    private int costat;
+
     private float index;
     // Use this for initialization
     void Start () {
+
+        costat = Random.Range(0, 2);
         step = GameObject.Find("player").GetComponent<PlayerMove>().step;
 
         index = GetComponent<Collider>().bounds.min.x - step; // començo per l'esquerra
@@ -39,10 +43,14 @@ public class via : MonoBehaviour {
         if (actualTime - lastTren > freq)
         {
             freq = Random.Range(5f, 6f);
-            Vector3 inipos = new Vector3(GetComponent<Collider>().bounds.max.x, GetComponent<Collider>().bounds.max.y, transform.position.z);
+            Vector3 inipos;
+            if (costat == 0) inipos = new Vector3(GetComponent<Collider>().bounds.max.x, GetComponent<Collider>().bounds.max.y, transform.position.z);
+            else inipos = new Vector3(GetComponent<Collider>().bounds.min.x, GetComponent<Collider>().bounds.max.y, transform.position.z);
+
             GameObject puente = Instantiate(tren, inipos, Quaternion.Euler(0, 0, 0), GameObject.Find("Vies").transform);
 
-            puente.GetComponent<objMoviment>().vel = vel;
+            if (costat == 0) puente.GetComponent<objMoviment>().vel = vel;
+            else puente.GetComponent<objMoviment>().vel = -vel;
             lastTren = actualTime;
 
         }
