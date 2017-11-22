@@ -19,7 +19,7 @@ public class water : MonoBehaviour {
         freq = Random.Range(2.5f, 3f);
         lastPont = -freq;
         actualTime = 0f;
-        vel = Random.Range(0.2f, 0.35f);
+        vel = Random.Range(0.18f, 0.28f);
         step = GameObject.Find("player").GetComponent<PlayerMove>().step;
     }
 	
@@ -27,7 +27,7 @@ public class water : MonoBehaviour {
 	void Update () {
         if (actualTime - lastPont > freq)
         {
-            freq = Random.Range(4f, 5.5f);
+            freq = Random.Range(4f, 5f);
             Vector3 inipos;
             if (costat == 0) inipos = new Vector3(GetComponent<Collider>().bounds.max.x, GetComponent<Collider>().bounds.max.y, transform.position.z+ step/4);
             else inipos = new Vector3(GetComponent<Collider>().bounds.min.x, GetComponent<Collider>().bounds.max.y, transform.position.z + step / 4);
