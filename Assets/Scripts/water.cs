@@ -25,7 +25,7 @@ public class water : MonoBehaviour {
 	void Update () {
         if (actualTime - lastPont > freq)
         {
-            freq = Random.Range(2f, 3f);
+            freq = Random.Range(2.5f, 3f);
             Vector3 inipos = new Vector3(GetComponent<Collider>().bounds.max.x, GetComponent<Collider>().bounds.max.y, transform.position.z+ step/4);
             GameObject puente = Instantiate(pont, inipos, Quaternion.Euler(0, 0, 0), GameObject.Find("Ponts").transform);
 

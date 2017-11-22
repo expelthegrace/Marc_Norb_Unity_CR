@@ -20,7 +20,7 @@ public class spawner : MonoBehaviour {
     {
         if (altern < 60) Instantiate(grass1, new Vector3(0, 0, linea), grass1.transform.rotation,transform);
         else if (altern < 80)  Instantiate(carretera1, new Vector3(0, 0, linea), carretera1.transform.rotation,transform);
-        else Instantiate(water, new Vector3(0, 0, linea), water.transform.rotation, transform);
+        else Instantiate(water, new Vector3(0, -0.62f, linea), water.transform.rotation, transform);
         linea += step;
         altern = Random.Range(0, 100);
         

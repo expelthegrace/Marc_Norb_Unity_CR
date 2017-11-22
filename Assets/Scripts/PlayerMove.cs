@@ -21,6 +21,8 @@ public class PlayerMove : MonoBehaviour {
     private Transform tronc;
     public float troncOffset;
 
+    public bool wall;
+
 
     private Vector3 frontDir = new Vector3(0, 0, 1);
     private Vector3 leftDir  = new Vector3(-1, 0, 0);
@@ -36,7 +38,7 @@ public class PlayerMove : MonoBehaviour {
     private float dist = 1f;
     private RaycastHit hit;
 
-    private bool enMoviment;
+    public bool enMoviment;
 
     public float dstX;
     public int chunkAct;
@@ -64,8 +66,10 @@ public class PlayerMove : MonoBehaviour {
         direccio = frontDir;
         transform.position = respawn.transform.position;
     }
+
     void orientar()
     {
+
         Debug.DrawRay(transform.position + new Vector3(0, 3, 0), Vector3.forward * (step + step / 3), Color.green);
         // orientar i setejar moviment del player
         if (Input.GetKey(KeyCode.UpArrow) && !enMoviment)
@@ -78,8 +82,12 @@ public class PlayerMove : MonoBehaviour {
                     transform.rotation = Quaternion.LookRotation(frontDir);
                     direccio = frontDir;
                 }
+                int signe = 1;
+                if (transform.position.x + direccio.x < 0) signe = -1;
+                else signe = 1;
+
                 srcPosition = transform.position;
-                dstX = ((int)(transform.position.x + direccio.x * step) / (int)step) * step;
+                dstX = ((int)(transform.position.x + direccio.x * step + step / 2 * signe) / (int)step) * step;
                 //transform.position.x + direccio.x * step
                 dstPosition = new Vector3(dstX, transform.position.y + direccio.y * step, transform.position.z + direccio.z * step);
                 tStep = 0;
@@ -97,14 +105,20 @@ public class PlayerMove : MonoBehaviour {
 
         else if (Input.GetKey(KeyCode.RightArrow) && !enMoviment)
         {
-            if (!Physics.Raycast(transform.position + new Vector3 (0,3,0), Vector3.right, out hit, step + step / 3) || hit.collider.gameObject.tag != "wall")
+            if (!Physics.Raycast(transform.position + new Vector3(0, 3, 0), Vector3.right, out hit, step + step / 3) || hit.collider.gameObject.tag != "wall")
             {
                 if (direccio != rightDir)
                 {
                     transform.rotation = Quaternion.LookRotation(rightDir);
                     direccio = rightDir;
                 }
+                int signe = 1;
+                if (transform.position.x + direccio.x < 0) signe = -1;
+                else signe = 1;
+
                 srcPosition = transform.position;
+                dstX = ((int)(transform.position.x + direccio.x * step + step / 2 * signe) / (int)step) * step;
+                //transform.position.x + direccio.x * step
                 dstPosition = transform.position + direccio * step;
                 tStep = 0;
                 yPos = transform.position.y;
@@ -128,7 +142,12 @@ public class PlayerMove : MonoBehaviour {
                     transform.rotation = Quaternion.LookRotation(downDir);
                     direccio = downDir;
                 }
+                int signe = 1;
+                if (transform.position.x + direccio.x < 0) signe = -1;
+                else signe = 1;
+
                 srcPosition = transform.position;
+                dstX = ((int)(transform.position.x + direccio.x * step + step / 2 * signe) / (int)step) * step;
                 dstPosition = transform.position + direccio * step;
                 tStep = 0;
                 yPos = transform.position.y;
@@ -142,7 +161,6 @@ public class PlayerMove : MonoBehaviour {
                 transform.rotation = Quaternion.LookRotation(downDir);
                 direccio = downDir;
             }
-
         }
 
         else if (Input.GetKey(KeyCode.LeftArrow) && !enMoviment)
@@ -154,7 +172,12 @@ public class PlayerMove : MonoBehaviour {
                     transform.rotation = Quaternion.LookRotation(leftDir);
                     direccio = leftDir;
                 }
+                int signe = 1;
+                if (transform.position.x + direccio.x < 0) signe = -1;
+                else signe = 1;
+
                 srcPosition = transform.position;
+                dstX = ((int)(transform.position.x + direccio.x * step + step / 2 * signe) / (int)step) * step;
                 dstPosition = transform.position + direccio * step;
                 tStep = 0;
                 yPos = transform.position.y;
@@ -185,7 +208,6 @@ public class PlayerMove : MonoBehaviour {
         }
         if (intronc && !saltant)
         {
-
             transform.position = transform.position + new Vector3(tronc.position.x - transform.position.x + troncOffset, 0, 0);
         }
     }
@@ -231,7 +253,17 @@ public class PlayerMove : MonoBehaviour {
     {
         Debug.Log("colisio");
         if (collision.transform.tag == "mortal") reset();
-        
+
+        if (collision.GetComponent<Collider>().tag == "wall")
+        {
+            wall = true;
+        }
+
+    }
+    void OnTriggerExit(Collider col)
+    {
+        Debug.Log("surt checkFront");
+        wall = false;
     }
 }
 
