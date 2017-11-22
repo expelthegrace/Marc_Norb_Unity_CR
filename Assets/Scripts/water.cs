@@ -12,12 +12,13 @@ public class water : MonoBehaviour {
     public float lastPont;
     private float step;
     public int costat;
+    public float delay;
 
     // Use this for initialization
     void Start () {
         costat = Random.Range(0, 2);
-        freq = Random.Range(2.5f, 3f);
-        lastPont = -freq;
+        delay = Random.Range(0f, 4f);
+        lastPont = delay;
         actualTime = 0f;
         vel = Random.Range(0.18f, 0.28f);
         step = GameObject.Find("player").GetComponent<PlayerMove>().step;

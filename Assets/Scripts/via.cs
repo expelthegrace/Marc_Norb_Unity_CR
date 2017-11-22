@@ -28,8 +28,7 @@ public class via : MonoBehaviour {
         }
 
         float delay = Random.Range(1f, 4f);
-        freq = Random.Range(5f, 6f);
-        lastTren = -delay;
+        lastTren = delay;
         actualTime = 0f;
         vel = 3f;
         

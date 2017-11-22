@@ -16,6 +16,7 @@ public class spawner : MonoBehaviour {
     public int altern;
 
     public float linea;
+    public int chunkLinea;
 
    // private Bounds playerBox;
 
@@ -37,15 +38,17 @@ public class spawner : MonoBehaviour {
                 Instantiate(water, new Vector3(0, -0.62f, linea), water.transform.rotation, transform);
                 break;
         }
+        int r = Random.Range(0, 120);
 
-       /* if (altern < 50) Instantiate(grass1, new Vector3(0, 0, linea), grass1.transform.rotation,transform);
-        else if (altern < 70)  Instantiate(carretera1, new Vector3(0, 0, linea), carretera1.transform.rotation,transform);
-        else if (altern < 80) Instantiate(via, new Vector3(0, 0, linea), via.transform.rotation, transform);
-        else Instantiate(water, new Vector3(0, -0.62f, linea), water.transform.rotation, transform);*/
+        if (r > 100) altern = lastChunk;
+        else if (r < Mathf.Max(100 - chunkLinea * 2f, 40)) altern = 0; // grass
+        else if (r < 58) altern = 2; // tren
+        else if (r < 82) altern = 3; // water     
+        else altern = 1; // road
+       
         linea += step;
-        altern = Random.Range(0, 5);
-        if (altern > 3) altern = lastChunk;
-        
+        chunkLinea = (int)linea / (int)step;
+     
     }
 
     // Use this for initialization
