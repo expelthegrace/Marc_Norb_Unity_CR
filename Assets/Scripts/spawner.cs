@@ -7,7 +7,7 @@ public class spawner : MonoBehaviour {
     public GameObject grass1;
     public GameObject water;
     public GameObject carretera1;
-    public GameObject via;
+    public GameObject viaa;
 
     private int lastChunk;
     // chunks {GRASS, VIA, AIGUA, ROAD };
@@ -32,7 +32,7 @@ public class spawner : MonoBehaviour {
                 Instantiate(carretera1, new Vector3(0, 0, linea), carretera1.transform.rotation, transform);
                 break;
             case 2:
-                Instantiate(via, new Vector3(0, 0, linea), via.transform.rotation, transform);
+                Instantiate(viaa, new Vector3(0, 0, linea), viaa.transform.rotation, transform);
                 break;
             case 3:
                 Instantiate(water, new Vector3(0, -0.62f, linea), water.transform.rotation, transform);
@@ -56,7 +56,7 @@ public class spawner : MonoBehaviour {
         step = 12;
         altern = 0;
        // playerBox = player.GetComponent<Renderer>().bounds;
-        linea = player.transform.position.z;
+        linea = player.transform.position.z - step*4;
         Spawn();
       
     }

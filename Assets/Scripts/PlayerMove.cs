@@ -11,18 +11,18 @@ public class PlayerMove : MonoBehaviour {
     public Vector3 direccio;
     public float step;
     public float jumpDist; // ?
-    private float maxJump; // ?
     public float fallingSpeed;
     public bool saltant;
     public bool landed;
     private bool intronc;
     private GameObject checkFront;
+    public GameObject cameraMain;
 
     private Transform tronc;
     public float troncOffset;
 
     public bool wall;
-
+    public bool mort;
 
     private Vector3 frontDir = new Vector3(0, 0, 1);
     private Vector3 leftDir  = new Vector3(-1, 0, 0);
@@ -39,6 +39,7 @@ public class PlayerMove : MonoBehaviour {
     private RaycastHit hit;
 
     public bool enMoviment;
+    public bool god;
 
     public float dstX;
     public int chunkAct;
@@ -49,22 +50,27 @@ public class PlayerMove : MonoBehaviour {
         direccio = frontDir;
         step = 12;
         jumpDist = 3;
-        maxJump = transform.position.y + jumpDist;
         saltant = false;
         landed = true;
         intronc = false;
+        mort = false;
         checkFront = GameObject.Find("checkFront");
+        god = false;
     }
 
     void reset()
     {
-        intronc = false;
-        enMoviment = false;
-        saltant = false;
-        landed = true;
-        transform.rotation = Quaternion.LookRotation(frontDir);
-        direccio = frontDir;
-        transform.position = respawn.transform.position;
+        if (!god)
+        {
+            intronc = false;
+            enMoviment = false;
+            saltant = false;
+            landed = true;
+            transform.rotation = Quaternion.LookRotation(frontDir);
+            direccio = frontDir;
+            transform.position = respawn.transform.position;
+            mort = true;
+        }
     }
 
     void orientar()
@@ -215,6 +221,9 @@ public class PlayerMove : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.G)) god = !god;  // per ferse inmortal
+        
+
         chunkAct = (int)transform.position.x / (int)step;
        
         // orientar el player i comprovar obstacles
@@ -246,6 +255,8 @@ public class PlayerMove : MonoBehaviour {
             }
             else if (hit.collider.gameObject.tag == "mortal") reset();
         }
+
+        if (transform.position.z < cameraMain.GetComponent<cameraMove>().limitZ - 22) reset();
 
     }
 
