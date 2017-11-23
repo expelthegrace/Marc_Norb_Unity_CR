@@ -76,7 +76,7 @@ public class PlayerMove : MonoBehaviour {
     void orientar()
     {
 
-        Debug.DrawRay(transform.position + new Vector3(0, 3, 0), Vector3.forward * (step + step / 3), Color.green);
+        //Debug.DrawRay(transform.position + new Vector3(0, 3, 0), Vector3.forward * (step + step / 3), Color.green);
         // orientar i setejar moviment del player
         if (Input.GetKey(KeyCode.UpArrow) && !enMoviment)
         {   // si no hi ha una paret
@@ -103,7 +103,6 @@ public class PlayerMove : MonoBehaviour {
             }
             else
             {
-                Debug.Log("Colisio frontal");
                 transform.rotation = Quaternion.LookRotation(frontDir);
                 direccio = frontDir;
             }
@@ -133,7 +132,6 @@ public class PlayerMove : MonoBehaviour {
             }
             else
             {
-                Debug.Log("Colisio dreta");
                 transform.rotation = Quaternion.LookRotation(rightDir);
                 direccio = rightDir;
             }
@@ -163,7 +161,6 @@ public class PlayerMove : MonoBehaviour {
             }
             else
             {
-                Debug.Log("Colisio trasera");
                 transform.rotation = Quaternion.LookRotation(downDir);
                 direccio = downDir;
             }
@@ -192,7 +189,6 @@ public class PlayerMove : MonoBehaviour {
             }
             else
             {
-                Debug.Log("Colisio trasera");
                 transform.rotation = Quaternion.LookRotation(leftDir);
                 direccio = leftDir;
             }
@@ -262,7 +258,6 @@ public class PlayerMove : MonoBehaviour {
 
     void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("colisio");
         if (collision.transform.tag == "mortal") reset();
 
         if (collision.GetComponent<Collider>().tag == "wall")
@@ -273,7 +268,6 @@ public class PlayerMove : MonoBehaviour {
     }
     void OnTriggerExit(Collider col)
     {
-        Debug.Log("surt checkFront");
         wall = false;
     }
 }

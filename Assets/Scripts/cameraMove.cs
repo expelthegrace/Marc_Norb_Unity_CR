@@ -19,7 +19,7 @@ public class cameraMove : MonoBehaviour {
     
         offset = transform.position - player.transform.position;
         smoothTime = 0.3f;
-        velNivell = 1f;
+        velNivell = 0f;
         limitZIni = transform.position.z;
         limitZ = transform.position.z;
     }
@@ -38,7 +38,6 @@ public class cameraMove : MonoBehaviour {
 
         if (player.GetComponent<PlayerMove>().mort == true)
         {
-            Debug.Log("reset camera");  
             Reset();
             player.GetComponent<PlayerMove>().mort = false;
         }

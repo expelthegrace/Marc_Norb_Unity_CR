@@ -633,7 +633,7 @@ GameObject:
   - component: {fileID: 1613790573}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -681,6 +681,7 @@ MonoBehaviour:
   srcPosition: {x: 0, y: 0, z: 0}
   dstPosition: {x: 0, y: 0, z: 0}
   enMoviment: 0
+  god: 0
   dstX: 0
   chunkAct: 0
 --- !u!65 &1613790573
@@ -693,8 +694,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.0968862, y: 6.3163815, z: 9.013139}
-  m_Center: {x: 0.0695945, y: 2.8951128, z: 0.51070905}
+  m_Size: {x: 2.0968862, y: 6.3163815, z: 7.1673727}
+  m_Center: {x: 0.06959453, y: 2.8951128, z: -0.4121792}
 --- !u!1 &1714429298
 GameObject:
   m_ObjectHideFlags: 0

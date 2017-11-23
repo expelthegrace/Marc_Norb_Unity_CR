@@ -18,12 +18,10 @@ public class checkFront : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log("colisio checkFront");
         if (col.GetComponent<Collider>().tag == "wall") wall = true;
     }
     void OnTriggerExit(Collider col)
     {
-        Debug.Log("surt checkFront");
         wall = false;
     }
 }
