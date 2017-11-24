@@ -16,7 +16,7 @@ public class grass : MonoBehaviour {
         index = GetComponent<Collider>().bounds.min.x; // començo per l'esquerra
         Vector3 inipos;
 
-        for (int i = 0; i < GetComponent<Collider>().bounds.size.x / step; ++i)
+        for (int i = 0; i < GetComponent<Collider>().bounds.size.x / step + 1; ++i)
         {
             if (Random.Range(0,100) < 20)  // aparicio d'arbres en %
             {

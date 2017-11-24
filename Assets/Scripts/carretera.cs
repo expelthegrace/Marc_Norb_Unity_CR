@@ -28,8 +28,8 @@ public class carretera : MonoBehaviour {
         if (actualTime - lastCar > freq)
         {
             Vector3 inipos;
-            if (costat == 0) inipos = new Vector3(GetComponent<Collider>().bounds.max.x, GetComponent<Collider>().bounds.max.y, transform.position.z);
-            else inipos = new Vector3(GetComponent<Collider>().bounds.min.x, GetComponent<Collider>().bounds.max.y, transform.position.z);
+            if (costat == 0) inipos = new Vector3(GetComponent<Collider>().bounds.max.x + 60, GetComponent<Collider>().bounds.max.y, transform.position.z);
+            else inipos = new Vector3(GetComponent<Collider>().bounds.min.x - 60, GetComponent<Collider>().bounds.max.y, transform.position.z);
             GameObject car = Instantiate(cotxe, inipos, Quaternion.Euler(0, 0, 0), GameObject.Find("Cotxes").transform);
 
             if (costat == 0) car.GetComponent<objMoviment>().vel = vel;

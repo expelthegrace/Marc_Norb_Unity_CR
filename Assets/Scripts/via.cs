@@ -24,7 +24,7 @@ public class via : MonoBehaviour {
         index = GetComponent<Collider>().bounds.min.x - step; // començo per l'esquerra
         Vector3 inipos;
         
-        for (int i = 0; i < 35; ++i)
+        for (int i = 0; i < 46; ++i)
         {
             inipos = new Vector3(index + i * (step*0.95f), GetComponent<Collider>().bounds.max.y, transform.position.z);
             Instantiate(rails, inipos, Quaternion.Euler(0,90, 0), GameObject.Find("Rails").transform);           
