@@ -5,6 +5,7 @@ using UnityEngine;
 public class cameraMove : MonoBehaviour {
 
     public GameObject player;
+    public GameObject limitCamera;
 
     private Vector3 offset;
     public float smoothTime;
@@ -19,7 +20,7 @@ public class cameraMove : MonoBehaviour {
     
         offset = transform.position - player.transform.position;
         smoothTime = 0.3f;
-        velNivell = 0f;
+        velNivell = 0.4f;
         limitZIni = transform.position.z;
         limitZ = transform.position.z;
     }
@@ -32,7 +33,7 @@ public class cameraMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         nextPos = Vector3.SmoothDamp(transform.position, player.transform.position + offset - new Vector3(0, player.transform.position.y, 0), ref velSmooth, smoothTime);
-        transform.position = new Vector3(nextPos.x, nextPos.y, Mathf.Max(nextPos.z, limitZ));
+        transform.position = new Vector3(Mathf.Max(Mathf.Min(nextPos.x, limitCamera.transform.position.x), -limitCamera.transform.position.x + 40), nextPos.y, Mathf.Max(nextPos.z, limitZ));
 
         limitZ = Mathf.Max(limitZ + velNivell * 0.1f,transform.position.z);
 
