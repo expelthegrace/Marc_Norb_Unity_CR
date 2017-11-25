@@ -11,7 +11,6 @@ public class via : MonoBehaviour {
     public float actualTime;
     public float lastTren;
     private float step;
-
     private int costat;
 
     private float index;

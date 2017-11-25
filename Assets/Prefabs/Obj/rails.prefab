@@ -36,9 +36,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4456437789275848}
+  - component: {fileID: 65144893409733830}
   m_Layer: 0
   m_Name: rails
-  m_TagString: Untagged
+  m_TagString: Terra
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,7 +51,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1639064343925714}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -16.55164, y: 18.495012, z: 255.66324}
   m_LocalScale: {x: 0.37580937, y: 0.3758093, z: 0.3758093}
   m_Children:
   - {fileID: 4756361234660230}
@@ -109,3 +110,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1538091969545056}
   m_Mesh: {fileID: 4300000, guid: 5771e9c39420c8d4bb7c6ce854f58b98, type: 3}
+--- !u!65 &65144893409733830
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1639064343925714}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 31.928059, y: 4.4647455, z: 31.775566}
+  m_Center: {x: 0.15335806, y: 1.7323729, z: 0.03332575}

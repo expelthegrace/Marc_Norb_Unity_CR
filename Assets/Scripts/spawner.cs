@@ -63,7 +63,7 @@ public class spawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		while (linea - player.transform.position.z < step * 15) Spawn();
+		while (linea - player.transform.position.z < step * 16) Spawn();
 
 	}
 }
