@@ -41,15 +41,23 @@ public class via : MonoBehaviour {
 	void Update () {
         if (actualTime - lastTren > freq)
         {
+            GameObject puente;
             freq = Random.Range(5f, 6f);
             Vector3 inipos;
-            if (costat == 0) inipos = new Vector3(GetComponent<Collider>().bounds.max.x, GetComponent<Collider>().bounds.max.y, transform.position.z);
-            else inipos = new Vector3(GetComponent<Collider>().bounds.min.x - step * 15, GetComponent<Collider>().bounds.max.y, transform.position.z);
+            if (costat == 0) // dreta
+            {
+                inipos = new Vector3(GetComponent<Collider>().bounds.max.x, GetComponent<Collider>().bounds.max.y, transform.position.z);
+                puente = Instantiate(tren, inipos, Quaternion.Euler(0, 180, 0), GameObject.Find("Vies").transform);
 
-            GameObject puente = Instantiate(tren, inipos, Quaternion.Euler(0, 0, 0), GameObject.Find("Vies").transform);
+            }
+            else
+            {
+                inipos = new Vector3(GetComponent<Collider>().bounds.min.x - step * 15, GetComponent<Collider>().bounds.max.y, transform.position.z);
+                puente = Instantiate(tren, inipos, Quaternion.Euler(0, 0, 0), GameObject.Find("Vies").transform);
+            }
 
-            if (costat == 0) puente.GetComponent<objMoviment>().vel = vel;
-            else puente.GetComponent<objMoviment>().vel = -vel;
+            puente.GetComponent<objMoviment>().vel = -vel;
+            
             lastTren = actualTime;
 
         }

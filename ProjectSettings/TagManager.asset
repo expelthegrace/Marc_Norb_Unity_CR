@@ -9,6 +9,7 @@ TagManager:
   - mortal
   - wall
   - tronc
+  - moneda
   layers:
   - Default
   - TransparentFX
