@@ -24,7 +24,7 @@ public class water : MonoBehaviour {
         lastPont = delay;
         actualTime = 0f;
         vel = Random.Range(0.18f, 0.28f);
-        step = GameObject.Find("player").GetComponent<PlayerMove>().step;
+        step = 12;
         ponts = new List<GameObject>();
         speedup = 0f;
     }
