@@ -47,8 +47,8 @@ public class water : MonoBehaviour {
         {
             freq = Random.Range(3.8f / speedup, 4.5f / speedup);
             Vector3 inipos;
-            if (costat == 0) inipos = new Vector3(GetComponent<Collider>().bounds.max.x, GetComponent<Collider>().bounds.max.y, transform.position.z+ step/4);
-            else inipos = new Vector3(GetComponent<Collider>().bounds.min.x, GetComponent<Collider>().bounds.max.y-0.4f, transform.position.z + step / 4);
+            if (costat == 0) inipos = new Vector3(GetComponent<Collider>().bounds.max.x, GetComponent<Collider>().bounds.max.y-0.4f, transform.position.z+ step/4); // dreta
+            else inipos = new Vector3(GetComponent<Collider>().bounds.min.x, GetComponent<Collider>().bounds.max.y-0.4f, transform.position.z + step / 4); //esquerra
 
             GameObject puente = Instantiate(pont, inipos, Quaternion.Euler(0, 0, 0), GameObject.Find("Ponts").transform);
 

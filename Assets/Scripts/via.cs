@@ -18,7 +18,7 @@ public class via : MonoBehaviour {
     void Start () {
 
         costat = Random.Range(0, 2);
-        step = GameObject.Find("player").GetComponent<PlayerMove>().step;
+        step = 12f;
 
         index = GetComponent<Collider>().bounds.min.x - step; // començo per l'esquerra
         Vector3 inipos;
