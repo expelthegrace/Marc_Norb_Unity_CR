@@ -42,7 +42,7 @@ public class PlayerMove : MonoBehaviour {
     public bool god;
 
     public float dstX;
-    public int chunkAct;
+    public int chunkRecord;
     // Use this for initialization
     void Start() {
         speed = 13;
@@ -220,7 +220,7 @@ public class PlayerMove : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.G)) god = !god;  // per ferse inmortal
         
 
-        chunkAct = (int)transform.position.x / (int)step;
+        chunkRecord = Mathf.Max((int)transform.position.z / (int)step, chunkRecord);
        
         // orientar el player i comprovar obstacles
         orientar();

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class playerCoin : MonoBehaviour {
 
-    public int contador;
+    public int coins;
 
 	// Use this for initialization
 	void Start () {
-        contador = 0;	
+        coins = 0;	
 	}
 	
 	// Update is called once per frame
@@ -21,7 +21,7 @@ public class playerCoin : MonoBehaviour {
         if (col.tag == "moneda")
         {
             Destroy(col.gameObject);
-            contador += 1;
+            coins += 1;
         }
        
     }
