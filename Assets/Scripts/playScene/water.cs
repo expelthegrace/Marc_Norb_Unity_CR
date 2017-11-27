@@ -34,7 +34,6 @@ public class water : MonoBehaviour {
         if (actualTime < 2) speedup = 20f;
         else if (speedup == 20)
         {
-            Debug.Log("fin");
             for (int i = 0; i < ponts.Count; ++i)
             {
                 if (ponts[i] != null) ponts[i].GetComponent<objMoviment>().vel /= speedup;
