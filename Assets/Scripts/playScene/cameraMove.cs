@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class cameraMove : MonoBehaviour {
@@ -42,5 +43,7 @@ public class cameraMove : MonoBehaviour {
             Reset();
             player.GetComponent<PlayerMove>().mort = false;
         }
-	}
+
+        if (Input.GetKey(KeyCode.T)) SceneManager.LoadScene("scenaMenu1");
+    }
 }

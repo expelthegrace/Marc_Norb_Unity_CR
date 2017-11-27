@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class cameraMenu : MonoBehaviour {
@@ -66,6 +67,8 @@ public class cameraMenu : MonoBehaviour {
           if (actualTime - lastTime > 1.5f) inmove = false;
         }
 
-        actualTime += Time.deltaTime;
+        if (Input.GetKey(KeyCode.T)) SceneManager.LoadScene("scena1"); 
+
+            actualTime += Time.deltaTime;
 	}
 }
