@@ -29,7 +29,7 @@ public class memoria : MonoBehaviour {
     // Use this for initialization
     void Start () {
         totalcoins = 100;
-
+        playerSelect = 1; // borrar
     }
 	
 	// Update is called once per frame

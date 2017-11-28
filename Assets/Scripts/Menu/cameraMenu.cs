@@ -17,6 +17,11 @@ public class cameraMenu : MonoBehaviour {
     public GameObject lock2B;
     public GameObject lock3B;
 
+    public GameObject select1B;
+    public GameObject select1T;
+    public GameObject select2B;
+    public GameObject select2T;
+
     public GameObject point1;
     public GameObject point2;
     public GameObject point3;
@@ -62,6 +67,12 @@ public class cameraMenu : MonoBehaviour {
             backButton.SetActive(false);
             lock2B.SetActive(false);
             lock3B.SetActive(false);
+
+            select1B.SetActive(false);
+            select1T.SetActive(false);
+            select2B.SetActive(false);
+            select2T.SetActive(false);
+
         }
         else if (punt == 1) // avatar selection
         {
@@ -71,6 +82,11 @@ public class cameraMenu : MonoBehaviour {
             backButton.SetActive(true);
             lock2B.SetActive(!avatar2);
             lock3B.SetActive(!avatar3);
+
+            select1B.SetActive(true);
+            select1T.SetActive(memoria.GetComponent<memoria>().playerSelect == 1);
+            select2B.SetActive(true);
+            select2T.SetActive(memoria.GetComponent<memoria>().playerSelect == 2);
 
 
         }
@@ -82,6 +98,11 @@ public class cameraMenu : MonoBehaviour {
             backButton.SetActive(true);
             lock2B.SetActive(false);
             lock3B.SetActive(false);
+
+            select1B.SetActive(false);
+            select1T.SetActive(false);
+            select2B.SetActive(false);
+            select2T.SetActive(false);
 
 
         }
@@ -122,9 +143,10 @@ public class cameraMenu : MonoBehaviour {
           if (actualTime - lastTime > 1.5f) inmove = false;
         }
 
-        if (Input.GetKey(KeyCode.T)) SceneManager.LoadScene("scena1"); 
+        if (Input.GetKey(KeyCode.T)) SceneManager.LoadScene("scena1");
 
-            actualTime += Time.deltaTime;
+        Debug.Log(memoria.GetComponent<memoria>().playerSelect);
+        actualTime += Time.deltaTime;
 	}
 
     public void clickPlay()
@@ -183,6 +205,18 @@ public class cameraMenu : MonoBehaviour {
             {
 
             }
+        }
+    }
+
+    public void selectAvatar(int a)
+    {
+        if (a == 1)
+        {
+            memoria.GetComponent<memoria>().playerSelect = 1;
+        }
+        else if (a == 2 && avatar2)
+        {
+            memoria.GetComponent<memoria>().playerSelect = 2;
         }
     }
 }
