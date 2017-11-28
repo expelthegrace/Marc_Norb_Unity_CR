@@ -8,6 +8,9 @@ public class spawner : MonoBehaviour {
     public GameObject water;
     public GameObject carretera1;
     public GameObject viaa;
+    public GameObject bestObj;
+
+    private GameObject memoria;
 
     private int lastChunk;
     // chunks {GRASS, VIA, AIGUA, ROAD };
@@ -17,6 +20,7 @@ public class spawner : MonoBehaviour {
 
     public float linea;
     public int chunkLinea;
+    private GameObject g;
 
    // private Bounds playerBox;
 
@@ -26,7 +30,9 @@ public class spawner : MonoBehaviour {
         switch (altern)
         {
             case 0:
-                Instantiate(grass1, new Vector3(0, 0, linea), grass1.transform.rotation, transform);
+                g = Instantiate(grass1, new Vector3(0, 0, linea), grass1.transform.rotation, transform);
+                if (chunkLinea == 0) g.GetComponent<grass>().isIni = true;
+                else g.GetComponent<grass>().isIni = false;
                 break;
             case 1:
                 Instantiate(carretera1, new Vector3(0, 0, linea), carretera1.transform.rotation, transform);
@@ -38,6 +44,16 @@ public class spawner : MonoBehaviour {
                 Instantiate(water, new Vector3(0, -0.62f, linea), water.transform.rotation, transform);
                 break;
         }
+        // ficar el best
+        if (memoria.GetComponent<memoria>().best1 > 0 && memoria.GetComponent<memoria>().best1 == chunkLinea)
+        {
+            Debug.Log("aa");
+            //Debug.Break();
+            Instantiate(bestObj, new Vector3(0, 8, linea), bestObj.transform.rotation, transform);
+
+        }
+
+
         int r = Random.Range(0, 120);
 
         if (r > 100) altern = lastChunk;
@@ -53,6 +69,7 @@ public class spawner : MonoBehaviour {
 
     // Use this for initialization
     void Start () {                              /////// START
+        memoria = GameObject.Find("Memoria");
         step = 12;
         altern = 0;
        // playerBox = player.GetComponent<Renderer>().bounds;

@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4456437789275848}
   - component: {fileID: 65144893409733830}
+  - component: {fileID: 114364095637904204}
   m_Layer: 0
   m_Name: rails
   m_TagString: Terra
@@ -122,3 +123,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 31.928059, y: 4.4647455, z: 31.775566}
   m_Center: {x: 0.15335806, y: 1.7323729, z: 0.03332575}
+--- !u!114 &114364095637904204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1639064343925714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4374d5b85c8c86c4085e27e9d46b30a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

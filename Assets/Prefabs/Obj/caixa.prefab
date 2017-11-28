@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114836217756848774}
   - component: {fileID: 54902783845948178}
   - component: {fileID: 65149695326848646}
+  - component: {fileID: 114002589985327678}
   m_Layer: 0
   m_Name: caixa
   m_TagString: mortal
@@ -140,6 +141,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.905371, y: 3.0002322, z: 3.0002317}
   m_Center: {x: 0, y: 1.5000001, z: -0.13936847}
+--- !u!114 &114002589985327678
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1150233294627290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4374d5b85c8c86c4085e27e9d46b30a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114836217756848774
 MonoBehaviour:
   m_ObjectHideFlags: 1

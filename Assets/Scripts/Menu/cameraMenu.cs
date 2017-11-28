@@ -51,7 +51,7 @@ public class cameraMenu : MonoBehaviour {
         actualTime = 0f;
         lastTime = 0f;
         memoria = GameObject.Find("Memoria").GetComponent<memoria>();
-
+        memoria.pantalla = 0;
     }
 	
 	// Update is called once per frame
@@ -151,7 +151,11 @@ public class cameraMenu : MonoBehaviour {
     }
     public void loadLevel(int i)
     {
-        if (i == 1) SceneManager.LoadScene("scena1");
+        if (i == 1)
+        {
+            memoria.pantalla = 1;
+            SceneManager.LoadScene("scena1");
+        }
     }
 
     public void unlock(int p)

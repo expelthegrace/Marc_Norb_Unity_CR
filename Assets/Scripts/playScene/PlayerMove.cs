@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour {
@@ -11,8 +12,7 @@ public class PlayerMove : MonoBehaviour {
     public float offset = 0.1f;
     public Vector3 direccio;
     public float step;
-    public float jumpDist; // ?
-    public float fallingSpeed;
+    public float jumpDist; 
     public bool saltant;
     public bool landed;
     private bool intronc;
@@ -58,12 +58,13 @@ public class PlayerMove : MonoBehaviour {
         checkFront = GameObject.Find("checkFront");
         god = false;
         memoria = GameObject.Find("Memoria");
+        memoria.GetComponent<memoria>().pantalla = 1;
     }
 
     void reset()
     {
         if (!god)
-        {
+        { 
             intronc = false;
             enMoviment = false;
             saltant = false;
@@ -72,8 +73,13 @@ public class PlayerMove : MonoBehaviour {
             direccio = frontDir;
             transform.position = respawn.transform.position;
             mort = true;
+            // ^^ eliminable si no godmode
+            
             memoria.GetComponent<memoria>().totalcoins += GetComponent<playerCoin>().coins;
             GetComponent<playerCoin>().coins = 0;
+            memoria.GetComponent<memoria>().best1 = Mathf.Max(memoria.GetComponent<memoria>().best1, chunkRecord);
+            SceneManager.LoadScene("scena1");
+            
             chunkRecord = 0;
         }
     }
@@ -217,6 +223,7 @@ public class PlayerMove : MonoBehaviour {
         {
             transform.position = transform.position + new Vector3(tronc.position.x - transform.position.x + troncOffset, 0, 0);
         }
+        
     }
 
     // Update is called once per frame

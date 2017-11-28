@@ -12,6 +12,9 @@ public class memoria : MonoBehaviour {
     public bool avatar2;
     public bool avatar3;
 
+    public int best1;
+    public int pantalla;
+
 
     void Awake()
     {
@@ -30,6 +33,7 @@ public class memoria : MonoBehaviour {
     void Start () {
         totalcoins = 2000;
         playerSelect = 1; // borrar
+        best1 = 0;
     }
 	
 	// Update is called once per frame

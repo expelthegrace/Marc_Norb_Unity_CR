@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4737006781134122}
   - component: {fileID: 65231607942874208}
+  - component: {fileID: 114419248500362300}
   m_Layer: 0
   m_Name: Normal tree
   m_TagString: wall
@@ -137,3 +138,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 35, y: 43.356308, z: 27.704916}
   m_Center: {x: 0.3819549, y: 17.146427, z: -1.1395411}
+--- !u!114 &114419248500362300
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1301491515379588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4374d5b85c8c86c4085e27e9d46b30a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

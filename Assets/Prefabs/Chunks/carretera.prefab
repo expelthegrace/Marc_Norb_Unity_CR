@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 65939541791347574}
   - component: {fileID: 23436210428790776}
   - component: {fileID: 114616664707369484}
+  - component: {fileID: 114549267287724916}
   m_Layer: 0
   m_Name: carretera
   m_TagString: Terra
@@ -260,6 +261,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114549267287724916
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1400704828806948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4374d5b85c8c86c4085e27e9d46b30a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114616664707369484
 MonoBehaviour:
   m_ObjectHideFlags: 1

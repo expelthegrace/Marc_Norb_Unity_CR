@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 65663411753765714}
   - component: {fileID: 23539145121479978}
   - component: {fileID: 114757242281268830}
+  - component: {fileID: 114944236132861130}
   m_Layer: 0
   m_Name: grass1Clar
   m_TagString: Terra
@@ -363,7 +364,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1193498591278530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -53.898716, y: 68.13748, z: 277.82687}
+  m_LocalPosition: {x: 161.12553, y: 88.14712, z: -106.25789}
   m_LocalScale: {x: 360, y: 1.5391097, z: 12}
   m_Children:
   - {fileID: 4174117756560054}
@@ -1376,3 +1377,15 @@ MonoBehaviour:
   tronc: {fileID: 1159463687876384, guid: b3a8278015054af4fadab7144d6b3082, type: 2}
   moneda: {fileID: 1881284793380542, guid: 30ca69f5f2fc8ba498dc8ca104f0be93, type: 2}
   step: 0
+--- !u!114 &114944236132861130
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1193498591278530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4374d5b85c8c86c4085e27e9d46b30a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraMain: {fileID: 1480538768415052, guid: d808fcf80ad5e6746a3fbd8dbac987f7, type: 2}
