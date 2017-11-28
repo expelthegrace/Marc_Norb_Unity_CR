@@ -49,6 +49,9 @@ public class cameraMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        avatar2 = memoria.GetComponent<memoria>().avatar2;
+        avatar3 = memoria.GetComponent<memoria>().avatar3;
+
 
         totalcoins = memoria.GetComponent<memoria>().totalcoins;
         if (punt == 0) // menu
@@ -158,7 +161,7 @@ public class cameraMenu : MonoBehaviour {
             if (totalcoins >= 50)
             {
                 memoria.GetComponent<memoria>().totalcoins -= 50;
-                avatar2 = true;
+                memoria.GetComponent<memoria>().avatar2 = true;
                 // sonar unlock
             }
             else
@@ -172,7 +175,8 @@ public class cameraMenu : MonoBehaviour {
             if (totalcoins >= 1000)
             {
                 memoria.GetComponent<memoria>().totalcoins -= 1000;
-                avatar3 = true;
+                memoria.GetComponent<memoria>().avatar3 = true;
+
                 // sonar unlock
             }
             else

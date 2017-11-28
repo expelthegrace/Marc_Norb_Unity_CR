@@ -9,6 +9,9 @@ public class memoria : MonoBehaviour {
     public int totalcoins;
     public int playerSelect;
 
+    public bool avatar2;
+    public bool avatar3;
+
 
     void Awake()
     {
