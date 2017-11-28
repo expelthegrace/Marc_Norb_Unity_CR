@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class cameraMenu : MonoBehaviour {
@@ -28,11 +29,13 @@ public class cameraMenu : MonoBehaviour {
 
     private float actualTime;
 
-    private bool lock2;
-    private bool lock3;
+    public bool avatar2;
+    public bool avatar3;
 
-	// Use this for initialization
-	void Start () {
+    private int totalcoins;
+
+    // Use this for initialization
+    void Start () {
         transform.position = point1.transform.position;
         punt = 0;
         smooth = 0.08f;
@@ -46,10 +49,8 @@ public class cameraMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        lock2 = !memoria.GetComponent<memoria>().avatar2;
-        lock3 = !memoria.GetComponent<memoria>().avatar3;
 
-
+        totalcoins = memoria.GetComponent<memoria>().totalcoins;
         if (punt == 0) // menu
         {
             playButton.SetActive(true);
@@ -65,8 +66,8 @@ public class cameraMenu : MonoBehaviour {
             avatarButton.SetActive(false);
             map1Button.SetActive(false);
             backButton.SetActive(true);
-            if (lock2) lock2B.SetActive(true);
-            if (lock3) lock3B.SetActive(true);
+            lock2B.SetActive(!avatar2);
+            lock3B.SetActive(!avatar3);
 
 
         }
@@ -148,5 +149,36 @@ public class cameraMenu : MonoBehaviour {
     public void loadLevel(int i)
     {
         if (i == 1) SceneManager.LoadScene("scena1");
+    }
+
+    public void unlock(int p)
+    {
+        if (p == 2)
+        { // desbloquejar 2n avatar
+            if (totalcoins >= 50)
+            {
+                memoria.GetComponent<memoria>().totalcoins -= 50;
+                avatar2 = true;
+                // sonar unlock
+            }
+            else
+            {
+
+            }
+        }
+
+        else if (p == 3)
+        { // desbloquejar 2n avatar
+            if (totalcoins >= 1000)
+            {
+                memoria.GetComponent<memoria>().totalcoins -= 1000;
+                avatar3 = true;
+                // sonar unlock
+            }
+            else
+            {
+
+            }
+        }
     }
 }
