@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class cameraMenu : MonoBehaviour {
 
+    public GameObject playButton;
+    public GameObject avatarButton;
+
     public GameObject point1;
     public GameObject point2;
     public GameObject point3;
@@ -71,4 +74,23 @@ public class cameraMenu : MonoBehaviour {
 
             actualTime += Time.deltaTime;
 	}
+
+    public void clickPlay()
+    {
+        playButton.SetActive(false);
+        avatarButton.SetActive(true);
+        punt = 2;
+        inmove = true;
+        dest = point3.transform.position;
+        lastTime = actualTime;
+    }
+    public void clickAvatar()
+    {
+        playButton.SetActive(true);
+        avatarButton.SetActive(false);
+        punt = 1;
+        inmove = true;
+        dest = point2.transform.position;
+        lastTime = actualTime;
+    }
 }
