@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour {
 
+    private GameObject memoria;
     public GameObject respawn;
 
     public float speed;
@@ -56,6 +57,7 @@ public class PlayerMove : MonoBehaviour {
         mort = false;
         checkFront = GameObject.Find("checkFront");
         god = false;
+        memoria = GameObject.Find("Memoria");
     }
 
     void reset()
@@ -70,6 +72,9 @@ public class PlayerMove : MonoBehaviour {
             direccio = frontDir;
             transform.position = respawn.transform.position;
             mort = true;
+            memoria.GetComponent<memoria>().totalcoins += GetComponent<playerCoin>().coins;
+            GetComponent<playerCoin>().coins = 0;
+            chunkRecord = 0;
         }
     }
 

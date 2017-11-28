@@ -54,7 +54,7 @@ public class floatPont : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.transform.tag == "Player")
+        if (collision.transform.tag == "Player" && !simulate)
         {
             Debug.Log("tronc player");
             simulate = true;
