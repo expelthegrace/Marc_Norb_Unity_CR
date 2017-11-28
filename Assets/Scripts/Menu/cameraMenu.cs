@@ -5,12 +5,16 @@ using UnityEngine;
 
 public class cameraMenu : MonoBehaviour {
 
+    private GameObject memoria;
     public GameObject playButton;
     public GameObject avatarButton;
 
     public GameObject backButton;
 
     public GameObject map1Button;
+
+    public GameObject lock2B;
+    public GameObject lock3B;
 
     public GameObject point1;
     public GameObject point2;
@@ -24,6 +28,9 @@ public class cameraMenu : MonoBehaviour {
 
     private float actualTime;
 
+    private bool lock2;
+    private bool lock3;
+
 	// Use this for initialization
 	void Start () {
         transform.position = point1.transform.position;
@@ -33,11 +40,15 @@ public class cameraMenu : MonoBehaviour {
         inmove = false;
         actualTime = 0f;
         lastTime = 0f;
+        memoria = GameObject.Find("Memoria");
 
     }
 	
 	// Update is called once per frame
 	void Update () {
+        lock2 = !memoria.GetComponent<memoria>().avatar2;
+        lock3 = !memoria.GetComponent<memoria>().avatar3;
+
 
         if (punt == 0) // menu
         {
@@ -45,6 +56,8 @@ public class cameraMenu : MonoBehaviour {
             avatarButton.SetActive(true);        
             map1Button.SetActive(false);
             backButton.SetActive(false);
+            lock2B.SetActive(false);
+            lock3B.SetActive(false);
         }
         else if (punt == 1) // avatar selection
         {
@@ -52,6 +65,10 @@ public class cameraMenu : MonoBehaviour {
             avatarButton.SetActive(false);
             map1Button.SetActive(false);
             backButton.SetActive(true);
+            if (lock2) lock2B.SetActive(true);
+            if (lock3) lock3B.SetActive(true);
+
+
         }
         else if (punt == 2) // map selection
         {
@@ -59,8 +76,12 @@ public class cameraMenu : MonoBehaviour {
             avatarButton.SetActive(true);
             map1Button.SetActive(true);
             backButton.SetActive(true);
-        }
+            lock2B.SetActive(false);
+            lock3B.SetActive(false);
 
+
+        }
+        /*
         //punt == 0 TITLE MENU
         if (Input.GetKey(KeyCode.Return) && punt == 0 && !inmove) {
             punt = 1;
@@ -87,7 +108,7 @@ public class cameraMenu : MonoBehaviour {
             dest = point1.transform.position;
             lastTime = actualTime;
 
-        }
+        }*/
 
         //moure camera
         if (inmove)
