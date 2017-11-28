@@ -28,7 +28,7 @@ public class memoria : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        totalcoins = 100;
+        totalcoins = 2000;
         playerSelect = 1; // borrar
     }
 	

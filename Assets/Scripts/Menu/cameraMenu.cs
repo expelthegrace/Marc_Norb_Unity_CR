@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class cameraMenu : MonoBehaviour {
 
-    private GameObject memoria;
+    private memoria memoria;
     public GameObject playButton;
     public GameObject avatarButton;
 
@@ -21,6 +21,8 @@ public class cameraMenu : MonoBehaviour {
     public GameObject select1T;
     public GameObject select2B;
     public GameObject select2T;
+    public GameObject select3B;
+    public GameObject select3T;
 
     public GameObject point1;
     public GameObject point2;
@@ -48,17 +50,17 @@ public class cameraMenu : MonoBehaviour {
         inmove = false;
         actualTime = 0f;
         lastTime = 0f;
-        memoria = GameObject.Find("Memoria");
+        memoria = GameObject.Find("Memoria").GetComponent<memoria>();
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-        avatar2 = memoria.GetComponent<memoria>().avatar2;
-        avatar3 = memoria.GetComponent<memoria>().avatar3;
+        avatar2 = memoria.avatar2;
+        avatar3 = memoria.avatar3;
 
 
-        totalcoins = memoria.GetComponent<memoria>().totalcoins;
+        totalcoins = memoria.totalcoins;
         if (punt == 0) // menu
         {
             playButton.SetActive(true);
@@ -72,6 +74,8 @@ public class cameraMenu : MonoBehaviour {
             select1T.SetActive(false);
             select2B.SetActive(false);
             select2T.SetActive(false);
+            select3B.SetActive(false);
+            select3T.SetActive(false);
 
         }
         else if (punt == 1) // avatar selection
@@ -84,9 +88,11 @@ public class cameraMenu : MonoBehaviour {
             lock3B.SetActive(!avatar3);
 
             select1B.SetActive(true);
-            select1T.SetActive(memoria.GetComponent<memoria>().playerSelect == 1);
+            select1T.SetActive(memoria.playerSelect == 1);
             select2B.SetActive(true);
-            select2T.SetActive(memoria.GetComponent<memoria>().playerSelect == 2);
+            select2T.SetActive(memoria.playerSelect == 2);
+            select3B.SetActive(true);
+            select3T.SetActive(memoria.playerSelect == 3);
 
 
         }
@@ -103,37 +109,11 @@ public class cameraMenu : MonoBehaviour {
             select1T.SetActive(false);
             select2B.SetActive(false);
             select2T.SetActive(false);
+            select3B.SetActive(false);
+            select3T.SetActive(false);
 
 
         }
-        /*
-        //punt == 0 TITLE MENU
-        if (Input.GetKey(KeyCode.Return) && punt == 0 && !inmove) {
-            punt = 1;
-            inmove = true;
-            dest = point2.transform.position;
-            lastTime = actualTime;
-        }
-
-        // punt == 1 Select Avatar
-        if (Input.GetKey(KeyCode.Return) && punt == 1 && !inmove)
-        {
-            punt = 2;
-            inmove = true;
-            dest = point3.transform.position;
-            lastTime = actualTime;
-
-        }
-
-        // punt == 2 Select Course
-        if (Input.GetKey(KeyCode.Return) && punt == 2 && !inmove)
-        {
-            punt = 0;
-            inmove = true;
-            dest = point1.transform.position;
-            lastTime = actualTime;
-
-        }*/
 
         //moure camera
         if (inmove)
@@ -144,8 +124,6 @@ public class cameraMenu : MonoBehaviour {
         }
 
         if (Input.GetKey(KeyCode.T)) SceneManager.LoadScene("scena1");
-
-        Debug.Log(memoria.GetComponent<memoria>().playerSelect);
         actualTime += Time.deltaTime;
 	}
 
@@ -182,8 +160,8 @@ public class cameraMenu : MonoBehaviour {
         { // desbloquejar 2n avatar
             if (totalcoins >= 50)
             {
-                memoria.GetComponent<memoria>().totalcoins -= 50;
-                memoria.GetComponent<memoria>().avatar2 = true;
+                memoria.totalcoins -= 50;
+                memoria.avatar2 = true;
                 // sonar unlock
             }
             else
@@ -196,8 +174,8 @@ public class cameraMenu : MonoBehaviour {
         { // desbloquejar 2n avatar
             if (totalcoins >= 1000)
             {
-                memoria.GetComponent<memoria>().totalcoins -= 1000;
-                memoria.GetComponent<memoria>().avatar3 = true;
+                memoria.totalcoins -= 1000;
+                memoria.avatar3 = true;
 
                 // sonar unlock
             }
@@ -212,11 +190,15 @@ public class cameraMenu : MonoBehaviour {
     {
         if (a == 1)
         {
-            memoria.GetComponent<memoria>().playerSelect = 1;
+            memoria.playerSelect = 1;
         }
         else if (a == 2 && avatar2)
         {
-            memoria.GetComponent<memoria>().playerSelect = 2;
+            memoria.playerSelect = 2;
+        }
+        else if (a == 3 && avatar3)
+        {
+            memoria.playerSelect = 3;
         }
     }
 }
