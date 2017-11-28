@@ -46,7 +46,7 @@ public class PlayerMove : MonoBehaviour {
     public int chunkRecord;
     // Use this for initialization
     void Start() {
-        speed = 13;
+        speed = 13; // 13
         enMoviment = false;
         direccio = frontDir;
         step = 12;
@@ -206,7 +206,7 @@ public class PlayerMove : MonoBehaviour {
         if (saltant) yPos = Mathf.Sin(tStep * Mathf.PI) * jumpDist;
 
         transform.position = Vector3.Lerp(srcPosition, dstPosition, tStep) + new Vector3(0, yPos, 0);
-        tStep += Time.deltaTime * 6f; // dura 1/6 segons
+        tStep += Time.deltaTime * 4.5f; // dura 1/6 segons
 
         if (transform.position.z == dstPosition.z && transform.position.x == dstPosition.x)
         {
@@ -257,7 +257,7 @@ public class PlayerMove : MonoBehaviour {
             else if (hit.collider.gameObject.tag == "mortal") reset();
         }
 
-        if (transform.position.z < cameraMain.GetComponent<cameraMove>().limitZ - 22) reset();
+        if (transform.position.z < cameraMain.GetComponent<cameraMove>().limitZ - 24) reset();
 
     }
 

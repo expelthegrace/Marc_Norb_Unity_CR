@@ -21,7 +21,7 @@ public class cameraMove : MonoBehaviour {
     
         offset = transform.position - player.transform.position;
         smoothTime = 0.3f;
-        velNivell = 0.4f;
+        velNivell = 0.9f;
         limitZIni = transform.position.z;
         limitZ = transform.position.z;
     }

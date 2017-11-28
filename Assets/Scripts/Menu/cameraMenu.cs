@@ -8,6 +8,10 @@ public class cameraMenu : MonoBehaviour {
     public GameObject playButton;
     public GameObject avatarButton;
 
+    public GameObject backButton;
+
+    public GameObject map1Button;
+
     public GameObject point1;
     public GameObject point2;
     public GameObject point3;
@@ -29,10 +33,33 @@ public class cameraMenu : MonoBehaviour {
         inmove = false;
         actualTime = 0f;
         lastTime = 0f;
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (punt == 0) // menu
+        {
+            playButton.SetActive(true);
+            avatarButton.SetActive(true);        
+            map1Button.SetActive(false);
+            backButton.SetActive(false);
+        }
+        else if (punt == 1) // avatar selection
+        {
+            playButton.SetActive(true);
+            avatarButton.SetActive(false);
+            map1Button.SetActive(false);
+            backButton.SetActive(true);
+        }
+        else if (punt == 2) // map selection
+        {
+            playButton.SetActive(false);
+            avatarButton.SetActive(true);
+            map1Button.SetActive(true);
+            backButton.SetActive(true);
+        }
 
         //punt == 0 TITLE MENU
         if (Input.GetKey(KeyCode.Return) && punt == 0 && !inmove) {
@@ -77,8 +104,7 @@ public class cameraMenu : MonoBehaviour {
 
     public void clickPlay()
     {
-        playButton.SetActive(false);
-        avatarButton.SetActive(true);
+
         punt = 2;
         inmove = true;
         dest = point3.transform.position;
@@ -86,11 +112,20 @@ public class cameraMenu : MonoBehaviour {
     }
     public void clickAvatar()
     {
-        playButton.SetActive(true);
-        avatarButton.SetActive(false);
         punt = 1;
         inmove = true;
         dest = point2.transform.position;
         lastTime = actualTime;
+    }
+    public void clickBack()
+    {
+        punt = 0;
+        inmove = true;
+        dest = point1.transform.position;
+        lastTime = actualTime;
+    }
+    public void loadLevel(int i)
+    {
+        if (i == 1) SceneManager.LoadScene("scena1");
     }
 }

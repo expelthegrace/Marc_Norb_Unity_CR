@@ -32,7 +32,7 @@ public class via : MonoBehaviour {
         float delay = Random.Range(1f, 4f);
         lastTren = delay;
         actualTime = 0f;
-        vel = 2.8f;
+        vel = 3f;
         
     }
 	
