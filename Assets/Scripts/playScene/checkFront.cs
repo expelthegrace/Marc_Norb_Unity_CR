@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class checkFront : MonoBehaviour {
 
+    public GameObject player;
     public bool wall;
 
 	// Use this for initialization
 	void Start () {
         wall = false;
+        
 	}
 	
-	// Update is called once per frame
-	void Update () {
-        
-    }
 
-    void OnTriggerEnter(Collider col)
+    void OnTriggerStay(Collider col)
     {
-        if (col.GetComponent<Collider>().tag == "wall") wall = true;
+        if (col.GetComponent<Collider>().tag == "wall")
+        {
+            player.GetComponent<PlayerMove>().wall = true;
+        }
     }
     void OnTriggerExit(Collider col)
     {
-        wall = false;
+        if (col.GetComponent<Collider>().tag == "wall")
+        {
+            player.GetComponent<PlayerMove>().wall = false;
+        }
     }
 }

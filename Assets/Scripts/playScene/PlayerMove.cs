@@ -92,7 +92,7 @@ public class PlayerMove : MonoBehaviour {
         if (Input.GetKey(KeyCode.UpArrow) && !enMoviment)
         {   // si no hi ha una paret
 
-            if (!Physics.Raycast(transform.position + new Vector3(0, 3, 0), Vector3.forward, out hit, step + step / 3) || hit.collider.gameObject.tag != "wall" && !checkFront.GetComponent<checkFront>().wall)
+            if ((!Physics.Raycast(transform.position + new Vector3(0, 3, 0), Vector3.forward, out hit, step + step / 3) ||hit.collider.gameObject.tag != "wall") && !wall)
             {
                 if (direccio != frontDir)
                 {
@@ -272,15 +272,15 @@ public class PlayerMove : MonoBehaviour {
     {
         if (collision.transform.tag == "mortal") reset();
 
-        if (collision.GetComponent<Collider>().tag == "wall")
+        /*if (collision.GetComponent<Collider>().tag == "wall")
         {
             wall = true;
-        }
+        }*/
 
     }
     void OnTriggerExit(Collider col)
     {
-        wall = false;
+        //wall = false;
     }
 }
 
