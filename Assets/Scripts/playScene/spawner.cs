@@ -57,7 +57,7 @@ public class spawner : MonoBehaviour {
         int r = Random.Range(0, 120);
 
         if (r > 100) altern = lastChunk;
-        else if (r < Mathf.Max(100 - chunkLinea * 2f, 40)) altern = 0; // grass
+        else if (r < Mathf.Max(120 - chunkLinea * 3.2f, 40)) altern = 0; // grass
         else if (r < 58) altern = 2; // tren
         else if (r < 82) altern = 3; // water     
         else altern = 1; // road

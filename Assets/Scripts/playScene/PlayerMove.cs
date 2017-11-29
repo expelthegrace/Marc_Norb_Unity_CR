@@ -75,14 +75,15 @@ public class PlayerMove : MonoBehaviour {
             landed = true;
             transform.rotation = Quaternion.LookRotation(frontDir);
             direccio = frontDir;
-            transform.position = respawn.transform.position;
-            mort = true;*/
+            transform.position = respawn.transform.position;*/
+            mort = true;
             
             memoria.GetComponent<memoria>().totalcoins += GetComponent<playerCoin>().coins;
             GetComponent<playerCoin>().coins = 0;
             memoria.GetComponent<memoria>().best1 = Mathf.Max(memoria.GetComponent<memoria>().best1, chunkRecord);
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
+            //Debug.Break();
             SceneManager.LoadScene("scena1");
             
             chunkRecord = 0;
@@ -243,47 +244,49 @@ public class PlayerMove : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G)) god = !god;  // per ferse inmortal
-        
-
-        chunkRecord = Mathf.Max((int)transform.position.z / (int)step, chunkRecord);
-       
-        // orientar el player i comprovar obstacles
-        orientar();
-        // moure/saltar player step by step
-        if (enMoviment || intronc) moure();
-        
-        // raig que detecta el terra al aterrar d'un salt i ubica en Y el player
-        dist = 10f;
-        //Debug.DrawRay(transform.position + new Vector3(0, 10, 0), -Vector3.up, Color.green,dist);
-        if (Physics.Raycast(transform.position+ new Vector3 (0,5,0), -Vector3.up, out hit, dist) && landed)
+        if (!mort)
         {
-            if (hit.collider.gameObject.tag == "Terra")
+            if (Input.GetKeyDown(KeyCode.G)) god = !god;  // per ferse inmortal
+
+
+            chunkRecord = Mathf.Max((int)transform.position.z / (int)step, chunkRecord);
+
+            // orientar el player i comprovar obstacles
+            orientar();
+            // moure/saltar player step by step
+            if (enMoviment || intronc) moure();
+
+            // raig que detecta el terra al aterrar d'un salt i ubica en Y el player
+            dist = 10f;
+            //Debug.DrawRay(transform.position + new Vector3(0, 10, 0), -Vector3.up, Color.green,dist);
+            if (Physics.Raycast(transform.position + new Vector3(0, 5, 0), -Vector3.up, out hit, dist) && landed)
             {
-                intronc = false;
-                saltant = false;
-                landed = false;
-                transform.position = new Vector3(transform.position.x, hit.collider.bounds.max.y, transform.position.z);
+                if (hit.collider.gameObject.tag == "Terra")
+                {
+                    intronc = false;
+                    saltant = false;
+                    landed = false;
+                    transform.position = new Vector3(transform.position.x, hit.collider.bounds.max.y, transform.position.z);
+                }
+                else if (hit.collider.gameObject.tag == "tronc")
+                {
+                    saltant = false;
+                    landed = false;
+                    transform.position = new Vector3(transform.position.x, hit.collider.bounds.max.y, transform.position.z);
+                    intronc = true;
+                    tronc = hit.collider.transform;
+                    troncOffset = transform.position.x - tronc.position.x;
+                    //Debug.Log("tronc");
+                }
+                else if (hit.collider.gameObject.tag == "water")
+                {
+                    StartCoroutine(reset());
+                }
+
             }
-            else if (hit.collider.gameObject.tag == "tronc")
-            {
-                saltant = false;
-                landed = false;
-                transform.position = new Vector3(transform.position.x, hit.collider.bounds.max.y, transform.position.z);
-                intronc = true;
-                tronc = hit.collider.transform;
-                troncOffset = transform.position.x - tronc.position.x;
-                //Debug.Log("tronc");
-            }
-            else if (hit.collider.gameObject.tag == "water")
-            {
-                StartCoroutine(reset());
-            }
-      
+
+            if (transform.position.z < cameraMain.GetComponent<cameraMove>().limitZ - 24) StartCoroutine(reset());
         }
-
-        if (transform.position.z < cameraMain.GetComponent<cameraMove>().limitZ - 24) StartCoroutine(reset());
-
     }
 
     void OnTriggerEnter(Collider collision)
@@ -292,11 +295,14 @@ public class PlayerMove : MonoBehaviour {
         {
             atropA.Play();
             StartCoroutine(reset());
-            transform.localScale += new Vector3(0, -2, 0);
+            transform.localScale += new Vector3(0, -1.2f, 0);
         }
         else if (collision.transform.tag == "tren")
         {
+            atropA.Play();
             StartCoroutine(reset());
+            transform.localScale += new Vector3(0, -1.2f, 0);
+
         }
 
 
