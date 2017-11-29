@@ -5,6 +5,7 @@ using UnityEngine;
 public class playerCoin : MonoBehaviour {
 
     public int coins;
+    public AudioSource coinA;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +21,7 @@ public class playerCoin : MonoBehaviour {
     {
         if (col.tag == "moneda")
         {
+            coinA.Play();
             Destroy(col.gameObject);
             coins += 1;
         }

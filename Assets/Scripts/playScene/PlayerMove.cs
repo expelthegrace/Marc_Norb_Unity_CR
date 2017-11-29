@@ -7,6 +7,8 @@ public class PlayerMove : MonoBehaviour {
 
     private GameObject memoria;
     public GameObject respawn;
+    public AudioSource saltA;
+    public AudioSource atropA;
 
     public float speed;
     public float offset = 0.1f;
@@ -44,6 +46,8 @@ public class PlayerMove : MonoBehaviour {
 
     public float dstX;
     public int chunkRecord;
+
+  
     // Use this for initialization
     void Start() {
         speed = 13; // 13
@@ -61,23 +65,24 @@ public class PlayerMove : MonoBehaviour {
         memoria.GetComponent<memoria>().pantalla = 1;
     }
 
-    void reset()
+    IEnumerator reset()
     {
         if (!god)
         { 
-            intronc = false;
+            /*intronc = false;
             enMoviment = false;
             saltant = false;
             landed = true;
             transform.rotation = Quaternion.LookRotation(frontDir);
             direccio = frontDir;
             transform.position = respawn.transform.position;
-            mort = true;
-            // ^^ eliminable si no godmode
+            mort = true;*/
             
             memoria.GetComponent<memoria>().totalcoins += GetComponent<playerCoin>().coins;
             GetComponent<playerCoin>().coins = 0;
             memoria.GetComponent<memoria>().best1 = Mathf.Max(memoria.GetComponent<memoria>().best1, chunkRecord);
+
+            yield return new WaitForSeconds(1);
             SceneManager.LoadScene("scena1");
             
             chunkRecord = 0;
@@ -111,6 +116,7 @@ public class PlayerMove : MonoBehaviour {
                 yPos = transform.position.y;
                 saltant = true;
                 enMoviment = true;
+                saltA.Play();
             }
             else
             {
@@ -140,6 +146,8 @@ public class PlayerMove : MonoBehaviour {
                 yPos = transform.position.y;
                 saltant = true;
                 enMoviment = true;
+                saltA.Play();
+
             }
             else
             {
@@ -168,6 +176,8 @@ public class PlayerMove : MonoBehaviour {
                 yPos = transform.position.y;
                 saltant = true;
                 enMoviment = true;
+                saltA.Play();
+
 
             }
             else
@@ -197,6 +207,8 @@ public class PlayerMove : MonoBehaviour {
                 yPos = transform.position.y;
                 saltant = true;
                 enMoviment = true;
+                saltA.Play();
+
             }
             else
             {
@@ -205,6 +217,8 @@ public class PlayerMove : MonoBehaviour {
             }
 
         }
+
+        
     }
 
     void moure()
@@ -261,16 +275,30 @@ public class PlayerMove : MonoBehaviour {
                 troncOffset = transform.position.x - tronc.position.x;
                 //Debug.Log("tronc");
             }
-            else if (hit.collider.gameObject.tag == "mortal") reset();
+            else if (hit.collider.gameObject.tag == "water")
+            {
+                StartCoroutine(reset());
+            }
+      
         }
 
-        if (transform.position.z < cameraMain.GetComponent<cameraMove>().limitZ - 24) reset();
+        if (transform.position.z < cameraMain.GetComponent<cameraMove>().limitZ - 24) StartCoroutine(reset());
 
     }
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.transform.tag == "mortal") reset();
+        if (collision.transform.tag == "cotxe")
+        {
+            atropA.Play();
+            StartCoroutine(reset());
+            transform.localScale += new Vector3(0, -2, 0);
+        }
+        else if (collision.transform.tag == "tren")
+        {
+            StartCoroutine(reset());
+        }
+
 
         /*if (collision.GetComponent<Collider>().tag == "wall")
         {

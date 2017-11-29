@@ -7,9 +7,15 @@ public class deleteChunk : MonoBehaviour {
     private GameObject cameraMain;
     private memoria memoria;
 
+    void Awake()
+    {
+        cameraMain = GameObject.Find("Main Camera");
+        Debug.Log(cameraMain);
+    }
+
 	// Use this for initialization
 	void Start () {
-        cameraMain = GameObject.Find("Main Camera");
+
         memoria = GameObject.Find("Memoria").GetComponent<memoria>();
 	}
 	

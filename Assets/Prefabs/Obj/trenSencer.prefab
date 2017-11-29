@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 54119679346444796}
   m_Layer: 0
   m_Name: trenSencer
-  m_TagString: mortal
+  m_TagString: tren
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

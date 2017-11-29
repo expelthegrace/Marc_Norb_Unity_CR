@@ -10,6 +10,9 @@ TagManager:
   - wall
   - tronc
   - moneda
+  - cotxe
+  - water
+  - tren
   layers:
   - Default
   - TransparentFX

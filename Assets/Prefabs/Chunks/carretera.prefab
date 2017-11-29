@@ -74,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1400704828806948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 127.14781, y: 230.16675, z: -252.72066}
   m_LocalScale: {x: 360, y: 0.6699203, z: 12}
   m_Children:
   - {fileID: 4825813697714414}
@@ -283,7 +283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1d73fc28937244da72160391a9bb01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cotxe: {fileID: 1150233294627290, guid: 17a3bde1464939b40871af821ba251c3, type: 2}
+  cotxe: {fileID: 1620441833719602, guid: 6fe1f541cf56c514f94945478bd0b10a, type: 2}
+  van: {fileID: 1156871086243976, guid: db1e0a34c6b902a498297384174c824a, type: 2}
   freq: 0
   vel: 0
   actualTime: 0
