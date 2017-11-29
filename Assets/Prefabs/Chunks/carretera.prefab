@@ -75,7 +75,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1400704828806948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 59.44958, y: 95.72814, z: -69.6448}
+  m_LocalPosition: {x: 49.85672, y: 56.202927, z: -67.78474}
   m_LocalScale: {x: 360, y: 0.6699203, z: 12}
   m_Children:
   - {fileID: 4825813697714414}
@@ -280,10 +280,10 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
+  DopplerLevel: 0
+  MinDistance: 5
+  MaxDistance: 503.19
+  Pan2D: 0.5
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
@@ -311,7 +311,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0.95
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -323,7 +323,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0.06111111
+      value: 0.27222222
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -372,3 +372,4 @@ MonoBehaviour:
   lastCar: 0
   costat: 0
   Pgas: 0
+  Ptunak: 0
