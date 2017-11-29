@@ -47,6 +47,11 @@ public class PlayerMove : MonoBehaviour {
     public float dstX;
     public int chunkRecord;
 
+    private bool comprimirLow;
+    private bool comprimirHi;
+    private float scaleIni;
+    private float scaleFinal;
+
   
     // Use this for initialization
     void Start() {
@@ -63,6 +68,10 @@ public class PlayerMove : MonoBehaviour {
         god = false;
         memoria = GameObject.Find("Memoria");
         memoria.GetComponent<memoria>().pantalla = 1;
+        comprimirLow = false;
+        comprimirHi = false;
+        scaleIni = transform.localScale.y;
+        scaleFinal = scaleIni - 0.15f;
     }
 
     IEnumerator reset()
@@ -233,6 +242,7 @@ public class PlayerMove : MonoBehaviour {
         {
             enMoviment = false;
             landed = true;
+            comprimirLow = true;
         }
         if (intronc && !saltant)
         {
@@ -247,8 +257,30 @@ public class PlayerMove : MonoBehaviour {
         if (!mort)
         {
             if (Input.GetKeyDown(KeyCode.G)) god = !god;  // per ferse inmortal
-
-
+                                                          // comprimir el player al caure
+            float scaleF = 0.11f;
+            if (comprimirLow)
+            {
+                
+                transform.localScale += new Vector3(0, -scaleF, 0);           
+                if (transform.localScale.y <= scaleFinal)
+                {
+                    transform.localScale = new Vector3(transform.localScale.x, scaleFinal, transform.localScale.z);
+                    comprimirHi = true;
+                    comprimirLow = false;
+                }
+            }
+           else if (comprimirHi)
+            {
+                
+                transform.localScale += new Vector3(0, scaleF, 0);             
+                if (transform.localScale.y >= scaleIni)
+                {
+                    transform.localScale = new Vector3(transform.localScale.x, scaleIni, transform.localScale.z);
+                    comprimirHi = false;
+                }
+            }
+            
             chunkRecord = Mathf.Max((int)transform.position.z / (int)step, chunkRecord);
 
             // orientar el player i comprovar obstacles
