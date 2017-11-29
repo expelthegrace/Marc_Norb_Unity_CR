@@ -1502,6 +1502,11 @@ Prefab:
       propertyPath: m_Name
       value: CameraMenu1
       objectReference: {fileID: 0}
+    - target: {fileID: 81638777443032552, guid: d808fcf80ad5e6746a3fbd8dbac987f7,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114378818075896312, guid: d808fcf80ad5e6746a3fbd8dbac987f7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d808fcf80ad5e6746a3fbd8dbac987f7, type: 2}
@@ -3404,7 +3409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -191.00005, y: 113.00001}
+  m_AnchoredPosition: {x: -191.00002, y: 113.00001}
   m_SizeDelta: {x: -487.76126, y: -234.06331}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &895400647

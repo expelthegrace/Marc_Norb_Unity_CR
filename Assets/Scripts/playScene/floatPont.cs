@@ -56,7 +56,6 @@ public class floatPont : MonoBehaviour
     {
         if (collision.transform.tag == "Player" && !simulate)
         {
-            Debug.Log("tronc player");
             simulate = true;
             tStep = 0f;
             Ysrc = Yini;

@@ -35,7 +35,6 @@ public class grass : MonoBehaviour {
                     Instantiate(moneda, inipos, Quaternion.Euler(0, 0, 0), GameObject.Find("Monedes").transform);
                 }
             }
-            else Debug.Log("salvens");
         }
     }
 

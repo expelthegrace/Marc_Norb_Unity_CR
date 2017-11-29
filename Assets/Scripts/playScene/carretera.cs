@@ -72,6 +72,8 @@ public class carretera : MonoBehaviour {
 
         }
 
+
+
         freq = Random.Range(3f, 5f);
 
         actualTime += Time.deltaTime;

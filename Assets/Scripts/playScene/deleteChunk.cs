@@ -10,7 +10,6 @@ public class deleteChunk : MonoBehaviour {
     void Awake()
     {
         cameraMain = GameObject.Find("Main Camera");
-        Debug.Log(cameraMain);
     }
 
 	// Use this for initialization
@@ -23,7 +22,6 @@ public class deleteChunk : MonoBehaviour {
 	void Update () {
         if (memoria.pantalla != 0 && cameraMain.transform.position.z - 12*2 > transform.position.z)
         {
-            Debug.Log("elim");
             Destroy(gameObject);
         }
     }

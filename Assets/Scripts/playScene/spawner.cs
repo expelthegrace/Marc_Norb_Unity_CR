@@ -47,8 +47,7 @@ public class spawner : MonoBehaviour {
         // ficar el best
         if (memoria.GetComponent<memoria>().best1 > 0 && memoria.GetComponent<memoria>().best1 == chunkLinea)
         {
-            Debug.Log("aa");
-            //Debug.Break();
+
             Instantiate(bestObj, new Vector3(0, 8, linea), bestObj.transform.rotation, transform);
 
         }

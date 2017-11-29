@@ -15,6 +15,11 @@ public class water : MonoBehaviour {
     public float delay;
     public float speedup;
 
+    public float amplitude;
+    public float speed;
+    private float Yini;
+    private float offset;
+
     private List<GameObject> ponts;
 
     // Use this for initialization
@@ -27,6 +32,10 @@ public class water : MonoBehaviour {
         step = 12;
         ponts = new List<GameObject>();
         speedup = 0f;
+        speed = 0.3f;
+        amplitude = 1f;
+        Yini = 0;
+
     }
 	
 	// Update is called once per frame
@@ -61,8 +70,9 @@ public class water : MonoBehaviour {
 
         }
 
-
-
+        // moure aigua
+        offset = Yini + amplitude * Mathf.Sin(speed * actualTime);
+        GetComponent<Renderer>().material.mainTextureOffset = new Vector2(offset, 0f);
         actualTime += Time.deltaTime;
     }
 }
