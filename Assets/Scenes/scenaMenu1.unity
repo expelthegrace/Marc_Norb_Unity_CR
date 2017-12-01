@@ -1524,7 +1524,8 @@ Prefab:
       propertyPath: m_Name
       value: water (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000565692782784, guid: 6b09b2415f360c0469a19b44c065a261, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6b09b2415f360c0469a19b44c065a261, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &429707902
@@ -2676,7 +2677,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114067452415278514, guid: ba66e7858883c564a9bf280444206def, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ba66e7858883c564a9bf280444206def, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &783781160
@@ -3829,7 +3831,8 @@ Prefab:
       propertyPath: m_Name
       value: carretera (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114067452415278514, guid: ba66e7858883c564a9bf280444206def, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ba66e7858883c564a9bf280444206def, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1174905875
@@ -5926,7 +5929,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000565692782784, guid: 6b09b2415f360c0469a19b44c065a261, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6b09b2415f360c0469a19b44c065a261, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1794104863
