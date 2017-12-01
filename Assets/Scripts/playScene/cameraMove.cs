@@ -26,11 +26,7 @@ public class cameraMove : MonoBehaviour {
         limitZ = transform.position.z;
     }
     
-	void Reset()
-    {
-        transform.position = player.transform.position + offset - new Vector3(0, player.transform.position.y, 0);
-        limitZ = limitZIni;
-    }
+	
 	// Update is called once per frame
 	void Update () {
         nextPos = Vector3.SmoothDamp(transform.position, player.transform.position + offset - new Vector3(0, player.transform.position.y, 0), ref velSmooth, smoothTime);
@@ -40,8 +36,7 @@ public class cameraMove : MonoBehaviour {
 
         if (player.GetComponent<PlayerMove>().mort == true)
         {
-            Reset();
-            player.GetComponent<PlayerMove>().mort = false;
+            int a = 3;
         }
 
         if (Input.GetKey(KeyCode.T)) SceneManager.LoadScene("scenaMenu1");

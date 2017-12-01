@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114143446730562254}
   - component: {fileID: 114101830935574174}
   - component: {fileID: 82442012091601396}
+  - component: {fileID: 114637967551350794}
   m_Layer: 0
   m_Name: car
   m_TagString: cotxe
@@ -160,8 +161,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 0
-  MinDistance: 3
-  MaxDistance: 500
+  MinDistance: 2
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -244,3 +245,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4374d5b85c8c86c4085e27e9d46b30a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114637967551350794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1620441833719602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092b1cc622181754b92f7650a5bcaaf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  Yini: 0
+  amplitude: 0

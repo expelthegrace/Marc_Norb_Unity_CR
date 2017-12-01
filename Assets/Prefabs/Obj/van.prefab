@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 54721179218294216}
   - component: {fileID: 65618337720080416}
   - component: {fileID: 82587671047656514}
+  - component: {fileID: 114323639991763078}
   m_Layer: 0
   m_Name: van
   m_TagString: cotxe
@@ -160,7 +161,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 0
-  MinDistance: 3
+  MinDistance: 2
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -232,6 +233,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4374d5b85c8c86c4085e27e9d46b30a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114323639991763078
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1156871086243976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092b1cc622181754b92f7650a5bcaaf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  Yini: 0
+  amplitude: 0
 --- !u!114 &114831074687243296
 MonoBehaviour:
   m_ObjectHideFlags: 1

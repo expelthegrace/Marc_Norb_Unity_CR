@@ -9,6 +9,7 @@ public class PlayerMove : MonoBehaviour {
     public GameObject respawn;
     public AudioSource saltA;
     public AudioSource atropA;
+    public AudioSource woodA;
 
     public float speed;
     public float offset = 0.1f;
@@ -17,7 +18,7 @@ public class PlayerMove : MonoBehaviour {
     public float jumpDist; 
     public bool saltant;
     public bool landed;
-    private bool intronc;
+    public bool intronc;
     private GameObject checkFront;
     public GameObject cameraMain;
 
@@ -55,6 +56,7 @@ public class PlayerMove : MonoBehaviour {
   
     // Use this for initialization
     void Start() {
+
         speed = 13; // 13
         enMoviment = false;
         direccio = frontDir;
@@ -291,7 +293,8 @@ public class PlayerMove : MonoBehaviour {
             // raig que detecta el terra al aterrar d'un salt i ubica en Y el player
             dist = 10f;
             //Debug.DrawRay(transform.position + new Vector3(0, 10, 0), -Vector3.up, Color.green,dist);
-            if (Physics.Raycast(transform.position + new Vector3(0, 5, 0), -Vector3.up, out hit, dist) && landed)
+           
+            if (landed && Physics.Raycast(transform.position + new Vector3(0, 5, 0), -Vector3.up, out hit, dist))
             {
                 if (hit.collider.gameObject.tag == "Terra")
                 {
@@ -303,12 +306,14 @@ public class PlayerMove : MonoBehaviour {
                 else if (hit.collider.gameObject.tag == "tronc")
                 {
                     saltant = false;
+                    
                     landed = false;
                     transform.position = new Vector3(transform.position.x, hit.collider.bounds.max.y, transform.position.z);
                     intronc = true;
                     tronc = hit.collider.transform;
                     troncOffset = transform.position.x - tronc.position.x;
-                    //Debug.Log("tronc");
+                   
+                   
                 }
                 else if (hit.collider.gameObject.tag == "water")
                 {
@@ -334,7 +339,11 @@ public class PlayerMove : MonoBehaviour {
             atropA.Play();
             StartCoroutine(reset());
             transform.localScale += new Vector3(0, -1.2f, 0);
+        }
 
+        else if (collision.transform.tag == "tronc")
+        {
+            woodA.Play();
         }
 
 
