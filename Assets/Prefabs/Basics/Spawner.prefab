@@ -53,10 +53,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   grass1: {fileID: 1193498591278530, guid: d2a58981669b09946bc1cfdcc01595ca, type: 2}
+  grass2: {fileID: 1193498591278530, guid: 8acdbb090f213c24da1d3bfcc73107cd, type: 2}
   water: {fileID: 1813589766794556, guid: 6b09b2415f360c0469a19b44c065a261, type: 2}
   carretera1: {fileID: 1400704828806948, guid: ba66e7858883c564a9bf280444206def, type: 2}
   viaa: {fileID: 1078484343732122, guid: 4e1265b3fe98b2740b4a5f3920cbef87, type: 2}
   bestObj: {fileID: 1077253251690366, guid: 8fcfa63e81042f541ad9182916126314, type: 2}
+  grassDecider: 0
   step: 0
   altern: 0
   linea: 0
