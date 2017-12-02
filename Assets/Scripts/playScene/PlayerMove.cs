@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour {
     public AudioSource saltA;
     public AudioSource atropA;
     public AudioSource woodA;
+    public AudioSource splashA;
 
     public float speed;
     public float offset = 0.1f;
@@ -317,6 +318,7 @@ public class PlayerMove : MonoBehaviour {
                 }
                 else if (hit.collider.gameObject.tag == "water")
                 {
+                    splashA.Play();
                     StartCoroutine(reset());
                 }
 
