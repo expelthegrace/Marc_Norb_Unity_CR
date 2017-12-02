@@ -20,7 +20,7 @@ public class deleteChunk : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (memoria.pantalla != 0 && cameraMain.transform.position.z - 12*2 > transform.position.z)
+        if (memoria.pantalla != 0 && cameraMain.transform.position.z - 12 > transform.position.z)
         {
             Destroy(gameObject);
         }

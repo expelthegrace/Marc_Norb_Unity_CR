@@ -14,7 +14,7 @@ public class bestSurface : MonoBehaviour {
         espai = 8;
         if (Physics.Raycast(transform.position + new Vector3(0, 0, 0), -Vector3.up, out hit, 30))
         {
-            if (hit.collider.gameObject.tag == "Terra" || hit.collider.gameObject.tag == "mortal")
+            if (hit.collider.gameObject.tag == "Terra" || hit.collider.gameObject.tag == "mortal" || hit.collider.gameObject.tag == "water")
             {
 
                 transform.position = new Vector3(transform.position.x, hit.collider.bounds.max.y + 1, transform.position.z-4);
@@ -24,6 +24,7 @@ public class bestSurface : MonoBehaviour {
 
                 transform.position = new Vector3(transform.position.x, hit.collider.bounds.min.y + GetComponent<Collider>().bounds.size.y + 1, transform.position.z - 4);
             }
+            
         }
         dreta = GetComponent<Collider>().bounds.max.x + espai;
         for (int i = 0; i < 30; ++i)

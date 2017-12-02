@@ -420,10 +420,35 @@ Prefab:
       propertyPath: cameraMain
       value: 
       objectReference: {fileID: 102788962}
-    - target: {fileID: 82570649465737002, guid: 709a05077ff01504697fbd2411431101,
+    - target: {fileID: 198526873464814824, guid: 709a05077ff01504697fbd2411431101,
         type: 2}
-      propertyPath: m_Volume
-      value: 0.47
+      propertyPath: InitialModule.maxNumParticles
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198526873464814824, guid: 709a05077ff01504697fbd2411431101,
+        type: 2}
+      propertyPath: randomSeed
+      value: 426687787
+      objectReference: {fileID: 0}
+    - target: {fileID: 198526873464814824, guid: 709a05077ff01504697fbd2411431101,
+        type: 2}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 198526873464814824, guid: 709a05077ff01504697fbd2411431101,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198526873464814824, guid: 709a05077ff01504697fbd2411431101,
+        type: 2}
+      propertyPath: ShapeModule.radius.value
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 198526873464814824, guid: 709a05077ff01504697fbd2411431101,
+        type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 709a05077ff01504697fbd2411431101, type: 2}
