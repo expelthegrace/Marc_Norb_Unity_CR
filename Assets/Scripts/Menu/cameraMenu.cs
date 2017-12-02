@@ -9,6 +9,9 @@ public class cameraMenu : MonoBehaviour {
     private memoria memoria;
     public GameObject playButton;
     public GameObject avatarButton;
+    public GameObject dashA;
+    public GameObject cachingA;
+    public GameObject selectA;
 
     public GameObject backButton;
 
@@ -133,7 +136,7 @@ public class cameraMenu : MonoBehaviour {
 
     public void clickPlay()
     {
-
+        dashA.GetComponent<AudioSource>().Play();
         punt = 2;
         inmove = true;
         dest = point3.transform.position;
@@ -141,6 +144,7 @@ public class cameraMenu : MonoBehaviour {
     }
     public void clickAvatar()
     {
+        dashA.GetComponent<AudioSource>().Play();
         punt = 1;
         inmove = true;
         dest = point2.transform.position;
@@ -148,6 +152,7 @@ public class cameraMenu : MonoBehaviour {
     }
     public void clickBack()
     {
+        dashA.GetComponent<AudioSource>().Play();
         punt = 0;
         inmove = true;
         dest = point1.transform.position;
@@ -168,9 +173,9 @@ public class cameraMenu : MonoBehaviour {
         { // desbloquejar 2n avatar
             if (totalcoins >= 50)
             {
+                cachingA.GetComponent<AudioSource>().Play();
                 memoria.totalcoins -= 50;
                 memoria.avatar2 = true;
-                // sonar unlock
             }
             else
             {
@@ -182,10 +187,10 @@ public class cameraMenu : MonoBehaviour {
         { // desbloquejar 2n avatar
             if (totalcoins >= 1000)
             {
+                cachingA.GetComponent<AudioSource>().Play();
                 memoria.totalcoins -= 1000;
                 memoria.avatar3 = true;
 
-                // sonar unlock
             }
             else
             {
@@ -196,16 +201,20 @@ public class cameraMenu : MonoBehaviour {
 
     public void selectAvatar(int a)
     {
+        
         if (a == 1)
         {
+            selectA.GetComponent<AudioSource>().Play();
             memoria.playerSelect = 1;
         }
         else if (a == 2 && avatar2)
         {
+            selectA.GetComponent<AudioSource>().Play();
             memoria.playerSelect = 2;
         }
         else if (a == 3 && avatar3)
         {
+            selectA.GetComponent<AudioSource>().Play();
             memoria.playerSelect = 3;
         }
     }
