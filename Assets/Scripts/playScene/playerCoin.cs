@@ -23,6 +23,7 @@ public class playerCoin : MonoBehaviour {
         {
             coinA.Play();
             Destroy(col.gameObject);
+            
             coins += 1;
         }
        
