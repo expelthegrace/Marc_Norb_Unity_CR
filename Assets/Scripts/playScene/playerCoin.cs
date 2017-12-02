@@ -22,7 +22,7 @@ public class playerCoin : MonoBehaviour {
         if (col.tag == "moneda")
         {
             coinA.Play();
-            Destroy(col.gameObject);
+            Destroy(col.gameObject,0.1f);
             
             coins += 1;
         }
