@@ -19,7 +19,7 @@ public class carretera : MonoBehaviour {
     // Use this for initialization
     void Start () {
         costat = Random.Range(0, 2);
-        freq = Random.Range(3f, 5f);
+        freq = Random.Range(4f, 5.5f);
         lastCar = -freq;
         actualTime = 0f;
         vel = Random.Range(0.3f, 0.6f);
@@ -74,7 +74,7 @@ public class carretera : MonoBehaviour {
 
 
 
-        freq = Random.Range(3f, 5f);
+        freq = Random.Range(4f, 5.5f);
 
         actualTime += Time.deltaTime;
 	}
