@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class rotateObj : MonoBehaviour {
     public float velRot;
+
     // Use this for initialization
     void Start () {
         velRot = 0.7f;

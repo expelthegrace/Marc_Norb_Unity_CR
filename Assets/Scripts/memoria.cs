@@ -31,7 +31,7 @@ public class memoria : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        totalcoins = 2000;
+        totalcoins = 100;
         playerSelect = 1; // borrar
         best1 = 0;
     }

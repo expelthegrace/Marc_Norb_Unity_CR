@@ -12,6 +12,7 @@ public class cameraMenu : MonoBehaviour {
     public GameObject dashA;
     public GameObject cachingA;
     public GameObject selectA;
+    public GameObject nopeA;
 
     public GameObject backButton;
 
@@ -179,7 +180,7 @@ public class cameraMenu : MonoBehaviour {
             }
             else
             {
-
+                nopeA.GetComponent<AudioSource>().Play();
             }
         }
 
@@ -194,6 +195,7 @@ public class cameraMenu : MonoBehaviour {
             }
             else
             {
+                nopeA.GetComponent<AudioSource>().Play();
 
             }
         }

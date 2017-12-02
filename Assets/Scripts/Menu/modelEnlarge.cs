@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class modelEnlarge : MonoBehaviour {
-
+    public GameObject cameraMenu;
     public float scaleF;
-	// Use this for initialization
-	void Start () {
+    private GameObject pipA;
+    // Use this for initialization
+    void Start () {
         scaleF = 0.5f;
+        pipA = GameObject.Find("pipA");
+        
 	}
 	
 	// Update is called once per frame
@@ -17,6 +20,7 @@ public class modelEnlarge : MonoBehaviour {
 
     void OnMouseEnter()
     {
+        if (cameraMenu.GetComponent<cameraMenu>().punt == 1)  pipA.GetComponent<AudioSource>().Play();
         Debug.Log("ensima el ratooon");
         transform.localScale += new Vector3(scaleF, scaleF, scaleF);
     }
