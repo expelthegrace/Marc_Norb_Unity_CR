@@ -26,23 +26,17 @@ public class cameraMove : MonoBehaviour {
         limitZ = transform.position.z;
     }
     
-	void Reset()
-    {
-        transform.position = player.transform.position + offset - new Vector3(0, player.transform.position.y, 0);
-        limitZ = limitZIni;
-    }
+	
 	// Update is called once per frame
 	void Update () {
-        nextPos = Vector3.SmoothDamp(transform.position, player.transform.position + offset - new Vector3(0, player.transform.position.y, 0), ref velSmooth, smoothTime);
-        transform.position = new Vector3(Mathf.Max(Mathf.Min(nextPos.x, limitCamera.transform.position.x), -limitCamera.transform.position.x + 40), nextPos.y, Mathf.Max(nextPos.z, limitZ));
-
-        limitZ = Mathf.Max(limitZ + velNivell * 0.1f,transform.position.z);
-
-        if (player.GetComponent<PlayerMove>().mort == true)
+        if (!player.GetComponent<PlayerMove>().mort)
         {
-            Reset();
-        }
+            nextPos = Vector3.SmoothDamp(transform.position, player.transform.position + offset - new Vector3(0, player.transform.position.y, 0), ref velSmooth, smoothTime);
+            transform.position = new Vector3(Mathf.Max(Mathf.Min(nextPos.x, limitCamera.transform.position.x), -limitCamera.transform.position.x + 40), nextPos.y, Mathf.Max(nextPos.z, limitZ));
 
-        if (Input.GetKey(KeyCode.T)) SceneManager.LoadScene("scenaMenu1");
+            limitZ = Mathf.Max(limitZ + velNivell * 0.1f, transform.position.z);
+
+            if (Input.GetKey(KeyCode.T)) SceneManager.LoadScene("scenaMenu1"); // borrar
+        }
     }
 }

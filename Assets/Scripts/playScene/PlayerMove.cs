@@ -28,6 +28,8 @@ public class PlayerMove : MonoBehaviour {
 
     public bool wall;
     public bool mort;
+    public bool mortCanvas;
+    public bool ofegat;
 
     private Vector3 frontDir = new Vector3(0, 0, 1);
     private Vector3 leftDir  = new Vector3(-1, 0, 0);
@@ -53,6 +55,8 @@ public class PlayerMove : MonoBehaviour {
     private bool comprimirHi;
     private float scaleIni;
     private float scaleFinal;
+    private float g;
+    private float fallV;
 
   
     // Use this for initialization
@@ -75,29 +79,24 @@ public class PlayerMove : MonoBehaviour {
         comprimirHi = false;
         scaleIni = transform.localScale.y;
         scaleFinal = scaleIni - 0.15f;
+        ofegat = false;
+        fallV = 0f;
+        mortCanvas = mort;
+        g = 0.5f;
     }
 
     IEnumerator reset()
     {
         if (!god)
-        { 
-            /*intronc = false;
-            enMoviment = false;
-            saltant = false;
-            landed = true;
-            transform.rotation = Quaternion.LookRotation(frontDir);
-            direccio = frontDir;
-            transform.position = respawn.transform.position;*/
+        {
             mort = true;
-            
             memoria.GetComponent<memoria>().totalcoins += GetComponent<playerCoin>().coins;
             GetComponent<playerCoin>().coins = 0;
             memoria.GetComponent<memoria>().best1 = Mathf.Max(memoria.GetComponent<memoria>().best1, chunkRecord);
 
-            yield return new WaitForSeconds(2);
-            //Debug.Break();
-            SceneManager.LoadScene("scena1");
-            
+            yield return new WaitForSeconds(1);
+
+            mortCanvas = true;
             chunkRecord = 0;
         }
     }
@@ -257,7 +256,13 @@ public class PlayerMove : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (!mort)
+        if (ofegat)
+        {
+            transform.position += new Vector3(0, -fallV, 0) + direccio;
+            fallV += g;
+        }
+
+        if (!mort && !ofegat)
         {
             if (Input.GetKeyDown(KeyCode.G)) god = !god;  // per ferse inmortal
                                                           // comprimir el player al caure
@@ -318,6 +323,7 @@ public class PlayerMove : MonoBehaviour {
                 }
                 else if (hit.collider.gameObject.tag == "water")
                 {
+                    ofegat = true;
                     splashA.Play();
                     StartCoroutine(reset());
                 }
