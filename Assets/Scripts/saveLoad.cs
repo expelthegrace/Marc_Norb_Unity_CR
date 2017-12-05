@@ -12,6 +12,7 @@ public class saveLoad : MonoBehaviour {
 
     public void Save(DataPack dataP) // li passem un DataPack i el guarda
     {
+        Debug.Log("fitxer guardat a disk");
         listData = new List<DataPack>();
         listData.Add(dataP);
 
@@ -21,19 +22,35 @@ public class saveLoad : MonoBehaviour {
         file.Close();
     }
 
-    public DataPack Load()
+    public DataPack Load()  // retorna un DataPack amb les dades 
     {
         DataPack dataP = new DataPack();
         if (File.Exists(Application.persistentDataPath + "/data.LUL"))
         {
+            Debug.Log("fitxer carregat");
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/savedGames.gd", FileMode.Open);
+            FileStream file = File.Open(Application.persistentDataPath + "/data.LUL", FileMode.Open);
             List<DataPack> l =  (List<DataPack>)bf.Deserialize(file);
             dataP = l[0];
             file.Close();
         }
+        else
+        {
+            Debug.Log("fitxer no carregat");   
+            dataP.totalcoins = 50;
+            dataP.playerSelect = 1;
+            dataP.avatar2 = false;
+            dataP.avatar3 = false;
+            dataP.best1 = 0;
+            dataP.best2 = 0;
+        }
 
         return dataP;
+    }
+
+    public void ClearData()
+    {
+        File.Delete(Application.persistentDataPath + "/data.LUL");
     }
 
     

@@ -36,7 +36,7 @@ public class memoria : MonoBehaviour {
         }
     }
 
-
+    
     // Use this for initialization
     void Start () {
         saveload = GameObject.Find("Memoria").GetComponent<saveLoad>();  
@@ -47,6 +47,7 @@ public class memoria : MonoBehaviour {
       //  best1 = 0;
         if (SceneManager.GetActiveScene().name == "scena1") pantalla = 1; //borrar
         if (SceneManager.GetActiveScene().name == "scena2") pantalla = 2; // borrar, s'assignara des del menu
+        
     }
 	
     void carregar() // descomprimeix el DataPack que es rep de la memoria
@@ -61,7 +62,7 @@ public class memoria : MonoBehaviour {
     
     }
 
-    void guardar()
+    public void guardar()
     {
         dataP = new DataPack();
         dataP.totalcoins = totalcoins;
@@ -73,6 +74,20 @@ public class memoria : MonoBehaviour {
 
         saveload.Save(dataP);
 
+    }
+
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.S))
+        {
+            totalcoins += 10;
+            guardar();
+        }
+        if (Input.GetKey(KeyCode.C))
+        {
+            saveload.ClearData();
+            Debug.Log("data cleared (fitxer eliminat)");
+        }
     }
 
    // s'ha de provar funciona, s'ha de fer que si el document no existeix les variables agafin valors inicials, si existeix pues es carrega

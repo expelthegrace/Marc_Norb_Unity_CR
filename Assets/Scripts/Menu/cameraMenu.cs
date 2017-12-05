@@ -173,6 +173,7 @@ public class cameraMenu : MonoBehaviour {
                 cachingA.GetComponent<AudioSource>().Play();
                 memoria.totalcoins -= 50;
                 memoria.avatar2 = true;
+                memoria.guardar();
             }
             else
             {
@@ -187,6 +188,7 @@ public class cameraMenu : MonoBehaviour {
                 cachingA.GetComponent<AudioSource>().Play();
                 memoria.totalcoins -= 1000;
                 memoria.avatar3 = true;
+                memoria.guardar();
 
             }
             else
@@ -215,5 +217,7 @@ public class cameraMenu : MonoBehaviour {
             selectA.GetComponent<AudioSource>().Play();
             memoria.playerSelect = 3;
         }
+
+        memoria.guardar();
     }
 }
