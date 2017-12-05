@@ -127,11 +127,7 @@ public class cameraMenu : MonoBehaviour {
           if (actualTime - lastTime > 1.5f) inmove = false;
         }
 
-        if (Input.GetKey(KeyCode.T))
-        {
-            memoria.pantalla = 0;
-            SceneManager.LoadScene("scena1");
-        }
+        
         actualTime += Time.deltaTime;
 	}
 
@@ -163,7 +159,7 @@ public class cameraMenu : MonoBehaviour {
     {
         if (i == 1)
         {
- 
+            memoria.pantalla = 1;
             SceneManager.LoadScene("scena1");
         }
     }
