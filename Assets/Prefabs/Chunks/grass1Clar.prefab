@@ -364,7 +364,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1193498591278530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 161.12553, y: 88.14712, z: -106.25789}
+  m_LocalPosition: {x: 122.43447, y: 68.106125, z: -51.286755}
   m_LocalScale: {x: 360, y: 1.5391097, z: 12}
   m_Children:
   - {fileID: 4174117756560054}
@@ -422,7 +422,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1012127362060140}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.17633332, y: 0.5, z: 0.0033333334}
+  m_LocalPosition: {x: -0.11100027, y: 0.5, z: 0.0033333334}
   m_LocalScale: {x: 0.0042203404, y: 0.26670954, z: 0.021101706}
   m_Children:
   - {fileID: 4750967283846386}
@@ -506,7 +506,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1783406222304758}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.093, y: 0.5, z: 0.0033333334}
+  m_LocalPosition: {x: -0.13299914, y: 0.5, z: 0.0033333334}
   m_LocalScale: {x: 0.0042203404, y: 0.26670954, z: 0.021101706}
   m_Children:
   - {fileID: 4045015062300726}
@@ -533,7 +533,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1984548356604446}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.14033332, y: 0.5, z: 0.0033333334}
+  m_LocalPosition: {x: 0.10033419, y: 0.5, z: 0.0033333334}
   m_LocalScale: {x: 0.0042203404, y: 0.26670954, z: 0.021101706}
   m_Children:
   - {fileID: 4362400286596452}
@@ -547,7 +547,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1002906456606690}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.35633302, y: 0.5, z: 0.0033333334}
+  m_LocalPosition: {x: 0.3163339, y: 0.5, z: 0.0033333334}
   m_LocalScale: {x: 0.0042203404, y: 0.26670954, z: 0.021101706}
   m_Children:
   - {fileID: 4981596213313690}
@@ -561,7 +561,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1384136527871644}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.04366684, y: 0.5, z: 0.0033333334}
+  m_LocalPosition: {x: 0.109, y: 0.5, z: 0.0033333334}
   m_LocalScale: {x: 0.0042203404, y: 0.26670954, z: 0.021101706}
   m_Children:
   - {fileID: 4554221513075286}
@@ -588,7 +588,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1180926675506402}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.31300047, y: 0.5, z: 0.0033333334}
+  m_LocalPosition: {x: -0.353, y: 0.5, z: 0.0033333334}
   m_LocalScale: {x: 0.0042203404, y: 0.26670954, z: 0.021101706}
   m_Children:
   - {fileID: 4054089495827956}
@@ -602,7 +602,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1460204663159632}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.493, y: 0.5, z: 0.0033333334}
+  m_LocalPosition: {x: 0.55833304, y: 0.5, z: 0.0033333334}
   m_LocalScale: {x: 0.0042203404, y: 0.26670954, z: 0.021101706}
   m_Children:
   - {fileID: 4353856111193778}
@@ -616,7 +616,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1699648908242766}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.27700043, y: 0.5, z: 0.0033333334}
+  m_LocalPosition: {x: 0.3423335, y: 0.5, z: 0.0033333334}
   m_LocalScale: {x: 0.0042203404, y: 0.26670954, z: 0.021101706}
   m_Children:
   - {fileID: 4478123693801610}
@@ -1377,6 +1377,7 @@ MonoBehaviour:
   tronc: {fileID: 1159463687876384, guid: b3a8278015054af4fadab7144d6b3082, type: 2}
   moneda: {fileID: 1881284793380542, guid: 30ca69f5f2fc8ba498dc8ca104f0be93, type: 2}
   step: 0
+  isIni: 0
 --- !u!114 &114944236132861130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1388,4 +1389,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4374d5b85c8c86c4085e27e9d46b30a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraMain: {fileID: 1480538768415052, guid: d808fcf80ad5e6746a3fbd8dbac987f7, type: 2}
