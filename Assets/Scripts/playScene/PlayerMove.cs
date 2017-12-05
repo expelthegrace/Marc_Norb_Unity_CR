@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour {
 
     private GameObject memoria;
-    public GameObject respawn;
     public AudioSource saltA;
     public AudioSource atropA;
     public AudioSource woodA;
@@ -20,6 +19,7 @@ public class PlayerMove : MonoBehaviour {
     public bool saltant;
     public bool landed;
     public bool intronc;
+    public bool inroca;
     private GameObject checkFront;
     public GameObject cameraMain;
 
@@ -74,7 +74,6 @@ public class PlayerMove : MonoBehaviour {
         checkFront = GameObject.Find("checkFront");
         god = false;
         memoria = GameObject.Find("Memoria");
-        memoria.GetComponent<memoria>().pantalla = 1;
         comprimirLow = false;
         comprimirHi = false;
         scaleIni = transform.localScale.y;
@@ -83,6 +82,7 @@ public class PlayerMove : MonoBehaviour {
         fallV = 0f;
         mortCanvas = mort;
         g = 0.5f;
+        inroca = false;
     }
 
     IEnumerator reset()
@@ -94,7 +94,7 @@ public class PlayerMove : MonoBehaviour {
             GetComponent<playerCoin>().coins = 0;
             memoria.GetComponent<memoria>().best1 = Mathf.Max(memoria.GetComponent<memoria>().best1, chunkRecord);
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.3f);
 
             mortCanvas = true;
             chunkRecord = 0;
@@ -295,7 +295,12 @@ public class PlayerMove : MonoBehaviour {
             orientar();
             // moure/saltar player step by step
             if (enMoviment || intronc) moure();
-
+            if (inroca && !saltant)
+            {
+                Physics.Raycast(transform.position + new Vector3(0, 5, 0), -Vector3.up, out hit, dist);
+                if (hit.collider.gameObject.tag == "roca") transform.position = new Vector3(transform.position.x, hit.collider.bounds.max.y, transform.position.z);
+      
+            }
             // raig que detecta el terra al aterrar d'un salt i ubica en Y el player
             dist = 10f;
             //Debug.DrawRay(transform.position + new Vector3(0, 10, 0), -Vector3.up, Color.green,dist);
@@ -307,12 +312,13 @@ public class PlayerMove : MonoBehaviour {
                     intronc = false;
                     saltant = false;
                     landed = false;
+                    inroca = false;
                     transform.position = new Vector3(transform.position.x, hit.collider.bounds.max.y, transform.position.z);
                 }
                 else if (hit.collider.gameObject.tag == "tronc")
                 {
                     saltant = false;
-                    
+                    inroca = false;
                     landed = false;
                     transform.position = new Vector3(transform.position.x, hit.collider.bounds.max.y, transform.position.z);
                     intronc = true;
@@ -326,6 +332,14 @@ public class PlayerMove : MonoBehaviour {
                     ofegat = true;
                     splashA.Play();
                     StartCoroutine(reset());
+                }
+                else if (hit.collider.gameObject.tag == "roca")
+                {
+                    intronc = false;
+                    saltant = false;
+                    landed = false;
+                    inroca = true;
+                    intronc = false;
                 }
 
             }

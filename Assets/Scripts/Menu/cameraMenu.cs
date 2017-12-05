@@ -62,7 +62,7 @@ public class cameraMenu : MonoBehaviour {
 	void Update () {
         avatar2 = memoria.avatar2;
         avatar3 = memoria.avatar3;
-
+       
 
         totalcoins = memoria.totalcoins;
         if (punt == 0) // menu

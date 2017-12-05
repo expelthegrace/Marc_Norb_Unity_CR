@@ -56,6 +56,7 @@ MonoBehaviour:
   water: {fileID: 1813589766794556, guid: 6b09b2415f360c0469a19b44c065a261, type: 2}
   carretera1: {fileID: 1400704828806948, guid: ba66e7858883c564a9bf280444206def, type: 2}
   viaa: {fileID: 1078484343732122, guid: 4e1265b3fe98b2740b4a5f3920cbef87, type: 2}
+  lava: {fileID: 1804094700327570, guid: 648d38292e180e047a9eebb1b0d836af, type: 2}
   bestObj: {fileID: 1077253251690366, guid: 8fcfa63e81042f541ad9182916126314, type: 2}
   step: 0
   altern: 0

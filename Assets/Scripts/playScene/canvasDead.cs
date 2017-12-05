@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class canvasDead : MonoBehaviour {
-
+    private GameObject memoria;
     private GameObject player;
     public GameObject canvasPlay;
     private Vector3 offset;
@@ -29,7 +29,8 @@ public class canvasDead : MonoBehaviour {
         actualTime = 0f;
         lastTime = 0f;
         activarDead = false;
-        smooth = 0.8f;
+        smooth = 0.5f;
+        memoria = GameObject.Find("Memoria");
 	}
 	
 	// Update is called once per frame
@@ -39,8 +40,6 @@ public class canvasDead : MonoBehaviour {
         if (!playerMort) transform.position = canvasPlay.transform.position - offset;
         else // si player mort
         {
-            //dest = canvasPlay.transform.position;
-            //canvasPlay.SetActive(false);
             activarDead = true;
             lastTime = actualTime;
         }
@@ -61,11 +60,14 @@ public class canvasDead : MonoBehaviour {
         if (i == 0)
         {
             //player music reset
-            SceneManager.LoadScene("scena1");
+            if (memoria.GetComponent<memoria>().pantalla == 1) SceneManager.LoadScene("scena1");
+            else if (memoria.GetComponent<memoria>().pantalla == 2) SceneManager.LoadScene("scena2");
+
         }
         // i == 1 menu
         else if (i == 1)
         {
+            memoria.GetComponent<memoria>().pantalla = 0;
             SceneManager.LoadScene("scenaMenu1");
         }
         

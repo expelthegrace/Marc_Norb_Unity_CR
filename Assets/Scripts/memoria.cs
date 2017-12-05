@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class memoria : MonoBehaviour {
@@ -18,6 +19,9 @@ public class memoria : MonoBehaviour {
 
     void Awake()
     {
+
+
+
         if (instanceRef == null)
         {
             instanceRef = this;
@@ -34,12 +38,14 @@ public class memoria : MonoBehaviour {
         totalcoins = 100;
         playerSelect = 1; // borrar
         best1 = 0;
+        if (SceneManager.GetActiveScene().name == "scena1") pantalla = 1; //borrar
+        if (SceneManager.GetActiveScene().name == "scena2") pantalla = 2; // borrar, s'assignara des del menu
     }
 	
 	// Update is called once per frame
 	void Update () {
         
-	}
+    }
 
    
 }
