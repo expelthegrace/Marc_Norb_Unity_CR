@@ -36,18 +36,31 @@ public class memoria : MonoBehaviour {
         }
     }
 
+
     // Use this for initialization
     void Start () {
-        saveload = GameObject.Find("Memoria").GetComponent<saveLoad>();
-        dataP = saveload.Load();
+        saveload = GameObject.Find("Memoria").GetComponent<saveLoad>();  
+        carregar();
 
-        totalcoins = 100;
-        playerSelect = 1; // borrar
-        best1 = 0;
+       // totalcoins = 100;
+        //playerSelect = 1; // borrar
+      //  best1 = 0;
         if (SceneManager.GetActiveScene().name == "scena1") pantalla = 1; //borrar
         if (SceneManager.GetActiveScene().name == "scena2") pantalla = 2; // borrar, s'assignara des del menu
     }
 	
+    void carregar() // descomprimeix el DataPack que es rep de la memoria
+    {
+        dataP = saveload.Load();
+        totalcoins = dataP.totalcoins;
+        playerSelect = dataP.playerSelect;
+        avatar2 = dataP.avatar2;
+        avatar3 = dataP.avatar3;
+        best1 = dataP.best1;
+        best2 = dataP.best2;
+    
+    }
+
     void guardar()
     {
         dataP = new DataPack();
@@ -62,5 +75,6 @@ public class memoria : MonoBehaviour {
 
     }
 
-   
+   // s'ha de provar funciona, s'ha de fer que si el document no existeix les variables agafin valors inicials, si existeix pues es carrega
+   // tambe es pot ficar un clear
 }
