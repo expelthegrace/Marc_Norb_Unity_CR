@@ -4,7 +4,10 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
+
 public class memoria : MonoBehaviour {
+    DataPack dataP;
+    public saveLoad saveload;
 
     private static memoria instanceRef;
     public int totalcoins;
@@ -22,7 +25,6 @@ public class memoria : MonoBehaviour {
     {
 
 
-
         if (instanceRef == null)
         {
             instanceRef = this;
@@ -36,6 +38,9 @@ public class memoria : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        saveload = GameObject.Find("Memoria").GetComponent<saveLoad>();
+        dataP = saveload.Load();
+
         totalcoins = 100;
         playerSelect = 1; // borrar
         best1 = 0;
@@ -43,9 +48,18 @@ public class memoria : MonoBehaviour {
         if (SceneManager.GetActiveScene().name == "scena2") pantalla = 2; // borrar, s'assignara des del menu
     }
 	
-	// Update is called once per frame
-	void Update () {
-        
+    void guardar()
+    {
+        dataP = new DataPack();
+        dataP.totalcoins = totalcoins;
+        dataP.playerSelect = playerSelect;
+        dataP.avatar2 = avatar2;
+        dataP.avatar3 = avatar3;
+        dataP.best1 = best1;
+        dataP.best2 = best2;
+
+        saveload.Save(dataP);
+
     }
 
    
