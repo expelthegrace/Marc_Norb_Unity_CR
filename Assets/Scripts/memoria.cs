@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class memoria : MonoBehaviour {
     DataPack dataP;
-    public saveLoad saveload;
+    private saveLoad saveload;
 
     private static memoria instanceRef;
     public int totalcoins;
