@@ -83,6 +83,7 @@ public class PlayerMove : MonoBehaviour {
         mortCanvas = mort;
         g = 0.5f;
         inroca = false;
+        dist = 10f;
     }
 
     IEnumerator reset()
@@ -90,14 +91,16 @@ public class PlayerMove : MonoBehaviour {
         if (!god)
         {
             mort = true;
+
+
             memoria.GetComponent<memoria>().totalcoins += GetComponent<playerCoin>().coins;
-            GetComponent<playerCoin>().coins = 0;
-            memoria.GetComponent<memoria>().best1 = Mathf.Max(memoria.GetComponent<memoria>().best1, chunkRecord);
+            if (memoria.GetComponent<memoria>().pantalla == 1) memoria.GetComponent<memoria>().best1 = Mathf.Max(memoria.GetComponent<memoria>().best1, chunkRecord);
+            else if (memoria.GetComponent<memoria>().pantalla == 2) memoria.GetComponent<memoria>().best2 = Mathf.Max(memoria.GetComponent<memoria>().best2, chunkRecord);
 
-            yield return new WaitForSeconds(0.3f);
 
+            yield return new WaitForSeconds(0.5f);
             mortCanvas = true;
-            chunkRecord = 0;
+
         }
     }
 
@@ -302,8 +305,7 @@ public class PlayerMove : MonoBehaviour {
       
             }
             // raig que detecta el terra al aterrar d'un salt i ubica en Y el player
-            dist = 10f;
-            //Debug.DrawRay(transform.position + new Vector3(0, 10, 0), -Vector3.up, Color.green,dist);
+      
            
             if (landed && Physics.Raycast(transform.position + new Vector3(0, 5, 0), -Vector3.up, out hit, dist))
             {
@@ -313,6 +315,7 @@ public class PlayerMove : MonoBehaviour {
                     saltant = false;
                     landed = false;
                     inroca = false;
+
                     transform.position = new Vector3(transform.position.x, hit.collider.bounds.max.y, transform.position.z);
                 }
                 else if (hit.collider.gameObject.tag == "tronc")
@@ -320,6 +323,7 @@ public class PlayerMove : MonoBehaviour {
                     saltant = false;
                     inroca = false;
                     landed = false;
+
                     transform.position = new Vector3(transform.position.x, hit.collider.bounds.max.y, transform.position.z);
                     intronc = true;
                     tronc = hit.collider.transform;
@@ -340,6 +344,7 @@ public class PlayerMove : MonoBehaviour {
                     landed = false;
                     inroca = true;
                     intronc = false;
+
                 }
 
             }

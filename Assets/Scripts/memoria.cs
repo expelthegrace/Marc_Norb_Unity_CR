@@ -14,6 +14,7 @@ public class memoria : MonoBehaviour {
     public bool avatar3;
 
     public int best1;
+    public int best2;
     public int pantalla;
 
 

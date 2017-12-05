@@ -22,7 +22,7 @@ public class lava : MonoBehaviour {
         {
 
 
-            if (Random.Range(0, 100) < 40)  // aparicio d'arbres en %
+            if (Random.Range(0, 100) < 45)  // aparicio d'arbres en %
             {
                 float rot = Random.Range(0, 180);
                 inipos = new Vector3(index + i * 12, GetComponent<Collider>().bounds.max.y - 1.2f, transform.position.z);

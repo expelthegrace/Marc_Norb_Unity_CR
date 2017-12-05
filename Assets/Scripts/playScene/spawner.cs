@@ -91,7 +91,7 @@ public class spawner : MonoBehaviour {
                     break;
             }
             // ficar el best
-            if (memoria.GetComponent<memoria>().best1 > 0 && memoria.GetComponent<memoria>().best1 == chunkLinea)
+            if (memoria.GetComponent<memoria>().best2 > 0 && memoria.GetComponent<memoria>().best2 == chunkLinea)
             {
 
                 Instantiate(bestObj, new Vector3(0, 8, linea), bestObj.transform.rotation, transform);
@@ -100,13 +100,13 @@ public class spawner : MonoBehaviour {
 
             int r = Random.Range(0, 120);
 
-            if (r > 100 && lastChunk != 4) altern = lastChunk;
+            if (r > 100) altern = lastChunk;
             else if (r < Mathf.Max(120 - chunkLinea * 3.2f, 40)) altern = 0; // grass
             else if (r < 49) altern = 2; // tren
             else if (r < 58) altern = 4; // lava  
             else if (r < 82) altern = 3; // water            
             else altern = 1; // road
-            altern = 4;
+           // altern = 4;
             linea += step;
             chunkLinea = (int)linea / (int)step;
         }

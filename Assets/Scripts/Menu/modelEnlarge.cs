@@ -21,7 +21,6 @@ public class modelEnlarge : MonoBehaviour {
     void OnMouseEnter()
     {
         if (cameraMenu.GetComponent<cameraMenu>().punt == 1)  pipA.GetComponent<AudioSource>().Play();
-        Debug.Log("ensima el ratooon");
         transform.localScale += new Vector3(scaleF, scaleF, scaleF);
     }
     void OnMouseExit()

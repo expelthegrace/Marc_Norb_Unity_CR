@@ -18,7 +18,6 @@ public class moneda : MonoBehaviour {
 
     void OnDestroy()
     {
-        Debug.Log(transform.position);
         if (particles != null) Instantiate(particles, transform.position + new Vector3(0, 3, 0), particles.transform.rotation, GameObject.Find("Monedes").transform);
         
     }
