@@ -44,6 +44,7 @@ public class memoria : MonoBehaviour {
         Debug.Log(saveload);
         if (SceneManager.GetActiveScene().name == "scena1") pantalla = 1; //borrar
         if (SceneManager.GetActiveScene().name == "scena2") pantalla = 2; // borrar, s'assignara des del menu
+        if (SceneManager.GetActiveScene().name == "scena3") pantalla = 3; // borrar, s'assignara des del menu
         carregar();
         
     }

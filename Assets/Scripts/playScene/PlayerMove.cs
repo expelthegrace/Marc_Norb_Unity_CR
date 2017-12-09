@@ -96,6 +96,7 @@ public class PlayerMove : MonoBehaviour {
             memoria.GetComponent<memoria>().totalcoins += GetComponent<playerCoin>().coins;
             if (memoria.GetComponent<memoria>().pantalla == 1) memoria.GetComponent<memoria>().best1 = Mathf.Max(memoria.GetComponent<memoria>().best1, chunkRecord);
             else if (memoria.GetComponent<memoria>().pantalla == 2) memoria.GetComponent<memoria>().best2 = Mathf.Max(memoria.GetComponent<memoria>().best2, chunkRecord);
+            else if (memoria.GetComponent<memoria>().pantalla == 3) memoria.GetComponent<memoria>().best3 = Mathf.Max(memoria.GetComponent<memoria>().best3, chunkRecord);
 
 
             yield return new WaitForSeconds(0.5f);
