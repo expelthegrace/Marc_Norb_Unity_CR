@@ -40,8 +40,8 @@ public class water : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (actualTime < 2) speedup = 20f;
-        else if (speedup == 20)
+        if (actualTime < 2) speedup = 25f;
+        else if (speedup == 25)
         {
             for (int i = 0; i < ponts.Count; ++i)
             {
