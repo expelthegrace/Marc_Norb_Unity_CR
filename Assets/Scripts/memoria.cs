@@ -39,19 +39,22 @@ public class memoria : MonoBehaviour {
     
     // Use this for initialization
     void Start () {
-        saveload = GameObject.Find("Memoria").GetComponent<saveLoad>();  
+        saveload = GameObject.Find("Memoria").GetComponent<saveLoad>();
+        Debug.Log(saveload);
+        if (SceneManager.GetActiveScene().name == "scena1") pantalla = 1; //borrar
+        if (SceneManager.GetActiveScene().name == "scena2") pantalla = 2; // borrar, s'assignara des del menu
         carregar();
 
        // totalcoins = 100;
         //playerSelect = 1; // borrar
       //  best1 = 0;
-        if (SceneManager.GetActiveScene().name == "scena1") pantalla = 1; //borrar
-        if (SceneManager.GetActiveScene().name == "scena2") pantalla = 2; // borrar, s'assignara des del menu
+        
         
     }
 	
     void carregar() // descomprimeix el DataPack que es rep de la memoria
     {
+        
         dataP = saveload.Load();
         totalcoins = dataP.totalcoins;
         playerSelect = dataP.playerSelect;
@@ -80,7 +83,7 @@ public class memoria : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.S))
         {
-            totalcoins += 10;
+            totalcoins += 100;
             guardar();
         }
         if (Input.GetKey(KeyCode.C))

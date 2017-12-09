@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4570037726552470}
   - component: {fileID: 114248900607492064}
+  - component: {fileID: 114276538566209810}
   m_Layer: 0
   m_Name: Memoria
   m_TagString: Untagged
@@ -56,4 +57,16 @@ MonoBehaviour:
   avatar2: 0
   avatar3: 0
   best1: 0
+  best2: 0
   pantalla: 0
+--- !u!114 &114276538566209810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1939291566158384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c28ce782b865345458050282564bf4c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
