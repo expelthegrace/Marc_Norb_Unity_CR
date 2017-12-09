@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class via : MonoBehaviour {
     public GameObject tren;
@@ -32,7 +34,8 @@ public class via : MonoBehaviour {
         float delay = Random.Range(1f, 4f);
         lastTren = delay;
         actualTime = 0f;
-        vel = 3f;
+        if (SceneManager.GetActiveScene().name == "scena3") vel = 6f;
+        else vel = 3f;
         
     }
 	
