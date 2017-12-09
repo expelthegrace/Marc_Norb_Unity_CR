@@ -58,6 +58,7 @@ MonoBehaviour:
   avatar3: 0
   best1: 0
   best2: 0
+  best3: 0
   pantalla: 0
 --- !u!114 &114276538566209810
 MonoBehaviour:

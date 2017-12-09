@@ -18,6 +18,7 @@ public class canvasDead : MonoBehaviour {
 
     public Text coinsT;
     public Text metersT;
+    public Text bestT;
 
     public float smooth;
 
@@ -40,12 +41,17 @@ public class canvasDead : MonoBehaviour {
         if (!playerMort) transform.position = canvasPlay.transform.position - offset;
         else // si player mort
         {
+
             activarDead = true;
             lastTime = actualTime;
         }
         if (activarDead)
         {
             metersT.text = "Your score: " + player.GetComponent<PlayerMove>().chunkRecord.ToString();
+            if (memoria.GetComponent<memoria>().pantalla == 1) bestT.text = "Best score: " + memoria.GetComponent<memoria>().best1.ToString();
+            else if (memoria.GetComponent<memoria>().pantalla == 2) bestT.text = "Best score: " + memoria.GetComponent<memoria>().best2.ToString();
+            else bestT.text = "Best score: " + memoria.GetComponent<memoria>().best3.ToString();
+
             coinsT.text = "Coins collected: " + player.GetComponent<playerCoin>().coins.ToString(); 
             transform.position = Vector3.SmoothDamp(transform.position, canvasPlay.transform.position, ref vel, smooth);
         }

@@ -18,6 +18,7 @@ public class memoria : MonoBehaviour {
 
     public int best1;
     public int best2;
+    public int best3;
     public int pantalla;
 
 
@@ -44,11 +45,6 @@ public class memoria : MonoBehaviour {
         if (SceneManager.GetActiveScene().name == "scena1") pantalla = 1; //borrar
         if (SceneManager.GetActiveScene().name == "scena2") pantalla = 2; // borrar, s'assignara des del menu
         carregar();
-
-       // totalcoins = 100;
-        //playerSelect = 1; // borrar
-      //  best1 = 0;
-        
         
     }
 	
@@ -62,6 +58,7 @@ public class memoria : MonoBehaviour {
         avatar3 = dataP.avatar3;
         best1 = dataP.best1;
         best2 = dataP.best2;
+        best3 = dataP.best3;
     
     }
 
@@ -74,6 +71,7 @@ public class memoria : MonoBehaviour {
         dataP.avatar3 = avatar3;
         dataP.best1 = best1;
         dataP.best2 = best2;
+        dataP.best3 = best3;
 
         saveload.Save(dataP);
 

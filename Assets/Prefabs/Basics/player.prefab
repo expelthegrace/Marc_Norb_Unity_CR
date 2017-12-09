@@ -2096,7 +2096,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec382fd074087d743806ca3cba7ee7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawn: {fileID: 0}
   saltA: {fileID: 82104214202313138}
   atropA: {fileID: 82046924980836386}
   woodA: {fileID: 82570649465737002}
@@ -2109,10 +2108,13 @@ MonoBehaviour:
   saltant: 0
   landed: 0
   intronc: 0
+  inroca: 0
   cameraMain: {fileID: 0}
   troncOffset: 0
   wall: 0
   mort: 0
+  mortCanvas: 0
+  ofegat: 0
   tStep: 0
   srcPosition: {x: 0, y: 0, z: 0}
   dstPosition: {x: 0, y: 0, z: 0}

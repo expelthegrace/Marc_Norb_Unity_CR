@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.7794118, g: 0.7794118, b: 0.7794118, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -803,15 +803,6 @@ Prefab:
       propertyPath: cameraMain
       value: 
       objectReference: {fileID: 957881480}
-    - target: {fileID: 4615866295066036, guid: 709a05077ff01504697fbd2411431101, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114621106029419260, guid: 709a05077ff01504697fbd2411431101,
-        type: 2}
-      propertyPath: stepA
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 709a05077ff01504697fbd2411431101, type: 2}
   m_IsPrefabParent: 0
@@ -862,17 +853,27 @@ Prefab:
     - target: {fileID: 108012641789739744, guid: 275a7c52ac0feaa49b6a5e0596b43085,
         type: 2}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.78431374
       objectReference: {fileID: 0}
     - target: {fileID: 108012641789739744, guid: 275a7c52ac0feaa49b6a5e0596b43085,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.8896551
+      value: 0.63529414
       objectReference: {fileID: 0}
     - target: {fileID: 108012641789739744, guid: 275a7c52ac0feaa49b6a5e0596b43085,
         type: 2}
       propertyPath: m_Color.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108012641789739744, guid: 275a7c52ac0feaa49b6a5e0596b43085,
+        type: 2}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108012641789739744, guid: 275a7c52ac0feaa49b6a5e0596b43085,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 275a7c52ac0feaa49b6a5e0596b43085, type: 2}

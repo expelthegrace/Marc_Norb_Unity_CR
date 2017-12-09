@@ -22,9 +22,9 @@ public class carretera : MonoBehaviour {
         freq = Random.Range(4f, 5.5f);
         lastCar = -freq;
         actualTime = 0f;
-        vel = Random.Range(0.3f, 0.6f);
-        Pgas = 5;
-        Ptunak = 5;
+        vel = Random.Range(0.45f, 0.8f);
+        Pgas = 3;
+        Ptunak = 3;
     }
 	
 	// Update is called once per frame

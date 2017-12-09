@@ -43,6 +43,7 @@ public class saveLoad : MonoBehaviour {
             dataP.avatar3 = false;
             dataP.best1 = 0;
             dataP.best2 = 0;
+            dataP.best3 = 0;
         }
 
         return dataP;
@@ -67,4 +68,5 @@ public class DataPack
 
     public int best1;
     public int best2;
+    public int best3;
 }
