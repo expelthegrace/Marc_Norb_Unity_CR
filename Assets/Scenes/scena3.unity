@@ -643,46 +643,6 @@ Prefab:
       propertyPath: canvasPlay
       value: 
       objectReference: {fileID: 1187399806}
-    - target: {fileID: 114217217464788832, guid: f70929f3ea9f4f84ab728618a68cea1d,
-        type: 2}
-      propertyPath: m_Colors.m_HighlightedColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114217217464788832, guid: f70929f3ea9f4f84ab728618a68cea1d,
-        type: 2}
-      propertyPath: m_Colors.m_HighlightedColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114217217464788832, guid: f70929f3ea9f4f84ab728618a68cea1d,
-        type: 2}
-      propertyPath: m_Colors.m_HighlightedColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114217217464788832, guid: f70929f3ea9f4f84ab728618a68cea1d,
-        type: 2}
-      propertyPath: m_Colors.m_HighlightedColor.a
-      value: 0.803
-      objectReference: {fileID: 0}
-    - target: {fileID: 114199610302189478, guid: f70929f3ea9f4f84ab728618a68cea1d,
-        type: 2}
-      propertyPath: m_Colors.m_HighlightedColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114199610302189478, guid: f70929f3ea9f4f84ab728618a68cea1d,
-        type: 2}
-      propertyPath: m_Colors.m_HighlightedColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114199610302189478, guid: f70929f3ea9f4f84ab728618a68cea1d,
-        type: 2}
-      propertyPath: m_Colors.m_HighlightedColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114199610302189478, guid: f70929f3ea9f4f84ab728618a68cea1d,
-        type: 2}
-      propertyPath: m_Colors.m_HighlightedColor.a
-      value: 0.803
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f70929f3ea9f4f84ab728618a68cea1d, type: 2}
   m_IsPrefabParent: 0
@@ -996,6 +956,11 @@ Prefab:
       propertyPath: cameraMain
       value: 
       objectReference: {fileID: 718509574}
+    - target: {fileID: 82570649465737002, guid: 709a05077ff01504697fbd2411431101,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f00fbeea53e47de40aa9646d45fcd3c0, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 709a05077ff01504697fbd2411431101, type: 2}
   m_IsPrefabParent: 0
