@@ -18,7 +18,7 @@ public class cameraMove : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-    
+
         offset = transform.position - player.transform.position;
         smoothTime = 0.3f;
         velNivell = 0f; // 0.9

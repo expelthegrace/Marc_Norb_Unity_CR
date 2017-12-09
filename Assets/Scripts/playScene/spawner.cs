@@ -10,6 +10,7 @@ public class spawner : MonoBehaviour {
     public GameObject viaa;
     public GameObject lava;
     public GameObject bestObj;
+    public int waterCostat;
 
     private GameObject memoria;
 
@@ -43,7 +44,8 @@ public class spawner : MonoBehaviour {
                     Instantiate(viaa, new Vector3(0, 0, linea), viaa.transform.rotation, transform);
                     break;
                 case 3:
-                    Instantiate(water, new Vector3(0, -0.62f, linea), water.transform.rotation, transform);
+                    GameObject w = Instantiate(water, new Vector3(0, -0.62f, linea), water.transform.rotation, transform);
+                    waterCostat = (waterCostat + 1) % 2;
 
                     break;
             }
@@ -84,7 +86,8 @@ public class spawner : MonoBehaviour {
                     Instantiate(viaa, new Vector3(0, 0, linea), viaa.transform.rotation, transform);
                     break;
                 case 3:
-                    Instantiate(water, new Vector3(0, -0.62f, linea), water.transform.rotation, transform);
+                    GameObject w = Instantiate(water, new Vector3(0, -0.62f, linea), water.transform.rotation, transform);
+                    waterCostat = (waterCostat + 1) % 2;
                     break;
                 case 4:
                     Instantiate(lava, new Vector3(0, -0.7f, linea), lava.transform.rotation, transform);
@@ -128,7 +131,8 @@ public class spawner : MonoBehaviour {
                     Instantiate(viaa, new Vector3(0, 0, linea), viaa.transform.rotation, transform);
                     break;
                 case 3:
-                    Instantiate(water, new Vector3(0, -0.62f, linea), water.transform.rotation, transform);
+                    GameObject w = Instantiate(water, new Vector3(0, -0.62f, linea), water.transform.rotation, transform);
+                    waterCostat = (waterCostat + 1) % 2;
                     break;
                 case 4:
                     Instantiate(lava, new Vector3(0, -0.7f, linea), lava.transform.rotation, transform);
@@ -164,7 +168,9 @@ public class spawner : MonoBehaviour {
        // playerBox = player.GetComponent<Renderer>().bounds;
         linea = player.transform.position.z - step*4;
         Spawn();
-      
+        waterCostat = 0;
+
+
     }
 	
 	// Update is called once per frame

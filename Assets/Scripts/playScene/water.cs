@@ -5,7 +5,7 @@ using UnityEngine;
 public class water : MonoBehaviour {
 
     public GameObject pont;
-
+    private GameObject spawner;
     public float freq;
     public float vel;
     public float actualTime;
@@ -24,11 +24,13 @@ public class water : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        costat = Random.Range(0, 2);
+
+        costat = GameObject.Find("Spawner").GetComponent<spawner>().waterCostat;
+        //costat = Random.Range(0, 2);
         delay = Random.Range(0f, 1f);
         lastPont = delay;
         actualTime = 0f;
-        vel = Random.Range(0.2f, 0.4f);
+        vel = Random.Range(0.3f, 0.4f);
         step = 12;
         ponts = new List<GameObject>();
         speedup = 0f;

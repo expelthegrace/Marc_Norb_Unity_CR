@@ -184,10 +184,10 @@ public class PlayerMove : MonoBehaviour {
                 int signe = 1;
                 if (transform.position.x + direccio.x < 0) signe = -1;
                 else signe = 1;
-
+      
                 srcPosition = transform.position;
                 dstX = ((int)(transform.position.x + direccio.x * step + step / 2 * signe) / (int)step) * step;
-                dstPosition = transform.position + direccio * step;
+                dstPosition = new Vector3(dstX, transform.position.y + direccio.y * step, transform.position.z + direccio.z * step);
                 tStep = 0;
                 yPos = transform.position.y;
                 saltant = true;
@@ -380,8 +380,8 @@ public class PlayerMove : MonoBehaviour {
             wall = true;
         }*/
 
-    }
-    void OnTriggerExit(Collider col)
+            }
+            void OnTriggerExit(Collider col)
     {
         //wall = false;
     }
