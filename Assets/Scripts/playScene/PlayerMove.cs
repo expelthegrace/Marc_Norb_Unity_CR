@@ -262,8 +262,9 @@ public class PlayerMove : MonoBehaviour {
     {
         if (ofegat)
         {
-            transform.position += new Vector3(0, -fallV, 0) + direccio;
-            fallV += g;
+            transform.position += new Vector3(0, -fallV, 0);
+            if (memoria.GetComponent<memoria>().pantalla != 3) fallV += g;
+            else fallV += g * 0.01f;
         }
 
         if (!mort && !ofegat)
