@@ -218,6 +218,12 @@ Prefab:
       value: 
       objectReference: {fileID: 1905291306382938, guid: 7346cbbd9f5823647aa59d4ba8a8715d,
         type: 2}
+    - target: {fileID: 114998424879457378, guid: 6a5c13f5fd4897e44a75c8705a662a95,
+        type: 2}
+      propertyPath: water
+      value: 
+      objectReference: {fileID: 1750726537564460, guid: 71fd8d8a89831ad488a02934f9a2a079,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a5c13f5fd4897e44a75c8705a662a95, type: 2}
   m_IsPrefabParent: 0
