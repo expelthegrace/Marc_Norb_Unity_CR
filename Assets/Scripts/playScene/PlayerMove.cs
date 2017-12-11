@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour {
     public AudioSource atropA;
     public AudioSource woodA;
     public AudioSource splashA;
+    //public GameObject splashP;
 
     public float speed;
     public float offset = 0.1f;
@@ -337,6 +338,7 @@ public class PlayerMove : MonoBehaviour {
                 {
                     ofegat = true;
                     splashA.Play();
+                    //splashP.GetComponent<ParticleSystem>().Play();
                     StartCoroutine(reset());
                 }
                 else if (hit.collider.gameObject.tag == "roca")

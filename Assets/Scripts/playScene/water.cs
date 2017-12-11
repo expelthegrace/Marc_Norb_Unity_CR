@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+
 using UnityEngine;
 
 public class water : MonoBehaviour {
@@ -25,7 +27,8 @@ public class water : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        costat = GameObject.Find("Spawner").GetComponent<spawner>().waterCostat;
+        if (SceneManager.GetActiveScene().name != "scenaMenu1") costat = GameObject.Find("Spawner").GetComponent<spawner>().waterCostat;
+        else costat = Random.Range(0, 2);
         //costat = Random.Range(0, 2);
         delay = Random.Range(0f, 1f);
         lastPont = delay;
