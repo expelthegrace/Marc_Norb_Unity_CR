@@ -139,7 +139,7 @@ public class spawner : MonoBehaviour {
                     break;
             }
             // ficar el best
-            if (memoria.GetComponent<memoria>().best2 > 0 && memoria.GetComponent<memoria>().best2 == chunkLinea)
+            if (memoria.GetComponent<memoria>().best3 > 0 && memoria.GetComponent<memoria>().best3 == chunkLinea)
             {
 
                 Instantiate(bestObj, new Vector3(0, 8, linea), bestObj.transform.rotation, transform);

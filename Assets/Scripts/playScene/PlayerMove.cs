@@ -10,8 +10,10 @@ public class PlayerMove : MonoBehaviour {
     public AudioSource atropA;
     public AudioSource woodA;
     public AudioSource splashA;
+    public AudioSource acidA;
     //public GameObject splashP;
 
+    public bool inlava;
     public float speed;
     public float offset = 0.1f;
     public Vector3 direccio;
@@ -62,7 +64,7 @@ public class PlayerMove : MonoBehaviour {
   
     // Use this for initialization
     void Start() {
-
+        inlava = false;
         speed = 13; // 13
         enMoviment = false;
         direccio = frontDir;
@@ -261,18 +263,18 @@ public class PlayerMove : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (ofegat)
+        if (ofegat || inlava)
         {
             transform.position += new Vector3(0, -fallV, 0);
-            if (memoria.GetComponent<memoria>().pantalla != 3) fallV += g;
-            else fallV = 0.1f;
+            if (memoria.GetComponent<memoria>().pantalla != 3 && !inlava) fallV += g; 
+            else fallV = 0.1f; // en lava o acid
         }
 
         if (!mort && !ofegat)
         {
             if (Input.GetKeyDown(KeyCode.G)) god = !god;  // per ferse inmortal
                                                           // comprimir el player al caure
-            float scaleF = 0.11f;
+            float scaleF = 0.08f;
             if (comprimirLow)
             {
                 
@@ -305,7 +307,13 @@ public class PlayerMove : MonoBehaviour {
             {
                 Physics.Raycast(transform.position + new Vector3(0, 5, 0), -Vector3.up, out hit, dist);
                 if (hit.collider.gameObject.tag == "roca") transform.position = new Vector3(transform.position.x, hit.collider.bounds.max.y, transform.position.z);
-      
+                else if (hit.collider.gameObject.tag == "lava")
+                {
+                    inlava = true;
+                    acidA.Play();
+                    StartCoroutine(reset());
+                }
+
             }
             // raig que detecta el terra al aterrar d'un salt i ubica en Y el player
       
@@ -341,6 +349,7 @@ public class PlayerMove : MonoBehaviour {
                     //splashP.GetComponent<ParticleSystem>().Play();
                     StartCoroutine(reset());
                 }
+                
                 else if (hit.collider.gameObject.tag == "roca")
                 {
                     intronc = false;
@@ -359,32 +368,29 @@ public class PlayerMove : MonoBehaviour {
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.transform.tag == "cotxe")
+        if (!mort)
         {
-            atropA.Play();
-            StartCoroutine(reset());
-            transform.localScale += new Vector3(0, -1.2f, 0);
-        }
-        else if (collision.transform.tag == "tren")
-        {
-            atropA.Play();
-            StartCoroutine(reset());
-            transform.localScale += new Vector3(0, -1.2f, 0);
-        }
-
-        else if (collision.transform.tag == "tronc")
-        {
-            woodA.Play();
-        }
-
-
-        /*if (collision.GetComponent<Collider>().tag == "wall")
-        {
-            wall = true;
-        }*/
-
+            if (collision.transform.tag == "cotxe")
+            {
+                atropA.Play();
+                StartCoroutine(reset());
+                transform.localScale += new Vector3(0, -1.2f, 0);
             }
-            void OnTriggerExit(Collider col)
+            else if (collision.transform.tag == "tren")
+            {
+                atropA.Play();
+                StartCoroutine(reset());
+                transform.localScale += new Vector3(0, -1.2f, 0);
+            }
+
+            else if (collision.transform.tag == "tronc")
+            {
+                woodA.Play();
+            }
+
+        }
+    }
+     void OnTriggerExit(Collider col)
     {
         //wall = false;
     }
