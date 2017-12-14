@@ -10,9 +10,12 @@ public class canvasMenuCs : MonoBehaviour {
     public GameObject cameraMenu;
     public GameObject coinCanvas;
 
-	// Use this for initialization
-	void Start () {
+
+
+    // Use this for initialization
+    void Start () {
         memoria = GameObject.Find("Memoria");
+
 	}
 	
 	// Update is called once per frame

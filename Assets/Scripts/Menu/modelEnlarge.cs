@@ -20,7 +20,7 @@ public class modelEnlarge : MonoBehaviour {
 
     void OnMouseEnter()
     {
-        if (cameraMenu.GetComponent<cameraMenu>().punt == 1)  pipA.GetComponent<AudioSource>().Play();
+        if (cameraMenu.GetComponent<cameraMenu>().punt == 1 || cameraMenu.GetComponent<cameraMenu>().punt == 2)  pipA.GetComponent<AudioSource>().Play();
         transform.localScale += new Vector3(scaleF, scaleF, scaleF);
     }
     void OnMouseExit()

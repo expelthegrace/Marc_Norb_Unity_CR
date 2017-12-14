@@ -13,10 +13,13 @@ public class cameraMenu : MonoBehaviour {
     public GameObject cachingA;
     public GameObject selectA;
     public GameObject nopeA;
+    public GameObject acceptMapA;
 
     public GameObject backButton;
 
     public GameObject map1Button;
+    public GameObject map2Button;
+    public GameObject map3Button;
 
     public GameObject lock2B;
     public GameObject lock3B;
@@ -27,6 +30,10 @@ public class cameraMenu : MonoBehaviour {
     public GameObject select2T;
     public GameObject select3B;
     public GameObject select3T;
+
+    public Text best1T;
+    public Text best2T;
+    public Text best3T;
 
     public GameObject point1;
     public GameObject point2;
@@ -56,6 +63,10 @@ public class cameraMenu : MonoBehaviour {
         lastTime = 0f;
         memoria = GameObject.Find("Memoria").GetComponent<memoria>();
         memoria.pantalla = 0;
+
+        best1T.text = "Best " + memoria.best1.ToString();
+        best2T.text = "Best " + memoria.best2.ToString();
+        best3T.text = "Best " + memoria.best3.ToString();
     }
 	
 	// Update is called once per frame
@@ -70,6 +81,8 @@ public class cameraMenu : MonoBehaviour {
             playButton.SetActive(true);
             avatarButton.SetActive(true);        
             map1Button.SetActive(false);
+            map2Button.SetActive(false);
+            map3Button.SetActive(false);
             backButton.SetActive(false);
             lock2B.SetActive(false);
             lock3B.SetActive(false);
@@ -87,6 +100,8 @@ public class cameraMenu : MonoBehaviour {
             playButton.SetActive(true);
             avatarButton.SetActive(false);
             map1Button.SetActive(false);
+            map2Button.SetActive(false);
+            map3Button.SetActive(false);
             backButton.SetActive(true);
             lock2B.SetActive(!avatar2);
             lock3B.SetActive(!avatar3);
@@ -105,6 +120,8 @@ public class cameraMenu : MonoBehaviour {
             playButton.SetActive(false);
             avatarButton.SetActive(true);
             map1Button.SetActive(true);
+            map2Button.SetActive(true);
+            map3Button.SetActive(true);
             backButton.SetActive(true);
             lock2B.SetActive(false);
             lock3B.SetActive(false);
@@ -162,6 +179,18 @@ public class cameraMenu : MonoBehaviour {
             memoria.pantalla = 1;
             SceneManager.LoadScene("scena1");
         }
+        else if (i == 2)
+        {
+            memoria.pantalla = 2;
+            SceneManager.LoadScene("scena2");
+        }
+        else if (i == 3)
+        {
+            memoria.pantalla = 3;
+            SceneManager.LoadScene("scena3");
+        }
+
+        acceptMapA.GetComponent<AudioSource>().Play();
     }
 
     public void unlock(int p)

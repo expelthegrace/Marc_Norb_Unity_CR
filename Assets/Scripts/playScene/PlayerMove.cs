@@ -265,7 +265,7 @@ public class PlayerMove : MonoBehaviour {
         {
             transform.position += new Vector3(0, -fallV, 0);
             if (memoria.GetComponent<memoria>().pantalla != 3) fallV += g;
-            else fallV += g * 0.01f;
+            else fallV = 0.1f;
         }
 
         if (!mort && !ofegat)
