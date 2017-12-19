@@ -381,13 +381,13 @@ public class PlayerMove : MonoBehaviour {
             {
                 atropA.Play();
                 StartCoroutine(reset());
-                transform.localScale += new Vector3(0, -1.2f, 0);
+                transform.localScale += new Vector3(0, -0.9f, 0);
             }
             else if (collision.transform.tag == "tren")
             {
                 atropA.Play();
                 StartCoroutine(reset());
-                transform.localScale += new Vector3(0, -1.2f, 0);
+                transform.localScale += new Vector3(0, -0.9f, 0);
             }
 
             else if (collision.transform.tag == "tronc")
