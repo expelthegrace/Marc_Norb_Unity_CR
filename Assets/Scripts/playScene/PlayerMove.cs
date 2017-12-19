@@ -359,7 +359,12 @@ public class PlayerMove : MonoBehaviour {
                     intronc = false;
 
                 }
-
+                else if (hit.collider.gameObject.tag == "lava")
+                {
+                    inlava = true;
+                    acidA.Play();
+                    StartCoroutine(reset());
+                }
             }
 
             if (transform.position.z < cameraMain.GetComponent<cameraMove>().limitZ - 24) StartCoroutine(reset());

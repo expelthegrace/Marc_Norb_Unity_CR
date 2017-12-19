@@ -16,6 +16,7 @@ public class cameraMenu : MonoBehaviour {
     public GameObject acceptMapA;
 
     public GameObject backButton;
+    public GameObject htpButton;
 
     public GameObject map1Button;
     public GameObject map2Button;
@@ -38,6 +39,7 @@ public class cameraMenu : MonoBehaviour {
     public GameObject point1;
     public GameObject point2;
     public GameObject point3;
+
     public int punt;
     public float smooth; // time to reach target
     public float maxSpeed;
@@ -78,6 +80,7 @@ public class cameraMenu : MonoBehaviour {
         totalcoins = memoria.totalcoins;
         if (punt == 0) // menu
         {
+            htpButton.SetActive(true);
             playButton.SetActive(true);
             avatarButton.SetActive(true);        
             map1Button.SetActive(false);
@@ -97,6 +100,8 @@ public class cameraMenu : MonoBehaviour {
         }
         else if (punt == 1) // avatar selection
         {
+            htpButton.SetActive(false);
+
             playButton.SetActive(true);
             avatarButton.SetActive(false);
             map1Button.SetActive(false);
@@ -117,12 +122,36 @@ public class cameraMenu : MonoBehaviour {
         }
         else if (punt == 2) // map selection
         {
+            htpButton.SetActive(false);
+
             playButton.SetActive(false);
             avatarButton.SetActive(true);
             map1Button.SetActive(true);
             map2Button.SetActive(true);
             map3Button.SetActive(true);
             backButton.SetActive(true);
+            lock2B.SetActive(false);
+            lock3B.SetActive(false);
+
+            select1B.SetActive(false);
+            select1T.SetActive(false);
+            select2B.SetActive(false);
+            select2T.SetActive(false);
+            select3B.SetActive(false);
+            select3T.SetActive(false);
+
+
+        }
+        else if (punt == 3) // how to play
+        {
+            htpButton.SetActive(false);
+
+            playButton.SetActive(false);
+            avatarButton.SetActive(false);
+            map1Button.SetActive(false);
+            map2Button.SetActive(false);
+            map3Button.SetActive(false);
+            backButton.SetActive(false);
             lock2B.SetActive(false);
             lock3B.SetActive(false);
 
@@ -249,4 +278,6 @@ public class cameraMenu : MonoBehaviour {
 
         memoria.guardar();
     }
+
+   
 }

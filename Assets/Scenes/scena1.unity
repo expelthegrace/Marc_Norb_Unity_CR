@@ -329,7 +329,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2fec73a572ec5c54aa451c1a8f741fcf, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &947990471
+--- !u!1001 &921965616
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -367,11 +367,6 @@ Prefab:
     - target: {fileID: 4391213288550576, guid: 709a05077ff01504697fbd2411431101, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114621106029419260, guid: 709a05077ff01504697fbd2411431101,
-        type: 2}
-      propertyPath: respawn
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114621106029419260, guid: 709a05077ff01504697fbd2411431101,
         type: 2}
@@ -871,7 +866,7 @@ GameObject:
 GameObject:
   m_PrefabParentObject: {fileID: 1128152409140498, guid: 709a05077ff01504697fbd2411431101,
     type: 2}
-  m_PrefabInternal: {fileID: 947990471}
+  m_PrefabInternal: {fileID: 921965616}
 --- !u!1001 &1693357872
 Prefab:
   m_ObjectHideFlags: 0
