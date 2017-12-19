@@ -316,8 +316,8 @@ public class PlayerMove : MonoBehaviour {
 
             }
             // raig que detecta el terra al aterrar d'un salt i ubica en Y el player
-      
-           
+
+            
             if (landed && Physics.Raycast(transform.position + new Vector3(0, 5, 0), -Vector3.up, out hit, dist))
             {
                 if (hit.collider.gameObject.tag == "Terra")
@@ -375,6 +375,7 @@ public class PlayerMove : MonoBehaviour {
     {
         if (!mort)
         {
+            Debug.Log("entra trigger");
             if (collision.transform.tag == "cotxe")
             {
                 atropA.Play();
@@ -397,7 +398,7 @@ public class PlayerMove : MonoBehaviour {
     }
      void OnTriggerExit(Collider col)
     {
-        //wall = false;
+        Debug.Log("surt del trigger");
     }
 }
 

@@ -17,7 +17,7 @@ public class objMoviment : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Translate(new Vector3(-vel, 0, 0));
+        transform.Translate(new Vector3(-vel * Time.deltaTime * 65, 0, 0));
         if (Mathf.Abs(transform.position.x) > Mathf.Abs(deleteLimit.transform.position.x)) Destroy(gameObject);
 
         actualTime += Time.deltaTime;
