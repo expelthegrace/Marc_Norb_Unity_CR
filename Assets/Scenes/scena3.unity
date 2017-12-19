@@ -969,12 +969,12 @@ Prefab:
     - target: {fileID: 65777365490450124, guid: 709a05077ff01504697fbd2411431101,
         type: 2}
       propertyPath: m_Size.y
-      value: 7.2854314
+      value: 7.2530746
       objectReference: {fileID: 0}
     - target: {fileID: 65777365490450124, guid: 709a05077ff01504697fbd2411431101,
         type: 2}
       propertyPath: m_Center.y
-      value: 3.6098506
+      value: 3.626029
       objectReference: {fileID: 0}
     - target: {fileID: 82570649465737002, guid: 709a05077ff01504697fbd2411431101,
         type: 2}
