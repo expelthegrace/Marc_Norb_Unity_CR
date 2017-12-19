@@ -26,7 +26,7 @@ public class PlayerMove : MonoBehaviour {
     private GameObject checkFront;
     public GameObject cameraMain;
 
-    private Transform tronc;
+    private Collider tronc;
     public float troncOffset;
 
     public bool wall;
@@ -54,8 +54,8 @@ public class PlayerMove : MonoBehaviour {
     public float dstX;
     public int chunkRecord;
 
-    private bool comprimirLow;
-    private bool comprimirHi;
+    public bool comprimirLow;
+    public bool comprimirHi;
     private float scaleIni;
     private float scaleFinal;
     private float g;
@@ -244,10 +244,10 @@ public class PlayerMove : MonoBehaviour {
     {
         if (saltant) yPos = Mathf.Sin(tStep * Mathf.PI) * jumpDist;
 
-        transform.position = Vector3.Lerp(srcPosition, dstPosition, tStep) + new Vector3(0, yPos, 0);
+        if (enMoviment) transform.position = Vector3.Lerp(srcPosition, dstPosition, tStep) + new Vector3(0, yPos, 0);
         tStep += Time.deltaTime * 4.5f; // dura 1/6 segons
 
-        if (transform.position.z == dstPosition.z && transform.position.x == dstPosition.x)
+        if (transform.position.z == dstPosition.z && transform.position.x == dstPosition.x )
         {
             enMoviment = false;
             landed = true;
@@ -255,7 +255,7 @@ public class PlayerMove : MonoBehaviour {
         }
         if (intronc && !saltant)
         {
-            transform.position = transform.position + new Vector3(tronc.position.x - transform.position.x + troncOffset, 0, 0);
+            transform.position = transform.position + new Vector3(tronc.transform.position.x - transform.position.x + troncOffset, tronc.bounds.max.y - transform.position.y, 0);
         }
         
     }
@@ -320,6 +320,7 @@ public class PlayerMove : MonoBehaviour {
             
             if (landed && Physics.Raycast(transform.position + new Vector3(0, 5, 0), -Vector3.up, out hit, dist))
             {
+               
                 if (hit.collider.gameObject.tag == "Terra")
                 {
                     intronc = false;
@@ -337,8 +338,8 @@ public class PlayerMove : MonoBehaviour {
 
                     transform.position = new Vector3(transform.position.x, hit.collider.bounds.max.y, transform.position.z);
                     intronc = true;
-                    tronc = hit.collider.transform;
-                    troncOffset = transform.position.x - tronc.position.x;
+                    tronc = hit.collider;
+                    troncOffset = transform.position.x - tronc.transform.position.x;
                    
                    
                 }

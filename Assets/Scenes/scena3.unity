@@ -966,6 +966,21 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: f00fbeea53e47de40aa9646d45fcd3c0, type: 3}
+    - target: {fileID: 65777365490450124, guid: 709a05077ff01504697fbd2411431101,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 7.2854314
+      objectReference: {fileID: 0}
+    - target: {fileID: 65777365490450124, guid: 709a05077ff01504697fbd2411431101,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 3.6098506
+      objectReference: {fileID: 0}
+    - target: {fileID: 82570649465737002, guid: 709a05077ff01504697fbd2411431101,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 709a05077ff01504697fbd2411431101, type: 2}
   m_IsPrefabParent: 0

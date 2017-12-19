@@ -373,21 +373,6 @@ Prefab:
       propertyPath: cameraMain
       value: 
       objectReference: {fileID: 102788962}
-    - target: {fileID: 65777365490450124, guid: 709a05077ff01504697fbd2411431101,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65777365490450124, guid: 709a05077ff01504697fbd2411431101,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 7.289796
-      objectReference: {fileID: 0}
-    - target: {fileID: 65777365490450124, guid: 709a05077ff01504697fbd2411431101,
-        type: 2}
-      propertyPath: m_Center.y
-      value: 3.6076684
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 709a05077ff01504697fbd2411431101, type: 2}
   m_IsPrefabParent: 0

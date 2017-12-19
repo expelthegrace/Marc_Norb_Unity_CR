@@ -131,7 +131,7 @@ public class spawner : MonoBehaviour {
                     Instantiate(viaa, new Vector3(0, 0, linea), viaa.transform.rotation, transform);
                     break;
                 case 3:
-                    GameObject w = Instantiate(water, new Vector3(0, -0.62f, linea), water.transform.rotation, transform);
+                    GameObject w = Instantiate(water, new Vector3(0, -1.1f, linea), water.transform.rotation, transform);
                     waterCostat = (waterCostat + 1) % 2;
                     break;
                 case 4:

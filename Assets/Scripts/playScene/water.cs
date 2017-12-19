@@ -58,10 +58,15 @@ public class water : MonoBehaviour {
 
         if (actualTime - lastPont > freq)
         {
+
+            float offset;
+            if (SceneManager.GetActiveScene().name == "scena3") offset = -0.2f;
+            else offset = 0;
+
             freq = Random.Range(3.5f / speedup, 4.5f / speedup);
             Vector3 inipos;
-            if (costat == 0) inipos = new Vector3(GetComponent<Collider>().bounds.max.x, GetComponent<Collider>().bounds.max.y-0.2f, transform.position.z+ step/4); // dreta
-            else inipos = new Vector3(GetComponent<Collider>().bounds.min.x, GetComponent<Collider>().bounds.max.y-0.2f, transform.position.z + step / 4); //esquerra
+            if (costat == 0) inipos = new Vector3(GetComponent<Collider>().bounds.max.x, GetComponent<Collider>().bounds.max.y-0.2f - offset, transform.position.z+ step/4); // dreta
+            else inipos = new Vector3(GetComponent<Collider>().bounds.min.x, GetComponent<Collider>().bounds.max.y-0.2f- offset, transform.position.z + step / 4); //esquerra
 
             GameObject puente = Instantiate(pont, inipos, Quaternion.Euler(0, 0, 0), GameObject.Find("Ponts").transform);
 

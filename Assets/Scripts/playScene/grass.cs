@@ -23,7 +23,7 @@ public class grass : MonoBehaviour {
             if (!isIni || ((index + i * step) / step) != 0)
             {
 
-                if (Random.Range(0, 100) < 22)  // aparicio d'arbres en %
+                if (Random.Range(0, 100) < 20)  // aparicio d'arbres en %
                 {
                     inipos = new Vector3(index + i * step, GetComponent<Collider>().bounds.max.y, transform.position.z);
                     if (Random.Range(0, 100) < 70) Instantiate(arbre, inipos, Quaternion.Euler(0, 0, 0), GameObject.Find("Arbres").transform);
