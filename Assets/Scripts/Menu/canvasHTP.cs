@@ -7,7 +7,6 @@ public class canvasHTP : MonoBehaviour {
     public GameObject cameraMenu;
 
     private Vector3 offset;
-    public float smooth;
     public bool activarHTP;
 
     private Vector3 iniPos;

@@ -65,6 +65,7 @@ public class canvasDead : MonoBehaviour {
         // i == 0 reset
         if (i == 0)
         {
+            Time.timeScale = 1f;
             //player music reset
             if (memoria.GetComponent<memoria>().pantalla == 1) SceneManager.LoadScene("scena1");
             else if (memoria.GetComponent<memoria>().pantalla == 2) SceneManager.LoadScene("scena2");
@@ -74,6 +75,7 @@ public class canvasDead : MonoBehaviour {
         // i == 1 menu
         else if (i == 1)
         {
+            Time.timeScale = 1f;
             memoria.GetComponent<memoria>().pantalla = 0;
             SceneManager.LoadScene("scenaMenu1");
         }
