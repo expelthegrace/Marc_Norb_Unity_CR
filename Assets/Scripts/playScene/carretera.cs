@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class carretera : MonoBehaviour {
@@ -41,12 +42,12 @@ public class carretera : MonoBehaviour {
                 if (Random.Range(0, 100) < 50)
                 {
                     auto = Instantiate(van, inipos, Quaternion.Euler(0, 0, 0), GameObject.Find("Cotxes").transform);
-                    if (Random.Range(0, 100) < Ptunak) auto.GetComponent<AudioSource>().Play();
+                    if (SceneManager.GetActiveScene().name != "scenaMenu1" && Random.Range(0, 100) < Ptunak) auto.GetComponent<AudioSource>().Play();
                 }
                 else
                 {
                     auto = Instantiate(cotxe, inipos, Quaternion.Euler(0, 0, 0), GameObject.Find("Cotxes").transform);
-                    if (Random.Range(0, 100) < Pgas) auto.GetComponent<AudioSource>().Play();
+                    if (SceneManager.GetActiveScene().name != "scenaMenu1" && Random.Range(0, 100) < Pgas) auto.GetComponent<AudioSource>().Play();
                 }
 
                 }
@@ -56,12 +57,12 @@ public class carretera : MonoBehaviour {
                 if (Random.Range(0, 100) < 50)
                 {
                     auto = Instantiate(van, inipos, Quaternion.Euler(0, 180, 0), GameObject.Find("Cotxes").transform);
-                    if (Random.Range(0, 100) < Ptunak) auto.GetComponent<AudioSource>().Play();
+                    if (SceneManager.GetActiveScene().name != "scenaMenu1" && Random.Range(0, 100) < Ptunak) auto.GetComponent<AudioSource>().Play();
                 }
                 else
                 {
                     auto = Instantiate(cotxe, inipos, Quaternion.Euler(0, 180, 0), GameObject.Find("Cotxes").transform);
-                    if (Random.Range(0, 100) < Pgas) auto.GetComponent<AudioSource>().Play();
+                    if (SceneManager.GetActiveScene().name != "scenaMenu1" && Random.Range(0, 100) < Pgas) auto.GetComponent<AudioSource>().Play();
                 }
 
                 }

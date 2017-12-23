@@ -9,6 +9,7 @@ public class canvasMenuCs : MonoBehaviour {
     public Text totalcoinsT;
     public GameObject cameraMenu;
     public GameObject coinCanvas;
+    public AudioSource highlightA;
 
 
 
@@ -33,4 +34,8 @@ public class canvasMenuCs : MonoBehaviour {
         }
             totalcoinsT.text = memoria.GetComponent<memoria>().totalcoins.ToString();
 	}
+    public void playHightlight()
+    {
+        highlightA.Play();
+    }
 }

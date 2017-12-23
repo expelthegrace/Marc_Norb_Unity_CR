@@ -16,6 +16,9 @@ public class canvasDead : MonoBehaviour {
     private Vector3 vel;
     private Vector3 dest;
 
+    public AudioSource selectA;
+    public AudioSource highlightA;
+
     public Text coinsT;
     public Text metersT;
     public Text bestT;
@@ -50,7 +53,7 @@ public class canvasDead : MonoBehaviour {
             metersT.text = "Your score: " + player.GetComponent<PlayerMove>().chunkRecord.ToString();
             if (memoria.GetComponent<memoria>().pantalla == 1) bestT.text = "Best score: " + memoria.GetComponent<memoria>().best1.ToString();
             else if (memoria.GetComponent<memoria>().pantalla == 2) bestT.text = "Best score: " + memoria.GetComponent<memoria>().best2.ToString();
-            else bestT.text = "Best score: " + memoria.GetComponent<memoria>().best3.ToString();
+            else if (memoria.GetComponent<memoria>().pantalla == 3) bestT.text = "Best score: " + memoria.GetComponent<memoria>().best3.ToString();
 
             coinsT.text = "Coins collected: " + player.GetComponent<playerCoin>().coins.ToString(); 
             transform.position = Vector3.SmoothDamp(transform.position, canvasPlay.transform.position, ref vel, smooth);
@@ -65,6 +68,7 @@ public class canvasDead : MonoBehaviour {
         // i == 0 reset
         if (i == 0)
         {
+            //selectA.Play();
             Time.timeScale = 1f;
             //player music reset
             if (memoria.GetComponent<memoria>().pantalla == 1) SceneManager.LoadScene("scena1");
@@ -75,10 +79,16 @@ public class canvasDead : MonoBehaviour {
         // i == 1 menu
         else if (i == 1)
         {
+            selectA.Play();
             Time.timeScale = 1f;
             memoria.GetComponent<memoria>().pantalla = 0;
             SceneManager.LoadScene("scenaMenu1");
+            
         }
         
+    }
+    public void playHightlight()
+    {
+        highlightA.Play();
     }
 }

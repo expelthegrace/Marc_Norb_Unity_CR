@@ -104,7 +104,7 @@ public class PlayerMove : MonoBehaviour {
 
             yield return new WaitForSeconds(0.5f);
             mortCanvas = true;
-            memoria.GetComponent<memoria>().guardar(); // es guarda sol cada cop que acabes una partida
+            memoria.GetComponent<memoria>().guardar(); 
         }
     }
 

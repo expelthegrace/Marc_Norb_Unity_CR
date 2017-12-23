@@ -7,7 +7,7 @@ public class rotateObj : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        velRot = 0.7f;
+        velRot = 0.6f;
     }
 	
 	// Update is called once per frame
