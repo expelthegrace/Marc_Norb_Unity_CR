@@ -503,6 +503,26 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1409556300}
+    - target: {fileID: 114289732184323968, guid: 34fe7363fabc4614495329e8abd77701,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1409556300}
+    - target: {fileID: 114289732184323968, guid: 34fe7363fabc4614495329e8abd77701,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: playHightlight
+      objectReference: {fileID: 0}
+    - target: {fileID: 114908860749822924, guid: 34fe7363fabc4614495329e8abd77701,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1409556300}
+    - target: {fileID: 114337242117182900, guid: 34fe7363fabc4614495329e8abd77701,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1409556300}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34fe7363fabc4614495329e8abd77701, type: 2}
   m_IsPrefabParent: 0
@@ -996,6 +1016,16 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1189520290}
+    - target: {fileID: 114616577624880174, guid: 81c7b1df4e006b44c8b858ed9c03ca56,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1409556300}
+    - target: {fileID: 114616577624880174, guid: 81c7b1df4e006b44c8b858ed9c03ca56,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: playHightlight
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 81c7b1df4e006b44c8b858ed9c03ca56, type: 2}
   m_IsPrefabParent: 0
