@@ -9,6 +9,9 @@ public class canvasHTP : MonoBehaviour {
     private Vector3 offset;
     public bool activarHTP;
 
+    public AudioSource backMenuA;
+    public AudioSource goHTPA;
+
     private Vector3 iniPos;
     private Vector3 vel;
     private int lastP;
@@ -34,6 +37,7 @@ public class canvasHTP : MonoBehaviour {
 
     public void activar()
     {
+        goHTPA.Play();
         lastP = cameraMenu.GetComponent<cameraMenu>().punt;
         cameraMenu.GetComponent<cameraMenu>().punt = 3;
         
@@ -41,6 +45,7 @@ public class canvasHTP : MonoBehaviour {
     }
     public void desactivar()
     {
+        backMenuA.Play();
         activarHTP = false;
         cameraMenu.GetComponent<cameraMenu>().punt = lastP;
     }
