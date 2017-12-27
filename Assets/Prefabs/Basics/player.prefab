@@ -925,6 +925,8 @@ MonoBehaviour:
   god: 0
   dstX: 0
   chunkRecord: 0
+  comprimirLow: 0
+  comprimirHi: 0
 --- !u!198 &198526873464814824
 ParticleSystem:
   m_ObjectHideFlags: 1

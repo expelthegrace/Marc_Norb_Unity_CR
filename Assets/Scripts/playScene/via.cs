@@ -64,7 +64,6 @@ public class via : MonoBehaviour {
        if (!activarpals && actualTime - lastTren > freq - 0.5f)
         {
             lastPals = actualTime;
-            Debug.Log("activar red alarm");
             activarpals = true;
             for (int i = 0; i < palotes.Count; ++i)
             {
@@ -78,7 +77,6 @@ public class via : MonoBehaviour {
 
         else if (activarpals && actualTime - lastPals > 3.5f)
         {
-            Debug.Log("apagar red alarm");
 
             activarpals = false;
             for (int i = 0; i < palotes.Count; ++i)

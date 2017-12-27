@@ -7,6 +7,7 @@ public class cameraMove : MonoBehaviour {
 
     public GameObject player;
     public GameObject limitCamera;
+    
 
     private Vector3 offset;
     public float smoothTime;
@@ -21,7 +22,7 @@ public class cameraMove : MonoBehaviour {
 
         offset = transform.position - player.transform.position;
         smoothTime = 0.3f;
-        velNivell = 0f; // 0.9
+        velNivell = 0.75f; // 0.9
         limitZIni = transform.position.z;
         limitZ = transform.position.z;
     }
@@ -34,7 +35,7 @@ public class cameraMove : MonoBehaviour {
             nextPos = Vector3.SmoothDamp(transform.position, player.transform.position + offset - new Vector3(0, player.transform.position.y, 0), ref velSmooth, smoothTime);
             transform.position = new Vector3(Mathf.Max(Mathf.Min(nextPos.x, limitCamera.transform.position.x), -limitCamera.transform.position.x + 40), nextPos.y, Mathf.Max(nextPos.z, limitZ));
 
-            limitZ = Mathf.Max(limitZ + velNivell * 0.1f, transform.position.z);
+            limitZ = Mathf.Max(limitZ + velNivell * 0.1f * Time.deltaTime * 50, transform.position.z);
 
             if (Input.GetKey(KeyCode.T)) SceneManager.LoadScene("scenaMenu1"); // borrar
         }
