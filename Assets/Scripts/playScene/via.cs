@@ -7,18 +7,29 @@ using UnityEngine.SceneManagement;
 public class via : MonoBehaviour {
     public GameObject tren;
     public GameObject rails;
+    public GameObject palote;
+
+
 
     public float freq;
     public float vel;
     public float actualTime;
     public float lastTren;
+    public float lastPals;
     private float step;
     private int costat;
+
+    private bool activarpals;
+
+    private float esquerraPals;
+    private List<GameObject> palotes;
+
 
     private float index;
     // Use this for initialization
     void Start () {
-
+        activarpals = false;
+        esquerraPals = GetComponent<Collider>().bounds.min.x; // comença a spawnejar palotes per l'esquerra
         costat = Random.Range(0, 2);
         step = 12f;
 
@@ -36,15 +47,54 @@ public class via : MonoBehaviour {
         actualTime = 0f;
         if (SceneManager.GetActiveScene().name == "scena3") vel = 6f;
         else vel = 3f;
-        
+
+        float gap = 80f;
+        palotes = new List<GameObject>();
+        // spawnejar pals
+        for (int i = 0; i < GetComponent<Collider>().bounds.size.x / gap; ++i)
+        {
+            Vector3 inipal = new Vector3(esquerraPals + i * gap, transform.position.y, GetComponent<Collider>().bounds.min.z - 1f);
+            GameObject p = Instantiate(palote, inipal, Quaternion.Euler(0, 0, 0), GameObject.Find("Rails").transform);
+            palotes.Add(p);
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
+       if (!activarpals && actualTime - lastTren > freq - 0.5f)
+        {
+            lastPals = actualTime;
+            Debug.Log("activar red alarm");
+            activarpals = true;
+            for (int i = 0; i < palotes.Count; ++i)
+            {
+                if (palotes[i] != null)
+                {
+                    if (SceneManager.GetActiveScene().name != "scenaMenu1") palotes[i].GetComponent<Try>().alarmA.Play();
+                    palotes[i].GetComponent<Try>().canGo = false; //no es pot passar, activar red alarm
+                }
+            }
+        }
+
+        else if (activarpals && actualTime - lastPals > 3.5f)
+        {
+            Debug.Log("apagar red alarm");
+
+            activarpals = false;
+            for (int i = 0; i < palotes.Count; ++i)
+            {
+                if (palotes[i] != null)
+                {
+                    if (SceneManager.GetActiveScene().name != "scenaMenu1") palotes[i].GetComponent<Try>().alarmA.Stop();
+                    palotes[i].GetComponent<Try>().canGo = true; //no es pot passar, activar red alarm
+                }
+            }
+        }
+
         if (actualTime - lastTren > freq)
         {
             GameObject puente;
-            freq = Random.Range(5f, 6f);
+            freq = Random.Range(5f, 7f);
             Vector3 inipos;
             if (costat == 0) // dreta
             {

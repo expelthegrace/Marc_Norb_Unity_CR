@@ -6,11 +6,14 @@ public class Try : MonoBehaviour {
     public GameObject goAnim;
     public GameObject stopuF1;
     public GameObject stopuF2;
+    public AudioSource alarmA;
     public bool canGo;
     private float acum;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
+        canGo = true;
         goAnim.SetActive(true);
         stopuF1.SetActive(false);
         stopuF2.SetActive(false);
