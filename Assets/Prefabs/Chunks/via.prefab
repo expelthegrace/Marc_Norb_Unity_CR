@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1078484343732122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -81.43857, y: 76.918945, z: -243.90894}
+  m_LocalPosition: {x: 8.293949, y: 26.19072, z: 87.54702}
   m_LocalScale: {x: 460, y: 0.31211853, z: 12}
   m_Children: []
   m_Father: {fileID: 0}
@@ -131,7 +131,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tren: {fileID: 1223074042947654, guid: 0d27463f21a56a14fbd4758714ecfbcf, type: 2}
   rails: {fileID: 1639064343925714, guid: 193cc37a3530e77428c87b85843f6e7f, type: 2}
+  palote: {fileID: 1065854553108410, guid: 0e143b0691582034ebfe1df633ab583e, type: 2}
   freq: 0
   vel: 0
   actualTime: 0
   lastTren: 0
+  lastPals: 0
