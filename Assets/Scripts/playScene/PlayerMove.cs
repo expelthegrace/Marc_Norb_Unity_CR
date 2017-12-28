@@ -11,7 +11,12 @@ public class PlayerMove : MonoBehaviour {
     public AudioSource woodA;
     public AudioSource splashA;
     public AudioSource acidA;
+    private AudioSource musicaA;
+    public AudioSource deadMenuA;
+    public AudioSource marioDeadCurt;
     //public GameObject splashP;
+
+    private GameObject deleteLimit;
 
     public bool inlava;
     public float speed;
@@ -64,6 +69,8 @@ public class PlayerMove : MonoBehaviour {
   
     // Use this for initialization
     void Start() {
+        deleteLimit = GameObject.Find("deleteLimit");
+        musicaA = GameObject.Find("musica").GetComponent<AudioSource>();
         inlava = false;
         speed = 13; // 13
         enMoviment = false;
@@ -94,8 +101,8 @@ public class PlayerMove : MonoBehaviour {
         if (!god)
         {
             mort = true;
-
-
+            musicaA.Stop();
+            
             memoria.GetComponent<memoria>().totalcoins += GetComponent<playerCoin>().coins;
             if (memoria.GetComponent<memoria>().pantalla == 1) memoria.GetComponent<memoria>().best1 = Mathf.Max(memoria.GetComponent<memoria>().best1, chunkRecord);
             else if (memoria.GetComponent<memoria>().pantalla == 2) memoria.GetComponent<memoria>().best2 = Mathf.Max(memoria.GetComponent<memoria>().best2, chunkRecord);
@@ -103,6 +110,7 @@ public class PlayerMove : MonoBehaviour {
 
 
             yield return new WaitForSeconds(0.5f);
+            deadMenuA.Play();
             mortCanvas = true;
             memoria.GetComponent<memoria>().guardar(); 
         }
@@ -368,7 +376,11 @@ public class PlayerMove : MonoBehaviour {
                 }
             }
 
-            if (transform.position.z < cameraMain.GetComponent<cameraMove>().limitZ - 24) StartCoroutine(reset());
+            if (transform.position.z < cameraMain.GetComponent<cameraMove>().limitZ - 20 ||  (Mathf.Abs(transform.position.x ) + 220 > Mathf.Abs(deleteLimit.transform.position.x)))
+            {
+                marioDeadCurt.Play();
+                StartCoroutine(reset());
+            }
         }
     }
 

@@ -29,7 +29,7 @@ public class via : MonoBehaviour {
     // Use this for initialization
     void Start () {
         activarpals = false;
-        esquerraPals = GetComponent<Collider>().bounds.min.x; // comença a spawnejar palotes per l'esquerra
+        esquerraPals = GetComponent<Collider>().bounds.min.x + 3f; // comença a spawnejar palotes per l'esquerra
         costat = Random.Range(0, 2);
         step = 12f;
 
@@ -61,7 +61,7 @@ public class via : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       if (!activarpals && actualTime - lastTren > freq - 0.5f)
+       if (!activarpals && actualTime - lastTren > freq - 0.4f)
         {
             lastPals = actualTime;
             activarpals = true;
@@ -75,7 +75,7 @@ public class via : MonoBehaviour {
             }
         }
 
-        else if (activarpals && actualTime - lastPals > 3.5f)
+        else if (activarpals && actualTime - lastPals > 3f)
         {
 
             activarpals = false;
