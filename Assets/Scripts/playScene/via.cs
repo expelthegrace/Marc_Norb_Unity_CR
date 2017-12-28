@@ -61,7 +61,7 @@ public class via : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       if (!activarpals && actualTime - lastTren > freq - 0.4f)
+       if (!activarpals && actualTime - lastTren > freq - 0.2f)
         {
             lastPals = actualTime;
             activarpals = true;

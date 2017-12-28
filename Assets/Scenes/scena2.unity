@@ -241,6 +241,41 @@ Prefab:
       propertyPath: canvasPlay
       value: 
       objectReference: {fileID: 609546864}
+    - target: {fileID: 224414687718502706, guid: 34fe7363fabc4614495329e8abd77701,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224414687718502706, guid: 34fe7363fabc4614495329e8abd77701,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224721276075007122, guid: 34fe7363fabc4614495329e8abd77701,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224721276075007122, guid: 34fe7363fabc4614495329e8abd77701,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224721276075007122, guid: 34fe7363fabc4614495329e8abd77701,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114637543785080248, guid: 34fe7363fabc4614495329e8abd77701,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 817309100}
+    - target: {fileID: 114637543785080248, guid: 34fe7363fabc4614495329e8abd77701,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_volume
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34fe7363fabc4614495329e8abd77701, type: 2}
   m_IsPrefabParent: 0
@@ -4237,6 +4272,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8e5532afda88424c926ef38805dcca4, type: 2}
   m_IsPrefabParent: 0
+--- !u!82 &817309100 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82189935606290060, guid: a8e5532afda88424c926ef38805dcca4,
+    type: 2}
+  m_PrefabInternal: {fileID: 817309099}
 --- !u!1001 &939697566
 Prefab:
   m_ObjectHideFlags: 0
