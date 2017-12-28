@@ -1091,7 +1091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model1: {fileID: 1779255747524888, guid: d6744903471e53143b2321f93de62906, type: 2}
-  model2: {fileID: 1233523807679802, guid: 8452d369565959a4086e7cfc27d94371, type: 2}
+  model2: {fileID: 1357246311046246, guid: 70553ccf68d5ccd41b102903c2fcdf3b, type: 2}
   model3: {fileID: 1881677490324396, guid: cbaebed38a80db440ba265ce46ec5aa7, type: 2}
 --- !u!114 &114564033017326492
 MonoBehaviour:
