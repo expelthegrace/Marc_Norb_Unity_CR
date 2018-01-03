@@ -37,7 +37,7 @@ public class saveLoad : MonoBehaviour {
         else
         {
             Debug.Log("fitxer no carregat");   
-            dataP.totalcoins = 50;
+            dataP.totalcoins = 0;
             dataP.playerSelect = 1;
             dataP.avatar2 = false;
             dataP.avatar3 = false;

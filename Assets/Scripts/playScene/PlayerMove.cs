@@ -376,7 +376,7 @@ public class PlayerMove : MonoBehaviour {
                 }
             }
 
-            if (transform.position.z < cameraMain.GetComponent<cameraMove>().limitZ - 20 ||  (Mathf.Abs(transform.position.x ) + 220 > Mathf.Abs(deleteLimit.transform.position.x)))
+            if (transform.position.z < cameraMain.GetComponent<cameraMove>().limitZ - 28 ||  (Mathf.Abs(transform.position.x ) + 220 > Mathf.Abs(deleteLimit.transform.position.x)))
             {
                 marioDeadCurt.Play();
                 StartCoroutine(reset());

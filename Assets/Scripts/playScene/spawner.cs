@@ -23,6 +23,8 @@ public class spawner : MonoBehaviour {
     public int chunkLinea;
     private GameObject g;
 
+    private int repeat = 110;
+
    // private Bounds playerBox;
 
     void Spawn()
@@ -58,7 +60,7 @@ public class spawner : MonoBehaviour {
             }
 
 
-            int r = Random.Range(0, 120);
+            int r = Random.Range(0, repeat);
 
             if (r > 100) altern = lastChunk;
             else if (r < Mathf.Max(120 - chunkLinea * 3.2f, 40)) altern = 0; // grass
@@ -101,7 +103,7 @@ public class spawner : MonoBehaviour {
 
             }
 
-            int r = Random.Range(0, 120);
+            int r = Random.Range(0, repeat);
 
             if (r > 100) altern = lastChunk;
             else if (r < Mathf.Max(120 - chunkLinea * 3.2f, 40)) altern = 0; // grass
@@ -146,7 +148,7 @@ public class spawner : MonoBehaviour {
 
             }
 
-            int r = Random.Range(0, 120);
+            int r = Random.Range(0, repeat);
 
             if (r > 100) altern = lastChunk;
             else if (r < Mathf.Max(120 - chunkLinea * 3.2f, 40)) altern = 0; // grass
